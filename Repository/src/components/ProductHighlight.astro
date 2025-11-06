@@ -99,22 +99,6 @@ const products = [
           autoSlide = setInterval(nextSlide, 3000);
         });
       }
-    } else {
-      //  Disable all animation & transitions on mobile
-      if (img && desc) {
-        img.style.transition = "none";
-        img.style.opacity = "1";
-      }
-
-      // Disable CSS transitions globally for safety
-      const style = document.createElement("style");
-      style.innerHTML = `
-        *, *::before, *::after {
-          animation: none !important;
-          transition: none !important;
-        }
-      `;
-      document.head.appendChild(style);
     }
   });
 </script>
