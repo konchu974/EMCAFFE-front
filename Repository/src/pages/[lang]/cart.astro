@@ -1,0 +1,39 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+export function getStaticPaths() {
+  const languages = ["fr", "en", "es"];
+  return languages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<Layout title={`EMCAFFE - ${t('nav.cart') || 'Panier'}`}>
+  <Header />
+
+  <main
+    class="mb-8 mt-[255px] flex min-h-[60vh] w-full flex-col items-center justify-center md:mt-[192px]"
+  >
+    <!-- You’ll design the cart UI here later -->
+    <section class="w-11/12 md:w-3/4 text-center">
+      <h1 class="text-3xl font-bold text-[#5C3F32] uppercase mb-6">
+        {t("cart.title") || "Votre Panier"}
+      </h1>
+
+      <!-- Placeholder message -->
+      <p class="text-[#5C3F32] text-lg opacity-80">
+        {t("cart.emptyMessage") || "Votre panier est vide pour le moment. (site est en construction)"}
+      </p>
+    </section>
+  </main>
+
+
+
+  <Footer />
+</Layout>
