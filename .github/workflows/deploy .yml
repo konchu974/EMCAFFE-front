@@ -20,19 +20,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
       - name: Install dependencies
         working-directory: Repository
-        run: npm ci
+        run: pnpm install
 
       - name: Build Astro
         working-directory: Repository
-        run: npm run build
+        run: pnpm build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: Repository/dist  # 👈 Astro’s output directory
+          path: Repository/dist
 
   deploy:
     environment:
