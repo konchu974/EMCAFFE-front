@@ -1,4 +1,4 @@
-# Tell Jekyll to ignore all Astro and Node project files
+# Prevent Jekyll from trying to parse Astro and Node project files
 exclude:
   - "src/"
   - "node_modules/"
@@ -10,3 +10,5 @@ exclude:
   - "dist/"
   - "public/"
   - "README.md"
+  - "vite.config.*"
+  - "pnpm-workspace.yaml"
