@@ -250,7 +250,13 @@
 
 	"product.addtocart": "Ajouter au panier",
 
+"cookies.message": "Nous utilisons des cookies pour améliorer votre expérience. Acceptez-vous ?",
+"cookies.accept": "Accepter",
+"cookies.decline": "Refuser",
 
+"product.format": "Format",
+"product.delivery": "Livraison GRATUITE dès 59€",
+"product.instock": "En stock, livraison sous 48h",
 
   
 

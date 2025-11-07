@@ -249,6 +249,14 @@
 
 "product.addtocart": "Añadir al carrito",
 
+"cookies.message": "Usamos cookies para mejorar tu experiencia. ¿Aceptas?",
+"cookies.accept": "Aceptar",
+"cookies.decline": "Rechazar",
+
+  "product.format": "Formato",
+  "product.delivery": "Envío GRATIS a partir de 59€",
+  "product.instock": "En stock, envío en 48h",
+
 
 
 	"productHighlight": {

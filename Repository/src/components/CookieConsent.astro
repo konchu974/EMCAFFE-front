@@ -1,0 +1,96 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div
+  id="cookieBanner"
+  class="fixed bottom-6 left-1/2 z-50 w-[95%] max-w-lg -translate-x-1/2 rounded-2xl bg-[#FEFBED] p-5 shadow-xl border border-[#d6c6a6] flex flex-col md:flex-row items-center justify-between gap-4 animate-slideUp"
+>
+  <p class="text-sm md:text-base text-[#5C3F32] text-center md:text-left leading-snug">
+    🍪 {t('cookies.message')}
+  </p>
+
+  <div class="flex gap-3 flex-wrap justify-center">
+    <button
+      id="acceptCookies"
+      class="rounded-full bg-[#753E1C] text-white px-5 py-2 md:px-6 md:py-2.5 text-sm md:text-base hover:bg-[#A47343] transition"
+    >
+      {t('cookies.accept')}
+    </button>
+    <button
+      id="declineCookies"
+      class="rounded-full border border-[#753E1C] text-[#753E1C] px-5 py-2 md:px-6 md:py-2.5 text-sm md:text-base hover:bg-[#F2E5D5] transition"
+    >
+      {t('cookies.decline')}
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes slideUp {
+    from {
+      transform: translate(-50%, 100%);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.6s ease-out;
+  }
+</style>
+
+<script is:inline>
+    const banner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const declineBtn = document.getElementById('declineCookies');
+
+    function setCookieChoice(choice, days) {
+        const expiry = new Date();
+        expiry.setDate(expiry.getDate() + days);
+        const data = {choice, expiry: expiry.toISOString() };
+        localStorage.setItem("cookiesChoice", JSON.stringify(data));
+    }
+
+    function isChoiceValid() {
+        const data = localStorage.getItem("cookiesChoice");
+        if (!data) return false;
+
+        try {
+            const { expiry } = JSON.parse(data);
+            return new Date(expiry) > new Date();
+        } catch {
+            return false;
+        }
+    }
+
+    if (isChoiceValid()) {
+        banner?.remove();
+    }
+
+    acceptBtn?.addEventListener("click", () => {
+        setCookieChoice("accepted", 2); // 2 days validity
+        banner?.classList.add("opacity-0", "pointer-events-none");
+        setTimeout(() => banner?.remove(), 400);
+    });
+
+    declineBtn?.addEventListener("click", () => {
+        setCookieChoice("declined", 2); // 2 days validity
+        banner?.classList.add("opacity-0", "pointer-events-none");
+        setTimeout(() => banner?.remove(), 400);
+    });
+
+    
+
+
+
+
+
+
+</script>

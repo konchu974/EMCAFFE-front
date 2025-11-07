@@ -27,8 +27,9 @@ function formatTextWithLineBreaks(text: string): string[] {
 ---
 
 <div class="m-5 flex flex-col md:m-10 md:flex-row">
+	<!-- Left: Image column -->
 	<div class="flex flex-row justify-between md:w-1/2 md:justify-normal">
-		<div class="flex h-1/2 flex-col align-top  ">
+		<div class="flex h-1/2 flex-col align-top">
 			<button
 				id="button1"
 				class="mb-1 w-fit rounded-lg border-2 border-[#5C3F32] p-2 hover:border-[#A47343]"
@@ -42,25 +43,24 @@ function formatTextWithLineBreaks(text: string): string[] {
 				<img class="h-auto w-full md:w-10 bg-white" src={`${img}-2.png`} />
 			</button>
 		</div>
+
 		<img
 			id="image"
-			class="h-auto w-2/3 md:ml-10 bg-white "
+			class="h-auto w-2/3 md:ml-10 bg-white"
 			src={`${img}-1.png`}
 			data-img={`${img}`}
 		/>
 	</div>
-	
 
-	<div class="my-10 flex flex-col md:w-1/2 bg-white border-2 border-[#000000] rounded-lg p-5">
-		<h2 class="text-2xl font-bold text-[#5C3F32] md:text-4xl">
-			{productName}
-		</h2>
-		<p class="mt-1 text-sm text-[#A47343]">
-			{dimension}
-		</p>
+	<!-- Right: Product details -->
+	<div
+		class="my-10 flex flex-col md:w-1/2 bg-white border-2 border-[#000000] rounded-lg p-5"
+	>
+		<h2 class="text-2xl font-bold text-[#5C3F32] md:text-4xl">{productName}</h2>
+		<p class="mt-1 text-sm text-[#A47343]">{dimension}</p>
 
 		<div class="mt-5 w-full overflow-x-auto border-b-2 border-[#5C3F32]">
-			<ul class="flex cursor-pointer snap-x list-none ">
+			<ul class="flex cursor-pointer snap-x list-none">
 				<li class="mr-6">
 					<button
 						class="tablinks border-2 border-b-0 border-[#5C3F32] px-4 py-2 text-xl font-bold text-[#5C3F32] hover:bg-[#A47343]"
@@ -88,96 +88,122 @@ function formatTextWithLineBreaks(text: string): string[] {
 			</ul>
 		</div>
 
-		<div
-			id="ingredient"
-			class="tabcontent mt-5 hidden text-base text-[#A47343]"
-		>
-			{
-				formatTextWithLineBreaks(ingredient).map((line) => (
-					<p class="mt-2 text-xl">{line}</p>
-				))
-			}
+		<div id="ingredient" class="tabcontent mt-5 hidden text-base text-[#A47343]">
+			{formatTextWithLineBreaks(ingredient).map((line) => (
+				<p class="mt-2 text-xl">{line}</p>
+			))}
 		</div>
 
-		<div
-			id="preparation"
-			class="tabcontent mt-5 hidden text-base text-[#A47343]"
-		>
-			{
-				formatTextWithLineBreaks(preparation).map((line) => (
-					<p class="mt-2 text-xl">{line}</p>
-				))
-			}
+		<div id="preparation" class="tabcontent mt-5 hidden text-base text-[#A47343]">
+			{formatTextWithLineBreaks(preparation).map((line) => (
+				<p class="mt-2 text-xl">{line}</p>
+			))}
 		</div>
 
-		<div
-			id="description"
-			class="tabcontent mt-5 hidden text-base text-[#A47343]"
-		>
-			{
-				formatTextWithLineBreaks(description).map((line) => (
-					<p class="mt-2 text-xl">{line}</p>
-				))
-			}
-		</div>		
+		<div id="description" class="tabcontent mt-5 hidden text-base text-[#A47343]">
+			{formatTextWithLineBreaks(description).map((line) => (
+				<p class="mt-2 text-xl">{line}</p>
+			))}
+		</div>
 	</div>
 </div>
-	<div class="flex justify-center mt-8 mb-8">
-				<button class="mt-6 bg-black text-white rounded-full px-8 py-3 text-sm md:text-base hover:bg-neutral-800 transition">
-					{t("product.addtocart")}
-				</button>
+
+<!-- 🟫 Purchase Section OUTSIDE the white container -->
+<div class="flex flex-col items-center justify-center text-center my-8">
+	<h3 class="text-lg font-semibold text-[#5C3F32] mb-2">{t("product.format")}</h3>
+	<div class="flex gap-3 mb-3">
+		<button id="btn-250" class="px-3 py-1 bg-[#A47343] text-white font-semibold rounded active">
+			250g
+		</button>
+		<button id="btn-1000" class="px-3 py-1 border border-[#A47343] text-[#A47343] font-semibold rounded hover:bg-[#A47343] hover:text-white transition">
+			1kg
+		</button>
 	</div>
+
+	<div class="flex items-center justify-center gap-3 mb-3">
+		<input
+			type="number"
+			value="1"
+			min="1"
+			class="w-12 text-center border border-[#A47343] rounded"
+		/>
+		<span id="price" class="text-xl font-bold text-[#5C3F32]">16,99€</span>
+	</div>
+
+	<p class="text-sm text-gray-700 mb-4">
+		🚚 {t("product.delivery")}<br />
+		<span class="text-green-600">✔ {t("product.instock")}</span>
+	</p>
+
+	<button
+		class="bg-black text-white rounded-full px-8 py-3 text-sm md:text-base hover:bg-neutral-800 transition"
+	>
+		{t("product.addtocart")}
+	</button>
+</div>
+
 <script>
-	const changeImage = (srcImg: string, num: string) => {
-		const image = document.getElementById('image')! as HTMLImageElement;
-		image.src = `${srcImg}-${num}.png`;
+	const changeImage = (srcImg: string | null | undefined, num: string) => {
+		const image = document.getElementById("image") as HTMLImageElement;
+		if (image && srcImg) {
+			image.src = `${srcImg}-${num}.png`;
+		}
 	};
 
 	const openTab = (tabName: string) => {
-		const tabcontent = document.querySelectorAll('.tabcontent');
-		const tablinks = document.querySelectorAll('.tablinks');
+		const tabContentElements = document.querySelectorAll<HTMLElement>(".tabcontent");
+		const tabLinkElements = document.querySelectorAll<HTMLElement>(".tablinks");
 
-		tabcontent.forEach((content) => {
-			content.classList.add('hidden');
-		});
-
-		tablinks.forEach((link) => {
-			link.classList.remove('border-2');
-		});
+		tabContentElements.forEach((content) => content.classList.add("hidden"));
+		tabLinkElements.forEach((link) => link.classList.remove("border-2"));
 
 		const activeTab = document.getElementById(tabName);
-		if (activeTab) {
-			activeTab.classList.remove('hidden');
-		}
+		if (activeTab) activeTab.classList.remove("hidden");
 
-		const activeLink = [...tablinks].find(
-			(link) => link.getAttribute('data-tab') === tabName,
+		const activeLink = Array.from(tabLinkElements).find(
+			(link) => link.getAttribute("data-tab") === tabName
 		);
-		if (activeLink) {
-			activeLink.classList.add('border-2');
-		}
+		if (activeLink) activeLink.classList.add("border-2");
 	};
 
-	document.addEventListener('DOMContentLoaded', () => {
-		const img = document.getElementById('image')!.getAttribute('data-img')!;
-
+	document.addEventListener("DOMContentLoaded", () => {
+		const img = document.getElementById("image")?.getAttribute("data-img") || "";
 		document
-			.getElementById('button1')!
-			.addEventListener('click', () => changeImage(img, '1'));
+			.getElementById("button1")
+			?.addEventListener("click", () => changeImage(img, "1"));
 		document
-			.getElementById('button2')!
-			.addEventListener('click', () => changeImage(img, '2'));
+			.getElementById("button2")
+			?.addEventListener("click", () => changeImage(img, "2"));
 
-		document.querySelectorAll('.tablinks').forEach((button) => {
-			button.addEventListener('click', () => {
-				const tabName = button.getAttribute('data-tab');
-				if (tabName) {
-					openTab(tabName);
-				}
+		document.querySelectorAll<HTMLElement>(".tablinks").forEach((button) => {
+			button.addEventListener("click", () => {
+				const tabName = button.getAttribute("data-tab");
+				if (tabName) openTab(tabName);
 			});
 		});
 
-		openTab('ingredient');
+		openTab("ingredient");
+
+		// ✅ Toggle between 250g / 1kg
+		const btn250 = document.getElementById("btn-250");
+		const btn1000 = document.getElementById("btn-1000");
+		const priceEl = document.getElementById("price");
+
+		if (btn250 && btn1000 && priceEl) {
+			btn250.addEventListener("click", () => {
+				btn250.classList.add("bg-[#A47343]", "text-white");
+				btn1000.classList.remove("bg-[#A47343]", "text-white");
+				btn1000.classList.add("border", "border-[#A47343]", "text-[#A47343]");
+				priceEl.textContent = "16,99€";
+			});
+
+			btn1000.addEventListener("click", () => {
+				btn1000.classList.add("bg-[#A47343]", "text-white");
+				btn250.classList.remove("bg-[#A47343]", "text-white");
+				btn250.classList.add("border", "border-[#A47343]", "text-[#A47343]");
+				priceEl.textContent = "34,99€";
+			});
+		}
 	});
 </script>
 
@@ -185,7 +211,6 @@ function formatTextWithLineBreaks(text: string): string[] {
 	.tabcontent.hidden {
 		display: none;
 	}
-
 	.tabcontent {
 		display: block;
 	}
