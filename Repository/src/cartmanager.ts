@@ -7,8 +7,8 @@ interface CartItem {
     quantity: number;
 }
 
-function getCart(): CartItem[]{
-    return JSON.parse(localStorage.getItem("cart") || "[]" );
+function getCart(): CartItem[] {
+    return JSON.parse(localStorage.getItem("cart") || "[]");
 }
 
 function saveCart(cart: CartItem[]) {
@@ -33,18 +33,24 @@ export function addToCart(item: CartItem) {
 }
 
 export function updateCartBadge() {
-    const badge = document.getElementById("cart-count");
-    if (!badge) return;
+    // 🔹 Update both mobile and desktop cart badges
+    const badges = [
+        document.getElementById("cart-count"),
+        document.getElementById("cart-count-desktop")
+    ];
 
     const cart = getCart();
     const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
 
-    if (totalItems > 0) {
-        badge.textContent = totalItems.toString();
-        badge.classList.remove("hidden");
-    } else {
-        badge.classList.add("hidden");
-    }
+    badges.forEach((badge) => {
+        if (!badge) return;
+        if (totalItems > 0) {
+            badge.textContent = totalItems.toString();
+            badge.classList.remove("hidden");
+        } else {
+            badge.classList.add("hidden");
+        }
+    });
 }
 
 export function clearCart() {
@@ -52,6 +58,7 @@ export function clearCart() {
     updateCartBadge();
 }
 
+// Expose globally
 (window as any).addToCart = addToCart;
 (window as any).updateCartBadge = updateCartBadge;
-(window as any).clearCart= clearCart;
+(window as any).clearCart = clearCart;
