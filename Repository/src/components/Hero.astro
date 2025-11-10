@@ -5,15 +5,15 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="relative h-auto w-full overflow-hidden">
-	<div class="relative flex h-auto w-full overflow-hidden">
-		<video
+<section class="relative h-auto w-full overflow-hidden md:mt-0 mt-[-255px]">
+    <div class="relative flex w-full overflow-hidden min-h-[70vh] md:min-h-[90vh]">
+      		<video
 			id="media-1"
 			autoplay
 			loop
 			muted
 			playsinline
-			class="slide-in h-auto w-full object-cover"
+			class="slide-in absolute inset-0 h-full w-full object-cover scale-110"
 			src="/hero/forest-hero.webm"></video>
 		<video
 			id="media-2"
@@ -21,7 +21,7 @@ const t = useTranslations(lang);
 			loop
 			muted
 			playsinline
-			class="slide-out absolute h-auto w-full object-cover"
+			class="slide-out absolute inset-0 h-full w-full object-cover scale-110"
 			src="/hero/rio-amazonas-hero.webm"></video>
 		<video
 			id="media-3"
@@ -29,16 +29,16 @@ const t = useTranslations(lang);
 			loop
 			muted
 			playsinline
-			class="slide-out absolute h-auto w-full object-cover"
+			class="slide-out absolute inset-0 h-full w-full object-cover scale-110"
 			src="/infos/coffee.webm"></video>
 		<img
 			id="media-4"
-			class="slide-out absolute h-auto w-full object-cover"
+			class="slide-out absolute inset-0 h-full w-full object-cover scale-110"
 			src="/hero/product-hero.png"
 		/>
 	</div>
-	<div class="z-1 absolute inset-0 flex flex-col justify-around text-white">
-		<h2
+	<div class="z-1 absolute inset-0 flex flex-col justify-around pt-32 md:pt-0 text-white px-4">
+	<h2
 			class="w-full text-center font-[Chalkduster] text-xl md:mt-32 md:text-6xl"
 		>
 			EMCAFFE

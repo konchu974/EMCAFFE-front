@@ -10,156 +10,301 @@ const isHomePage = (isShopPage || isContactRedirect) === false;
 ---
 
 <header id="header" class={isContactRedirect ? 'sticky' : 'transparent'}>
-	<!-- Logo -->
-	<a
-		href={`/${lang}/`}
-		class="flex w-full flex-row items-center justify-center gap-x-2 border-b-2 border-[#753E1C] py-2 md:w-auto md:justify-normal md:gap-x-4 md:border-b-0 md:py-0 lg:gap-x-14"
-	>
-		<picture>
-			<img
-				class="h-40 w-auto max-w-xs rounded-full border-4 border-[#013C26] md:max-w-md lg:max-w-lg"
-				src="/img/emca-logo.png"
-				alt="EMCA Logo"
-			/>
-		</picture>
-	</a>
+    <div class="flex w-full items-center justify-between">
+        <button
+            id="burger-btn"
+            class="flex flex-col gap-1.5 md:hidden z-50"
+            aria-label="Toggle menu"
+        >
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+        </button>
 
-	<!-- Navigation + Icons -->
-	<ul class="flex items-center justify-end gap-x-4 py-2 md:gap-x-6 md:py-0">
-		<!-- Navigation Links -->
-		<li class="md:text-md text-sm font-semibold hover:text-[#753E1C] md:text-lg">
-			<a href={`/${lang}/`}>{t('nav.home')}</a>
-		</li>
-		<li class="md:text-md text-sm font-semibold hover:text-[#753E1C] md:text-lg">
-			<a href={`/${lang}/shop`}>{t('nav.products')}</a>
-		</li>
-		<li class="md:text-md text-sm font-semibold hover:text-[#753E1C] md:text-lg">
-			<a href={`/${lang}/contact`}>{t('nav.contact')}</a>
-		</li>
+        <!-- Logo (Centré sur mobile, à gauche sur desktop) -->
+        <a
+            href={`/${lang}/`}
+            class="absolute left-1/2 -translate-x-1/2 md:relative md:left-auto md:translate-x-0 flex flex-row items-center justify-center gap-x-2 py-2 md:gap-x-4 md:py-0 lg:gap-x-14"
+        >
+            <picture>
+                <img
+                    class="h-16 w-auto rounded-full border-2 border-[#013C26] md:h-40 md:border-4"
+                    src="/img/emca-logo.png"
+                    alt="EMCA Logo"
+                />
+            </picture>
+        </a>
 
-		<!-- Language Picker -->
-		<li>
-			<LanguagePicker />
-		</li>
+        <div class="flex items-center gap-4 md:hidden">
+            <!-- Account Icon -->
+            <a href={`/${lang}/account`} class="hover:scale-110 transition text-inherit">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                    class="h-8 w-8 transition-colors duration-300 header-icon"
+                    fill="currentColor"
+                >
+                    <path d="M463 448.2C440.9 409.8 399.4 384 352 384L288 384C240.6 384 199.1 409.8 177 448.2C212.2 487.4 263.2 512 320 512C376.8 512 427.8 487.3 463 448.2zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320zM320 336C359.8 336 392 303.8 392 264C392 224.2 359.8 192 320 192C280.2 192 248 224.2 248 264C248 303.8 280.2 336 320 336z"/>
+                </svg>
+            </a>
 
-		<!-- Account Icon -->
-		<li>
-			<a href={`/${lang}/account`} class="hover:scale-110 transition text-inherit">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 640 640"
-					class="h-6 w-6 transition-colors duration-300 header-icon"
-					fill="currentColor"
-				>
-					<path d="M463 448.2C440.9 409.8 399.4 384 352 384L288 384C240.6 384 199.1 409.8 177 448.2C212.2 487.4 263.2 512 320 512C376.8 512 427.8 487.3 463 448.2zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320zM320 336C359.8 336 392 303.8 392 264C392 224.2 359.8 192 320 192C280.2 192 248 224.2 248 264C248 303.8 280.2 336 320 336z"/>
-				</svg>
-			</a>
-		</li>
+            <!-- Cart Icon -->
+            <a href={`/${lang}/cart`} class="hover:scale-110 transition text-inherit relative">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                    class="h-6 w-6 transition-colors duration-300 header-icon"
+                    fill="currentColor"
+                >
+                    <path d="M0 24C0 10.7 10.7 0 24 0H69.5c10.6 0 19.9 6.6 23.4 16.6L102.5 48H552c13.3 0 24 10.7 24 24c0 2.4-.4 4.7-1 6.9l-54 192c-5.1 18.2-21.8 30.9-40.7 30.9H192l7.2 32H480c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-10.6 0-19.9-6.6-23.4-16.6L91.9 32H24C10.7 32 0 21.3 0 8s10.7-8 24-8zM160 480a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM400 480a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"/>
+                </svg>
+                <span id="cart-count"
+                    class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center hidden">
+                    0
+                </span>
+            </a>
+        </div>
 
-		<!-- Cart Icon -->
-<li class="relative">
-  <a href={`/${lang}/cart`} class="hover:scale-110 transition text-inherit">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 576 512"
-      class="h-6 w-6 transition-colors duration-300 header-icon"
-      fill="currentColor"
-    >
-      <path d="M0 24C0 10.7 10.7 0 24 0H69.5c10.6 0 19.9 6.6 23.4 16.6L102.5 48H552c13.3 0 24 10.7 24 24c0 2.4-.4 4.7-1 6.9l-54 192c-5.1 18.2-21.8 30.9-40.7 30.9H192l7.2 32H480c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-10.6 0-19.9-6.6-23.4-16.6L91.9 32H24C10.7 32 0 21.3 0 8s10.7-8 24-8zM160 480a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM400 480a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"/>
-    </svg>
-  </a>
+        <!-- Navigation complète (Desktop uniquement) -->
+        <nav id="nav-menu" class="nav-menu">
+            <ul class="flex flex-col items-center gap-6 md:flex-row md:gap-x-6">
+                <!-- Navigation Links -->
+                <li class="text-lg font-semibold hover:text-[#753E1C] md:text-lg">
+                    <a href={`/${lang}/`} class="nav-link">{t('nav.home')}</a>
+                </li>
+                <li class="text-lg font-semibold hover:text-[#753E1C] md:text-lg">
+                    <a href={`/${lang}/shop`} class="nav-link">{t('nav.products')}</a>
+                </li>
+                <li class="text-lg font-semibold hover:text-[#753E1C] md:text-lg">
+                    <a href={`/${lang}/contact`} class="nav-link">{t('nav.contact')}</a>
+                </li>
 
-  <!-- Small red badge for future cart count -->
-  <span id="cart-count"
-    class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center hidden">
-    0
-  </span>
-</li>
+                <!-- Language Picker -->
+                <li>
+                    <LanguagePicker />
+                </li>
 
-	</ul>
+                <!-- Account Icon (Desktop) -->
+                <li class="hidden md:block">
+                    <a href={`/${lang}/account`} class="hover:scale-110 transition text-inherit">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 640"
+                            class="h-6 w-6 transition-colors duration-300 header-icon"
+                            fill="currentColor"
+                        >
+                            <path d="M463 448.2C440.9 409.8 399.4 384 352 384L288 384C240.6 384 199.1 409.8 177 448.2C212.2 487.4 263.2 512 320 512C376.8 512 427.8 487.3 463 448.2zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320zM320 336C359.8 336 392 303.8 392 264C392 224.2 359.8 192 320 192C280.2 192 248 224.2 248 264C248 303.8 280.2 336 320 336z"/>
+                        </svg>
+                    </a>
+                </li>
+
+                <!-- Cart Icon (Desktop) -->
+                <li class="relative hidden md:block">
+                    <a href={`/${lang}/cart`} class="hover:scale-110 transition text-inherit">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 576 512"
+                            class="h-6 w-6 transition-colors duration-300 header-icon"
+                            fill="currentColor"
+                        >
+                            <path d="M0 24C0 10.7 10.7 0 24 0H69.5c10.6 0 19.9 6.6 23.4 16.6L102.5 48H552c13.3 0 24 10.7 24 24c0 2.4-.4 4.7-1 6.9l-54 192c-5.1 18.2-21.8 30.9-40.7 30.9H192l7.2 32H480c13.3 0 24 10.7 24 24s-10.7 24-24 24H184c-10.6 0-19.9-6.6-23.4-16.6L91.9 32H24C10.7 32 0 21.3 0 8s10.7-8 24-8zM160 480a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM400 480a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"/>
+                        </svg>
+                    </a>
+                    <span id="cart-count-desktop"
+                        class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center hidden">
+                        0
+                    </span>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
 <style>
-	/* Common header layout */
-	.mix-header-styles {
-		@apply fixed left-0 top-0 z-50 flex w-full flex-col items-center justify-between gap-y-2 px-3 py-4 md:flex-row md:px-8 lg:px-20;
-		transition: background-color 300ms linear;
-	}
+    /* Common header layout */
+    .mix-header-styles {
+        @apply fixed left-0 top-0 z-50 flex w-full flex-col items-center justify-between gap-y-2 px-3 py-4 md:flex-row md:px-8 lg:px-20;
+        transition: background-color 300ms linear;
+    }
 
-	/* When scrolled sticky */
-	.sticky {
-		@apply mix-header-styles bg-beige text-[#753E1C];
-	}
+    /* When scrolled sticky */
+    .sticky {
+        @apply mix-header-styles bg-beige text-[#753E1C];
+    }
 
-	/* Transparent at top page */
-	.transparent {
-		@apply mix-header-styles bg-transparent text-white;
-		background: transparent;
-	}
+    /* Transparent at top page */
+    .transparent {
+        @apply mix-header-styles bg-transparent text-white;
+        background: transparent;
+    }
 
-	/*  ICON COLORS */
-	.transparent .header-icon {
-		color: white;
-	}
+    /*  ICON COLORS */
+    .transparent .header-icon {
+        color: white;
+    }
 
-	.sticky .header-icon {
-		color: #753e1c;
-	}
+    .sticky .header-icon {
+        color: #753e1c;
+    }
 
-	.header-icon {
-		transition: color 0.3s ease;
-	}
+    .header-icon {
+        transition: color 0.3s ease;
+    }
 
-	/*  LINK COLORS */
-	.transparent a {
-		color: white;
-	}
+    /*  LINK COLORS */
+    .transparent a {
+        color: white;
+    }
 
-	.sticky a {
-		color: #753e1c;
-	}
+    .sticky a {
+        color: #753e1c;
+    }
+
+    /*Burger button styles */
+    #burger-btn {
+        width: 30px;
+        height: 24px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .burger-line {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: currentColor;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    #burger-btn.active .burger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    #burger-btn.active .burger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    #burger-btn.active .burger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /*Mobile menu styles */
+    .nav-menu {
+        @apply md:block;
+    }
+
+    @media (max-width: 768px) {
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;  
+            width: 75%;
+            max-width: 100;
+            height: 100vh;
+            background-color: var(--mobile-menu-bg, #f5f5dc);
+            padding: 80px 20px 20px;
+            transition: left 0.3s ease;  
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);  
+            z-index: 40;
+        }
+
+        .nav-menu.active {
+            left: 0;  
+        }
+
+        .nav-menu ul {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .nav-menu a,
+        .nav-menu .header-icon {
+            color: #753e1c !important;
+        }
+    }
 </style>
 
 <script>
-	const header = document.getElementById('header');
-	let currentState = false;
-	let currentThreshold = header?.offsetTop;
-	let isMobile = window.innerWidth < 640;
+    const header = document.getElementById('header');
+    const burgerBtn = document.getElementById('burger-btn');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let currentState = false;
+    let currentThreshold = header?.offsetTop;
+    let isMobile = window.innerWidth < 768;
 
-	const currentPath = window.location.pathname;
-	const isEffectEnabled = currentPath.length <= 4 && !isMobile;
+    const currentPath = window.location.pathname;
+    const isEffectEnabled = currentPath.length <= 4 ;
 
-	if (isEffectEnabled) {
-		window.onload = checkForAlter;
-		window.onscroll = checkForAlter;
-		window.onresize = function () {
-			currentThreshold = header?.offsetTop;
-			isMobile = window.innerWidth < 640;
-			checkForAlter();
-		};
-	} else {
-		alterHeader(true);
-	}
+    // Burger menu toggle
+    burgerBtn?.addEventListener('click', () => {
+        burgerBtn.classList.toggle('active');
+        navMenu?.classList.toggle('active');
+        document.body.style.overflow = navMenu?.classList.contains('active') ? 'hidden' : '';
+    });
 
-	function checkForAlter() {
-		if (isMobile) return;
-		if (window.scrollY > (currentThreshold ?? 0)) {
-			alterHeader(true);
-		} else {
-			alterHeader(false);
-		}
-	}
+    // Close menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            burgerBtn?.classList.remove('active');
+            navMenu?.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
 
-	function alterHeader(setState: boolean) {
-		if (currentState === setState) return;
-		currentState = setState;
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (navMenu?.classList.contains('active') && 
+            !navMenu.contains(target) && 
+            !burgerBtn?.contains(target)) {
+            burgerBtn?.classList.remove('active');
+            navMenu?.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
 
-		if (setState) {
-			header?.classList.add('sticky');
-			header?.classList.remove('transparent');
-		} else {
-			header?.classList.add('transparent');
-			header?.classList.remove('sticky');
-		}
-	}
+    // Header scroll effect
+    if (isEffectEnabled) {
+        window.onload = checkForAlter;
+        window.onscroll = checkForAlter;
+        window.onresize = function () {
+            currentThreshold = header?.offsetTop;
+            isMobile = window.innerWidth < 768;
+            
+            if (!isMobile && navMenu?.classList.contains('active')) {
+                burgerBtn?.classList.remove('active');
+                navMenu?.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            checkForAlter();
+        };
+    } else {
+        alterHeader(true);
+    }
+
+    function checkForAlter() {
+        if (window.scrollY > (currentThreshold ?? 0)) {
+            alterHeader(true);
+        } else {
+            alterHeader(false);
+        }
+    }
+
+    function alterHeader(setState: boolean) {
+        if (currentState === setState) return;
+        currentState = setState;
+
+        if (setState) {
+            header?.classList.add('sticky');
+            header?.classList.remove('transparent');
+        } else {
+            header?.classList.add('transparent');
+            header?.classList.remove('sticky');
+        }
+    }
 </script>
