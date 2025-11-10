@@ -136,23 +136,24 @@ function formatTextWithLineBreaks(text: string): string[] {
 	</p>
 
 	<button
+	    id="addToCart"
 		class="bg-black text-white rounded-full px-8 py-3 text-sm md:text-base hover:bg-neutral-800 transition"
 	>
 		{t("product.addtocart")}
 	</button>
 </div>
 
-<script>
-	const changeImage = (srcImg: string | null | undefined, num: string) => {
-		const image = document.getElementById("image") as HTMLImageElement;
+<script is:inline>
+	const changeImage = (srcImg, num) => {
+		const image = document.getElementById("image");
 		if (image && srcImg) {
 			image.src = `${srcImg}-${num}.png`;
 		}
 	};
 
-	const openTab = (tabName: string) => {
-		const tabContentElements = document.querySelectorAll<HTMLElement>(".tabcontent");
-		const tabLinkElements = document.querySelectorAll<HTMLElement>(".tablinks");
+	const openTab = (tabName) => {
+		const tabContentElements = document.querySelectorAll(".tabcontent");
+		const tabLinkElements = document.querySelectorAll(".tablinks");
 
 		tabContentElements.forEach((content) => content.classList.add("hidden"));
 		tabLinkElements.forEach((link) => link.classList.remove("border-2"));
@@ -168,6 +169,18 @@ function formatTextWithLineBreaks(text: string): string[] {
 
 	document.addEventListener("DOMContentLoaded", () => {
 		const img = document.getElementById("image")?.getAttribute("data-img") || "";
+		const btn250 = document.getElementById("btn-250");
+		const btn1000 = document.getElementById("btn-1000");
+		const priceEl = document.getElementById("price");
+		const addToCartBtn = document.getElementById("addToCart");
+		const productName =
+			document.querySelector("h2")?.textContent?.trim() || "Produit inconnu";
+		const quantityInput = document.querySelector("input[type='number']");
+
+		let selectedFormat = "250g";
+		let price = 16.99;
+
+		// --- Image switching ---
 		document
 			.getElementById("button1")
 			?.addEventListener("click", () => changeImage(img, "1"));
@@ -175,37 +188,57 @@ function formatTextWithLineBreaks(text: string): string[] {
 			.getElementById("button2")
 			?.addEventListener("click", () => changeImage(img, "2"));
 
-		document.querySelectorAll<HTMLElement>(".tablinks").forEach((button) => {
+		// --- Tab system ---
+		document.querySelectorAll(".tablinks").forEach((button) => {
 			button.addEventListener("click", () => {
 				const tabName = button.getAttribute("data-tab");
 				if (tabName) openTab(tabName);
 			});
 		});
-
 		openTab("ingredient");
 
-		// ✅ Toggle between 250g / 1kg
-		const btn250 = document.getElementById("btn-250");
-		const btn1000 = document.getElementById("btn-1000");
-		const priceEl = document.getElementById("price");
-
+		// --- Format toggle ---
 		if (btn250 && btn1000 && priceEl) {
 			btn250.addEventListener("click", () => {
+				selectedFormat = "250g";
+				price = 16.99;
 				btn250.classList.add("bg-[#A47343]", "text-white");
 				btn1000.classList.remove("bg-[#A47343]", "text-white");
-				btn1000.classList.add("border", "border-[#A47343]", "text-[#A47343]");
 				priceEl.textContent = "16,99€";
 			});
 
 			btn1000.addEventListener("click", () => {
+				selectedFormat = "1kg";
+				price = 34.99;
 				btn1000.classList.add("bg-[#A47343]", "text-white");
 				btn250.classList.remove("bg-[#A47343]", "text-white");
-				btn250.classList.add("border", "border-[#A47343]", "text-[#A47343]");
 				priceEl.textContent = "34,99€";
 			});
 		}
+
+		// --- Add to Cart button (calls centralized script) ---
+		addToCartBtn?.addEventListener("click", () => {
+			const quantity = parseInt(quantityInput?.value || "1");
+
+			const product = {
+				id: productName.toLowerCase().replace(/\s+/g, "-"),
+				name: productName,
+				price: price,
+				image: `${img}-1.png`,
+				format: selectedFormat,
+				quantity: quantity,
+			};
+
+			if (window.addToCart) {
+				window.addToCart(product);
+				alert("✅ Produit ajouté au panier !");
+			} else {
+				console.error("⚠️ addToCart not found — check Layout script import.");
+			}
+		});
 	});
 </script>
+
 
 <style>
 	.tabcontent.hidden {

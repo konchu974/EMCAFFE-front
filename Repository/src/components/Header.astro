@@ -121,6 +121,12 @@ const isHomePage = (isShopPage || isContactRedirect) === false;
 </style>
 
 <script>
+	declare global {
+		interface Window {
+			updateCartBadge?: () => void;
+		}
+	}
+
 	const header = document.getElementById('header');
 	let currentState = false;
 	let currentThreshold = header?.offsetTop;
@@ -162,4 +168,8 @@ const isHomePage = (isShopPage || isContactRedirect) === false;
 			header?.classList.remove('sticky');
 		}
 	}
+
+	document.addEventListener("DOMContentLoaded", () => {
+		if (window.updateCartBadge) window.updateCartBadge();
+	});
 </script>

@@ -256,6 +256,11 @@
   "product.delivery": "Free delivery on orders over €59",
   "product.instock": "In stock, ships within 48h",
 
+  "cart.title": "Shopping Cart",
+"cart.empty": "Your cart is empty.",
+"cart.status": "Your cart",
+"cart.total": "Total",
+"cart.checkout": "Proceed to checkout",
 
 "productHighlight": {
   "title": "ORGANIC COFFEES",

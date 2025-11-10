@@ -14,26 +14,152 @@ export function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-<Layout title={`EMCAFFE - ${t('nav.cart') || 'Panier'}`}>
+
+<Layout title={`EMCAFFE - ${t("cart.title") || "Panier"}`}>
   <Header />
 
-  <main
-    class="mb-8 mt-[255px] flex min-h-[60vh] w-full flex-col items-center justify-center md:mt-[192px]"
-  >
-    <!-- You’ll design the cart UI here later  tommorow do it then other pages-->
-    <section class="w-11/12 md:w-3/4 text-center">
-      <h1 class="text-3xl font-bold text-[#5C3F32] uppercase mb-6">
-        {t("cart.title") || "Votre Panier"}
+   
+  <!-- Banner -->
+   <section class="relative h-[300px] md:h-[400px] w-full overflow-hidden" style="margin-top: 160px; position: relative; z-index: 1;">
+    <img src="/img/PANIER.jpeg" alt="Coffee Banner" class="w-full h-[400px] md:h-[500px] object-cover block">
+    <div class="absolute inset-0 flex items-center justify-start text-center bg-black/40 ">
+      <h1 class="text-white text-4xl md:text-7xl font-[Chalkduster] tracking-wide ml-10 ">
+        {t("cart.title")}
       </h1>
+    </div>
+   </section>
+   <!-- Banner -->
 
-      <!-- Placeholder message -->
-      <p class="text-[#5C3F32] text-lg opacity-80">
-        {t("cart.emptyMessage") || "Votre panier est vide pour le moment. (site est en construction)"}
-      </p>
-    </section>
-  </main>
+   <!-- Cart COntent -->
+    <main class="py-16 px-4 bg-[#F9F4EE] md:px-20">
+      <div class="bg-white shadow-lg border-2 rounded-lg max-w-4xl mx-auto p-6 md:p-10 border-[#000000]">
+        <h2 class="text-2xl md:text-3xl font-[Chalkduster] text-[#5C3F32] mb-6 border-b-2 border-[#000000] pb-2">
+          {t("cart.status")}
+        </h2>
 
+        <div id="cardContainer">
+          <p id="emptyCart" class="text-center text-lg py-10 text-[#A47343]">
+            {t("cart.empty")}
+          </p>
 
+          <div id="cartItems" class="hidden flex flex-col gap-6"></div>
+
+          <div id="cartSummary" class="hidden mt-8 text-center">
+            <div class="flex justify-between items-center text-lg font-semibold mb-4 text-[#5C3F32]">
+              <span>{t("cart.total")}</span>
+              <span id="cartTotal">0€</span>
+            </div>
+
+            <button id="checkout" class="bg-black text-white rounded-full px-10 py-3 text-sm md:text-base hover:bg-neutral-800 transition">
+              {t("cart.checkout")}
+
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
 
   <Footer />
 </Layout>
+
+<!-- Javascript -->
+
+<script>
+  interface CartItem {
+    image: string;
+    name: string;
+    format: string;
+    quantity: number;
+    price: string;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkoutButton = document.getElementById("checkout");
+    const cartItems = document.getElementById("cartItems");
+    if (!checkoutButton || !cartItems) return;
+
+    let cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    function renderCart() {
+      const cartItems = document.getElementById("cartItems");
+      const emptyCart = document.getElementById("emptyCart");
+      const cartSummary = document.getElementById("cartSummary");
+      const cartTotal = document.getElementById("cartTotal");
+
+      if (!cartItems || !emptyCart || !cartSummary || !cartTotal) return;
+
+      cartItems.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        emptyCart.classList.remove("hidden");
+        cartItems.classList.add("hidden");
+        cartSummary.classList.add("hidden");
+        return;
+      }
+
+      emptyCart.classList.add("hidden");
+      cartItems.classList.remove("hidden");
+      cartSummary.classList.remove("hidden");
+
+      cart.forEach((item: CartItem, index: number) => {
+        const div = document.createElement("div");
+        div.className = 
+        "flex justify-between items-center border-b border-[#D1BFA7] pb-4";
+
+        div.innerHTML = `
+         <div class="flex items-center gap-4">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg border border-[#A47343]" />
+            <div>
+              <h3 class="font-semibold text-[#5C3F32]">${item.name}</h3>
+              <p class="text-[#A47343] text-sm">${item.format}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <input type="number" min="1" value="${item.quantity}" class="w-12 border border-[#5C3F32] rounded text-center text-[#5C3F32]" />
+            <span class="font-bold text-[#5C3F32]">${item.price}€</span>
+            <button class="text-red-600 hover:text-red-800 font-bold text-xl" data-index="${index}">&times;</button>
+          </div>
+        `;
+
+        cartItems.appendChild(div);
+        total += parseFloat(item.price) * (item.quantity || 1);
+      });
+
+      cartTotal.textContent = total.toFixed(2) + "€";
+    }
+
+    renderCart();
+    cartItems.addEventListener("click", (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.matches("button[data-index]")) {
+        const index = parseInt(target.getAttribute("data-index") || "0");
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+
+        const countEl = document.getElementById("cart-count");
+        if (countEl) {
+          countEl.textContent = cart.length.toString();
+          countEl.classList.toggle("hidden", cart.length === 0);
+        }
+      }
+    });
+    cartItems.addEventListener("input", (e: Event) => {
+      const target = e.target as HTMLInputElement;
+      if (target.matches('input[type="number"]')) {
+        const index = [...cartItems.querySelectorAll('input[type="number"]')].indexOf(target);
+        cart[index].quantity = parseInt(target.value) || 1;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+      }
+    });
+
+    // Checkout
+    checkoutButton.addEventListener("click", () => {
+      alert("🛒 Checkout coming soon!");
+    });
+  });
+   
+  
+</script>

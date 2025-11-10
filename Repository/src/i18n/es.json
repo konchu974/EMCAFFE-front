@@ -257,6 +257,11 @@
   "product.delivery": "Envío GRATIS a partir de 59€",
   "product.instock": "En stock, envío en 48h",
 
+  "cart.title": "Carrito",
+"cart.empty": "Tu carrito está vacío.",
+"cart.status": "Tu carrito",
+"cart.total": "Total",
+"cart.checkout": "Proceder al pago",
 
 
 	"productHighlight": {

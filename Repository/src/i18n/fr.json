@@ -3,6 +3,9 @@
 	"nav.products": "Produits",
 	"nav.contact": "Nous contacter",
 
+
+
+
 	"hero.coffee": "Café bio et spécialité",
 
 	"coffee.1.title": "Terre amazonienne",
@@ -257,6 +260,15 @@
 "product.format": "Format",
 "product.delivery": "Livraison GRATUITE dès 59€",
 "product.instock": "En stock, livraison sous 48h",
+
+"cart.title": "Panier",
+"cart.empty": "Votre panier est vide.",
+"cart.status": "Votre panier",
+"cart.total": "Total",
+"cart.checkout": "Procéder au paiement",
+
+
+
 
   
 

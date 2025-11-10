@@ -19,7 +19,7 @@ const products = [
 ---
 
 <section
-  class="flex flex-col items-center justify-center bg-[#FFFFFF] p-6 md:p-5 w-9/10 md:w-2/2 mx-auto text-center shadow-sm relative overflow-hidden"
+  class="flex flex-col items-center justify-center bg-[#FFFFFF] p-6 md:p-5 w-9/10 md:w-2/2 mx-auto text-center shadow-lg relative overflow-hidden"
 >
   <div class="relative w-full flex items-center justify-center">
     <img
@@ -43,14 +43,41 @@ const products = [
   ></p>
 
   <button
+    id="addToCart"
     class="mt-6 bg-black text-white rounded-full px-8 py-3 text-sm md:text-base hover:bg-neutral-800 transition"
   >
     {t("productHighlight.addToCart")}
   </button>
 </section>
 
-<script>
+<script is:inline>
   window.addEventListener("DOMContentLoaded", () => {
+    // 🟤 Get elements
+    const addToCartBtn = document.getElementById("addToCart");
+    const img = document.getElementById("productImage");
+    const desc = document.getElementById("productDesc");
+
+    // 🟤 Define product data (you can tweak these if you want dynamic)
+    const product = {
+      id: "highlight-coffee", // unique ID
+      name: "Café Bio Amazonas",
+      price: 16.99,
+      image: "/img/products/300-bio-1.png",
+      format: "250g",
+      quantity: 1,
+    };
+
+    // 🟤 Add to Cart
+    addToCartBtn?.addEventListener("click", () => {
+      if (window.addToCart) {
+        window.addToCart(product);
+        alert("✅ Produit ajouté au panier !");
+      } else {
+        console.error("⚠️ addToCart not found — check Layout script import.");
+      }
+    });
+
+    // 🟤 Slideshow logic
     const products = [
       {
         image: "/img/products/300-bio-1.png",
@@ -62,23 +89,16 @@ const products = [
       },
     ];
 
-    const img = document.getElementById("productImage");
-    const desc = document.getElementById("productDesc");
-    const section = document.querySelector("section");
-
     if (!img || !desc) return;
 
     let current = 0;
-
-    function updateSlide(index: number) {
-      if (!img || !desc) return;
-      (img as HTMLImageElement).style.transition = "opacity 0.7s ease-in-out";
-      (img as HTMLImageElement).style.opacity = "0";
+    function updateSlide(index) {
+      img.style.transition = "opacity 0.7s ease-in-out";
+      img.style.opacity = "0";
       setTimeout(() => {
-        if (!img || !desc) return;
-        (img as HTMLImageElement).src = products[index].image;
+        img.src = products[index].image;
         desc.innerHTML = products[index].description;
-        (img as HTMLImageElement).style.opacity = "1";
+        img.style.opacity = "1";
       }, 300);
     }
 
@@ -87,15 +107,10 @@ const products = [
       updateSlide(current);
     }
 
-    // Auto slideshow every 5s
     let autoSlide = setInterval(nextSlide, 5000);
 
-    // Optional: pause when user taps/presses image (works on mobile too)
+    const section = document.querySelector("section");
     if (section) {
-      section.addEventListener("touchstart", () => clearInterval(autoSlide));
-      section.addEventListener("touchend", () => {
-        autoSlide = setInterval(nextSlide, 5000);
-      });
       section.addEventListener("mouseenter", () => clearInterval(autoSlide));
       section.addEventListener("mouseleave", () => {
         autoSlide = setInterval(nextSlide, 5000);
@@ -103,4 +118,5 @@ const products = [
     }
   });
 </script>
+
 
