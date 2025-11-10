@@ -1,0 +1,207 @@
+---
+import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+import Layout from '@/layouts/Layout.astro';
+
+import { getLangFromUrl, getStaticPaths, useTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+export { getStaticPaths };
+---
+
+<Layout title={t('register.title') || 'Inscription'}>
+    <Header />
+    <div
+        class="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12 pt-28 mt-12"
+    >
+        <div class="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
+            <!-- Titre -->
+            <h1 class="mb-2 text-center text-3xl font-bold text-[#5C3F32]">
+                {t('register.welcome') || 'Créer un compte'}
+            </h1>
+            <p class="mb-8 text-center text-gray-600">
+                {t('register.subtitle') || 'Rejoignez-nous dès maintenant'}
+            </p>
+
+            <!-- Formulaire d'inscription -->
+            <form method="POST" action={`/${lang}/api/register`} class="space-y-5">
+                <!-- Prénom et Nom -->
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- Prénom -->
+                    <div>
+                        <label
+                            for="firstName"
+                            class="mb-2 block text-sm font-medium text-[#5C3F32]"
+                        >
+                            {t('register.firstName') || 'Prénom'}
+                        </label>
+                        <input
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            required
+                            placeholder="Jean"
+                            class="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition duration-300 focus:border-[#5C3F32] focus:outline-none"
+                        />
+                    </div>
+
+                    <!-- Nom -->
+                    <div>
+                        <label
+                            for="lastName"
+                            class="mb-2 block text-sm font-medium text-[#5C3F32]"
+                        >
+                            {t('register.lastName') || 'Nom'}
+                        </label>
+                        <input
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            required
+                            placeholder="Dupont"
+                            class="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition duration-300 focus:border-[#5C3F32] focus:outline-none"
+                        />
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label
+                        for="email"
+                        class="mb-2 block text-sm font-medium text-[#5C3F32]"
+                    >
+                        {t('register.email') || 'Email'}
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        placeholder="exemple@email.com"
+                        class="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition duration-300 focus:border-[#5C3F32] focus:outline-none"
+                    />
+                </div>
+
+                <!-- Téléphone -->
+                <div>
+                    <label
+                        for="phone"
+                        class="mb-2 block text-sm font-medium text-[#5C3F32]"
+                    >
+                        {t('register.phone') || 'Téléphone'}
+                    </label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="+33 6 12 34 56 78"
+                        class="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition duration-300 focus:border-[#5C3F32] focus:outline-none"
+                    />
+                </div>
+
+                <!-- Mot de passe -->
+                <div>
+                    <label
+                        for="password"
+                        class="mb-2 block text-sm font-medium text-[#5C3F32]"
+                    >
+                        {t('register.password') || 'Mot de passe'}
+                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        placeholder="••••••••"
+                        minlength="8"
+                        class="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition duration-300 focus:border-[#5C3F32] focus:outline-none"
+                    />
+                    <p class="mt-1 text-xs text-gray-500">
+                        {t('register.passwordHint') || 'Minimum 8 caractères'}
+                    </p>
+                </div>
+
+                <!-- Confirmer mot de passe -->
+                <div>
+                    <label
+                        for="confirmPassword"
+                        class="mb-2 block text-sm font-medium text-[#5C3F32]"
+                    >
+                        {t('register.confirmPassword') || 'Confirmer le mot de passe'}
+                    </label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        required
+                        placeholder="••••••••"
+                        minlength="8"
+                        class="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition duration-300 focus:border-[#5C3F32] focus:outline-none"
+                    />
+                </div>
+
+                <!-- Conditions d'utilisation -->
+                <div class="flex items-start">
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required
+                        class="mt-1 h-4 w-4 rounded border-gray-300 text-[#5C3F32] focus:ring-[#5C3F32]"
+                    />
+                    <label for="terms" class="ml-2 text-sm text-gray-600">
+                        {t('register.terms') || "J'accepte les"} 
+                        <a href={`/${lang}/terms`} class="text-[#5C3F32] hover:underline">
+                            {t('register.termsLink') || 'conditions d\'utilisation'}
+                        </a>
+                        {t('register.and') || 'et la'}
+                        <a href={`/${lang}/privacy`} class="text-[#5C3F32] hover:underline">
+                            {t('register.privacyLink') || 'politique de confidentialité'}
+                        </a>
+                    </label>
+                </div>
+
+                <!-- Message d'erreur -->
+                <div id="error-message" class="hidden rounded-lg bg-red-100 p-3 text-sm text-red-700"></div>
+
+                <!-- Bouton d'inscription -->
+                <button
+                    type="submit"
+                    class="w-full transform rounded-lg bg-[#5C3F32] px-6 py-3 font-bold text-white transition duration-300 hover:scale-105 hover:bg-[#8B4513]"
+                >
+                    {t('register.submit') || 'Créer mon compte'}
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="relative my-6">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-300"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="bg-white px-4 text-gray-500">
+                        {t('register.or') || 'ou'}
+                    </span>
+                </div>
+            </div>
+
+            <!-- Lien de connexion -->
+            <div class="text-center">
+                <p class="mb-4 text-gray-600">
+                    {t('register.hasAccount') || 'Vous avez déjà un compte ?'}
+                </p>
+                <a
+                    href={`/${lang}/log`}
+                    class="inline-block w-full rounded-lg border-2 border-[#5C3F32] bg-white px-6 py-3 text-center font-bold text-[#5C3F32] transition duration-300 hover:bg-[#5C3F32] hover:text-white"
+                >
+                    {t('register.login') || 'Se connecter'}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <Footer />
+</Layout>
+

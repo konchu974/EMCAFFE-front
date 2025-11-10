@@ -26,31 +26,33 @@ function formatTextWithLineBreaks(text: string): string[] {
 }
 ---
 
-<div class="m-5 flex flex-col md:m-10 md:flex-row">
-	<!-- Left: Image column -->
-	<div class="flex flex-row justify-between md:w-1/2 md:justify-normal">
-		<div class="flex h-1/2 flex-col align-top">
-			<button
-				id="button1"
-				class="mb-1 w-fit rounded-lg border-2 border-[#5C3F32] p-2 hover:border-[#A47343]"
-			>
-				<img class="h-auto w-full md:w-10 bg-white" src={`${img}-1.png`} />
-			</button>
-			<button
-				id="button2"
-				class="mt-1 w-fit rounded-lg border-2 border-[#5C3F32] p-2 hover:border-[#A47343]"
-			>
-				<img class="h-auto w-full md:w-10 bg-white" src={`${img}-2.png`} />
-			</button>
-		</div>
-
-		<img
-			id="image"
-			class="h-auto w-2/3 md:ml-10 bg-white"
-			src={`${img}-1.png`}
-			data-img={`${img}`}
-		/>
-	</div>
+<div class="-mt-24 md:mt-0 m-5 flex flex-col md:m-10 md:flex-row">
+    <!-- Left: Image column -->
+        <div class="flex flex-col md:flex-row justify-center md:justify-normal md:w-1/2">
+            <!-- Image principale (grande, centrée sur mobile) -->
+            <img
+                id="image"
+                class="h-auto w-full md:w-2/3 bg-white md:order-2 md:ml-10 rounded-lg shadow-lg"
+                src={`${img}-1.png`}
+                data-img={`${img}`}
+            />
+    
+            <!-- Miniatures (en dessous sur mobile, à gauche sur desktop) -->
+            <div class="flex flex-row md:flex-col justify-center gap-3 mt-4 md:mt-0 md:order-1">
+                <button
+                    id="button1"
+                    class="w-20 md:w-fit rounded-lg border-2 border-[#5C3F32] p-2 hover:border-[#A47343] transition"
+                >
+                    <img class="h-auto w-full md:w-16 bg-white rounded" src={`${img}-1.png`} />
+                </button>
+                <button
+                    id="button2"
+                    class="w-20 md:w-fit rounded-lg border-2 border-[#5C3F32] p-2 hover:border-[#A47343] transition"
+                >
+                    <img class="h-auto w-full md:w-16 bg-white rounded" src={`${img}-2.png`} />
+                </button>
+            </div>
+        </div>
 
 	<!-- Right: Product details -->
 	<div

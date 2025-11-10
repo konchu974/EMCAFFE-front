@@ -1,0 +1,124 @@
+---
+import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+import Layout from '@/layouts/Layout.astro';
+
+import { getLangFromUrl, getStaticPaths, useTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+export { getStaticPaths };
+---
+
+<Layout title={t('login.title') || 'Connexion'}>
+	<Header />
+	<div
+		class="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12 pt-28 mt-10"
+	>
+		<div class="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
+			<!-- Titre -->
+			<h1 class="mb-2 text-center text-3xl font-bold text-[#5C3F32]">
+				{t('login.welcome') || 'Bienvenue'}
+			</h1>
+			<p class="mb-8 text-center text-gray-600">
+				{t('login.subtitle') || 'Connectez-vous à votre compte'}
+			</p>
+
+			<!-- Formulaire de connexion -->
+			<form method="POST" action={`/${lang}/api/login`} class="space-y-6">
+				<!-- Email -->
+				<div>
+					<label
+						for="email"
+						class="mb-2 block text-sm font-medium text-[#5C3F32]"
+					>
+						{t('login.email') || 'Email'}
+					</label>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						required
+						placeholder="exemple@email.com"
+						class="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition duration-300 focus:border-[#5C3F32] focus:outline-none"
+					/>
+				</div>
+
+				<!-- Mot de passe -->
+				<div>
+					<label
+						for="password"
+						class="mb-2 block text-sm font-medium text-[#5C3F32]"
+					>
+						{t('login.password') || 'Mot de passe'}
+					</label>
+					<input
+						type="password"
+						id="password"
+						name="password"
+						required
+						placeholder="••••••••"
+						class="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition duration-300 focus:border-[#5C3F32] focus:outline-none"
+					/>
+				</div>
+
+				<!-- Se souvenir de moi & Mot de passe oublié -->
+				<div class="flex items-center justify-between">
+					<label class="flex items-center">
+						<input
+							type="checkbox"
+							name="remember"
+							class="h-4 w-4 rounded border-gray-300 text-[#5C3F32] focus:ring-[#5C3F32]"
+						/>
+						<span class="ml-2 text-sm text-gray-600">
+							{t('login.remember') || 'Se souvenir de moi'}
+						</span>
+					</label>
+					<a
+						href={`/${lang}/forgot-password`}
+						class="text-sm text-[#5C3F32] hover:text-[#8B4513] hover:underline"
+					>
+						{t('login.forgot') || 'Mot de passe oublié ?'}
+					</a>
+				</div>
+
+				<!-- Bouton de connexion -->
+				<button
+					type="submit"
+					class="w-full transform rounded-lg bg-[#5C3F32] px-6 py-3 font-bold text-white transition duration-300 hover:scale-105 hover:bg-[#8B4513]"
+				>
+					{t('login.submit') || 'Se connecter'}
+				</button>
+			</form>
+
+			<!-- Divider -->
+			<div class="relative my-6">
+				<div class="absolute inset-0 flex items-center">
+					<div class="w-full border-t border-gray-300"></div>
+				</div>
+				<div class="relative flex justify-center text-sm">
+					<span class="bg-white px-4 text-gray-500">
+						{t('login.or') || 'ou'}
+					</span>
+				</div>
+			</div>
+
+			<!-- Lien d'inscription -->
+			<div class="text-center">
+				<p class="mb-4 text-gray-600">
+					{t('login.noAccount') || "Vous n'avez pas de compte ?"}
+				</p>
+				<a
+					href={`/${lang}/register`}
+					class="inline-block w-full rounded-lg border-2 border-[#5C3F32] bg-white px-6 py-3 text-center font-bold text-[#5C3F32] transition duration-300 hover:bg-[#5C3F32] hover:text-white"
+				>
+					{t('login.register') || 'Créer un compte'}
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<Footer />
+</Layout>
+
