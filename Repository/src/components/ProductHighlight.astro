@@ -4,7 +4,6 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-
 const products = [
   {
     title: t("productHighlight.title"),
@@ -43,58 +42,48 @@ const products = [
     set:html={products[0].description}
   ></p>
 
-<button
+  <button
     id="addToCart"
-    class="bg-black text-white px-3 py-2 rounded-xl mt-2 hover:bg-[#5C3F32] transition"
+    class="mt-6 bg-black text-white px-6 py-3 rounded-xl hover:bg-[#5C3F32] transition font-semibold shadow-md"
     data-product-id="cafe-torrefies-bio"
     data-product-name="Grains de Café Torréfiés Bio"
     data-product-price="16.99"
     data-product-image="/img/products/300-bio-1.png"
->
-    {t("product.addtocart")}
-</button>
-
+  >
+    {t("product.addToCart") || "Ajouter au panier"}
+  </button>
 </section>
 
 <script is:inline>
   window.addEventListener("DOMContentLoaded", () => {
-    //  Get elements
+    // Get elements
     const addToCartBtn = document.getElementById("addToCart");
     const img = document.getElementById("productImage");
     const desc = document.getElementById("productDesc");
 
-    //  Define product data (you can tweak these if you want dynamic)
-    const product = {
-      id: "highlight-coffee", 
-      name: "Café Bio Amazonas",
-      price: 16.99,
-      image: "/img/products/300-bio-1.png",
-      format: "250g",
-      quantity: 1,
-    };
+    // Add to Cart functionality
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener("click", () => {
+        const product = {
+          id: addToCartBtn.dataset.productId,
+          name: addToCartBtn.dataset.productName,
+          price: parseFloat(addToCartBtn.dataset.productPrice),
+          image: addToCartBtn.dataset.productImage,
+          quantity: 1,
+          format: "250g",
+        };
 
-    //  Add to Cart
-const btn = document.getElementById("addToCart");
+        console.log("Product being added:", product);
 
-btn?.addEventListener("click", () => {
-    const product = {
-        id: btn.dataset.productId,
-        name: btn.dataset.productName,
-        price: parseFloat(btn.dataset.productPrice),
-        image: btn.dataset.productImage,
-        quantity: 1,
-        format: "250g",
-    };
+        // Dispatch modal if available
+        if (window.dispatchAddToCartModal) {
+          window.dispatchAddToCartModal(product);
+        }
+      });
+    }
 
-    window.addToCart(product);
-    window.dispatchAddToCartModal(product);
-});
-
-
-
-
-    //  Slideshow logic
-    const products = [
+    // Slideshow logic
+    const productsData = [
       {
         image: "/img/products/300-bio-1.png",
         description: `GRAINS DE CAFÉ TORRÉFIÉS PURS<br /><strong>ARABIQUE DE FORÊT D'ALTITUDE<br />100% BIO</strong>`,
@@ -108,18 +97,19 @@ btn?.addEventListener("click", () => {
     if (!img || !desc) return;
 
     let current = 0;
+
     function updateSlide(index) {
       img.style.transition = "opacity 0.7s ease-in-out";
       img.style.opacity = "0";
       setTimeout(() => {
-        img.src = products[index].image;
-        desc.innerHTML = products[index].description;
+        img.src = productsData[index].image;
+        desc.innerHTML = productsData[index].description;
         img.style.opacity = "1";
       }, 300);
     }
 
     function nextSlide() {
-      current = (current + 1) % products.length;
+      current = (current + 1) % productsData.length;
       updateSlide(current);
     }
 
@@ -134,5 +124,3 @@ btn?.addEventListener("click", () => {
     }
   });
 </script>
-
-
