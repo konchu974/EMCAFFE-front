@@ -52,12 +52,12 @@ const products = [
 
 <script is:inline>
   window.addEventListener("DOMContentLoaded", () => {
-    // 🟤 Get elements
+    //  Get elements
     const addToCartBtn = document.getElementById("addToCart");
     const img = document.getElementById("productImage");
     const desc = document.getElementById("productDesc");
 
-    // 🟤 Define product data (you can tweak these if you want dynamic)
+    //  Define product data (you can tweak these if you want dynamic)
     const product = {
       id: "highlight-coffee", // unique ID
       name: "Café Bio Amazonas",
@@ -67,7 +67,7 @@ const products = [
       quantity: 1,
     };
 
-    // 🟤 Add to Cart
+    //  Add to Cart
     addToCartBtn?.addEventListener("click", () => {
       if (window.addToCart) {
         window.addToCart(product);
@@ -77,7 +77,7 @@ const products = [
       }
     });
 
-    // 🟤 Slideshow logic
+    //  Slideshow logic
     const products = [
       {
         image: "/img/products/300-bio-1.png",

@@ -13,8 +13,31 @@ export { getStaticPaths };
 
 <Layout title={t('register.title') || 'Inscription'}>
     <Header />
+
+    <!-- Banner -->
+    <section
+        class="relative h-[300px] w-full overflow-hidden md:h-[400px]"
+        style="margin-top: 160px; position: relative; z-index: 1;"
+    >
+        <img
+            src="/img/PANIER.jpeg"
+            alt="Coffee Banner"
+            class="block h-[400px] w-full object-cover md:h-[500px]"
+        />
+        <div
+            class="absolute inset-0 flex items-center justify-start bg-black/40 text-center"
+        >
+            <h1
+                class="ml-10 font-[Chalkduster] text-4xl tracking-wide text-white md:text-7xl"
+            >
+                {t('register.title')}
+            </h1>
+        </div>
+    </section>
+    <!-- Banner -->
+
     <div
-        class="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12 pt-28 mt-12"
+        class="relative z-10 mt-10 flex items-center justify-center px-4 pb-12"
     >
         <div class="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
             <!-- Titre -->
@@ -26,7 +49,11 @@ export { getStaticPaths };
             </p>
 
             <!-- Formulaire d'inscription -->
-            <form method="POST" action={`/${lang}/api/register`} class="space-y-5">
+            <form
+                method="POST"
+                action={`/${lang}/api/register`}
+                class="space-y-5"
+            >
                 <!-- Prénom et Nom -->
                 <div class="grid grid-cols-2 gap-4">
                     <!-- Prénom -->
@@ -64,6 +91,44 @@ export { getStaticPaths };
                             class="w-full rounded-lg border-2 border-gray-300 px-4 py-3 transition duration-300 focus:border-[#5C3F32] focus:outline-none"
                         />
                     </div>
+                </div>
+
+                <!-- Genre -->
+                <div>
+                    <label
+                        for="gender"
+                        class="mb-2 block text-sm font-medium text-[#5C3F32]"
+                    >
+                        {t('register.gender') || 'Genre'}
+                    </label>
+                    <select
+                        id="gender"
+                        name="gender"
+                        required
+                        class="w-full rounded-lg border-2 border-gray-300 bg-white px-4 py-3 transition duration-300 focus:border-[#5C3F32] focus:outline-none"
+                    >
+                        <option value="" disabled selected>
+                            {
+                                t('register.selectGender') ||
+                                    'Sélectionnez votre genre'
+                            }
+                        </option>
+                        <option value="male">
+                            {t('register.male') || 'Homme'}
+                        </option>
+                        <option value="female">
+                            {t('register.female') || 'Femme'}
+                        </option>
+                        <option value="other">
+                            {t('register.other') || 'Autre'}
+                        </option>
+                        <option value="prefer-not-to-say">
+                            {
+                                t('register.preferNotToSay') ||
+                                    'Je préfère ne pas dire'
+                            }
+                        </option>
+                    </select>
                 </div>
 
                 <!-- Email -->
@@ -129,7 +194,10 @@ export { getStaticPaths };
                         for="confirmPassword"
                         class="mb-2 block text-sm font-medium text-[#5C3F32]"
                     >
-                        {t('register.confirmPassword') || 'Confirmer le mot de passe'}
+                        {
+                            t('register.confirmPassword') ||
+                                'Confirmer le mot de passe'
+                        }
                     </label>
                     <input
                         type="password"
@@ -142,7 +210,7 @@ export { getStaticPaths };
                     />
                 </div>
 
-                <!-- Conditions d'utilisation -->
+                <!-- Conditions d'utilisation  -->
                 <div class="flex items-start">
                     <input
                         type="checkbox"
@@ -152,19 +220,69 @@ export { getStaticPaths };
                         class="mt-1 h-4 w-4 rounded border-gray-300 text-[#5C3F32] focus:ring-[#5C3F32]"
                     />
                     <label for="terms" class="ml-2 text-sm text-gray-600">
-                        {t('register.terms') || "J'accepte les"} 
-                        <a href={`/${lang}/terms`} class="text-[#5C3F32] hover:underline">
-                            {t('register.termsLink') || 'conditions d\'utilisation'}
-                        </a>
-                        {t('register.and') || 'et la'}
-                        <a href={`/${lang}/privacy`} class="text-[#5C3F32] hover:underline">
-                            {t('register.privacyLink') || 'politique de confidentialité'}
+                        <span class="text-red-500">*</span>
+                        {t('register.terms') || "J'accepte les"}
+                        <a
+                            href={`/${lang}/terms`}
+                            class="text-[#5C3F32] hover:underline"
+                        >
+                            {
+                                t('register.termsLink') ||
+                                    "conditions d'utilisation"
+                            }
                         </a>
                     </label>
                 </div>
 
+                <!-- Politique de confidentialité  -->
+                <div class="flex items-start">
+                    <input
+                        type="checkbox"
+                        id="privacy"
+                        name="privacy"
+                        required
+                        class="mt-1 h-4 w-4 rounded border-gray-300 text-[#5C3F32] focus:ring-[#5C3F32]"
+                    />
+                    <label for="privacy" class="ml-2 text-sm text-gray-600">
+                        <span class="text-red-500">*</span>
+                        {
+                            t('register.privacyAccept') ||
+                                "J'accepte la"
+                        }
+                        <a
+                            href={`/${lang}/privacy`}
+                            class="text-[#5C3F32] hover:underline"
+                        >
+                            {
+                                t('register.privacyLink') ||
+                                    'politique de confidentialité'
+                            }
+                        </a>
+                    </label>
+                </div>
+
+                <!-- Newsletter  -->
+                <div class="flex items-start">
+                    <input
+                        type="checkbox"
+                        id="newsletter"
+                        name="newsletter"
+                        class="mt-1 h-4 w-4 rounded border-gray-300 text-[#5C3F32] focus:ring-[#5C3F32]"
+                    />
+                    <label for="newsletter" class="ml-2 text-sm text-gray-600">
+                        {
+                            t('register.newsletter') ||
+                                "Je souhaite recevoir la newsletter et les offres promotionnelles"
+                        }
+                    </label>
+                </div>
+
                 <!-- Message d'erreur -->
-                <div id="error-message" class="hidden rounded-lg bg-red-100 p-3 text-sm text-red-700"></div>
+                <div
+                    id="error-message"
+                    class="hidden rounded-lg bg-red-100 p-3 text-sm text-red-700"
+                >
+                </div>
 
                 <!-- Bouton d'inscription -->
                 <button
@@ -203,6 +321,4 @@ export { getStaticPaths };
     </div>
 
     <Footer />
-    
 </Layout>
-

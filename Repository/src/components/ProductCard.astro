@@ -1,252 +1,441 @@
 ---
 interface Props {
-	img: string;
-	productName: string;
-	description: string;
-	ingredient: string;
-	preparation: string;
-	dimension: string;
-	tabTitles: { ingredient: string; preparation: string; description: string };
-	t: (key: string) => string;
+    img: string;
+    productName: string;
+    description: string;
+    ingredient: string;
+    preparation: string;
+    dimension: string;
+    tabTitles: { ingredient: string; preparation: string; description: string };
+    t: (key: string) => string;
+    intensity?: number;
+    dosage?: string;
+    coffeeType?: string;
 }
 
 const {
-	img,
-	productName,
-	description,
-	ingredient,
-	preparation,
-	dimension,
-	tabTitles,
-	t,
+    img,
+    productName,
+    description,
+    ingredient,
+    preparation,
+    dimension,
+    tabTitles,
+    t,
+    intensity = 7,
+    dosage = '7-9g',
+    coffeeType = 'Pur Arabica',
 } = Astro.props as Props;
 
 function formatTextWithLineBreaks(text: string): string[] {
-	return text.split('\n');
+    return text.split('\n');
 }
 ---
 
-<div class="-mt-24 md:mt-0 m-5 flex flex-col md:m-10 md:flex-row">
-    <!-- Left: Image column -->
-        <div class="flex flex-col md:flex-row justify-center md:justify-normal md:w-1/2">
-            <!-- Image principale (grande, centrée sur mobile) -->
-            <img
-                id="image"
-                class="h-auto w-full md:w-2/3 bg-white md:order-2 md:ml-10 rounded-lg shadow-lg"
-                src={`${img}-1.png`}
-                data-img={`${img}`}
-            />
-    
-            <!-- Miniatures (en dessous sur mobile, à gauche sur desktop) -->
-            <div class="flex flex-row md:flex-col justify-center gap-3 mt-4 md:mt-0 md:order-1">
+<div class="m-5 -mt-24 md:m-10 md:mt-0">
+    <h2 class="mb-8 text-center text-2xl font-bold text-[#5C3F32] sm:text-3xl lg:text-4xl">
+        {productName}
+    </h2>
+
+    <!-- Container principal - -->
+    <div
+        class="flex flex-col lg:flex-row lg:items-start lg:gap-8"
+    >
+        <!--  COLONNE GAUCHE - Images ( -->
+        <div
+            class="flex flex-col items-center lg:sticky lg:top-24 lg:w-1/2 lg:self-start"
+        >
+            <!-- Image principale -->
+            <div class="mb-6 w-full max-w-2xl lg:max-w-none">
+                <img
+                    id="image"
+                    class="h-auto w-full rounded-lg bg-white object-cover shadow-lg"
+                    src={`${img}-1.png`}
+                    data-img={`${img}`}
+                    alt={productName}
+                />
+            </div>
+
+            <!-- Miniatures -->
+            <div class="mb-8 flex flex-row justify-center gap-3 lg:mb-0">
                 <button
                     id="button1"
-                    class="w-20 md:w-fit rounded-lg border-2 border-[#5C3F32] p-2 hover:border-[#A47343] transition"
+                    class="w-20 rounded-lg border-2 border-[#5C3F32] p-2 transition hover:border-[#A47343] sm:w-24 lg:w-28"
                 >
-                    <img class="h-auto w-full md:w-16 bg-white rounded" src={`${img}-1.png`} />
+                    <img
+                        class="h-auto w-full rounded bg-white"
+                        src={`${img}-1.png`}
+                        alt="Image 1"
+                    />
                 </button>
                 <button
                     id="button2"
-                    class="w-20 md:w-fit rounded-lg border-2 border-[#5C3F32] p-2 hover:border-[#A47343] transition"
+                    class="w-20 rounded-lg border-2 border-[#5C3F32] p-2 transition hover:border-[#A47343] sm:w-24 lg:w-28"
                 >
-                    <img class="h-auto w-full md:w-16 bg-white rounded" src={`${img}-2.png`} />
+                    <img
+                        class="h-auto w-full rounded bg-white"
+                        src={`${img}-2.png`}
+                        alt="Image 2"
+                    />
                 </button>
             </div>
         </div>
 
-	<!-- Right: Product details -->
-	<div
-		class="my-10 flex flex-col md:w-1/2 bg-white border-2 border-[#000000] rounded-lg p-5"
-	>
-		<h2 class="text-2xl font-bold text-[#5C3F32] md:text-4xl">{productName}</h2>
-		<p class="mt-1 text-sm text-[#A47343]">{dimension}</p>
+        <!--  COLONNE DROITE -->
+        <div class="flex flex-col items-center lg:w-1/2">
+            <!-- Section d'achat -->
+            <div
+                class="flex w-full max-w-xl flex-col items-center px-4 text-center lg:px-0"
+            >
+                <h3
+                    class="mb-3 text-lg font-semibold text-[#5C3F32] sm:text-xl"
+                >
+                    {t('product.format')}
+                </h3>
 
-		<div class="mt-5 w-full overflow-x-auto border-b-2 border-[#5C3F32]">
-			<ul class="flex cursor-pointer snap-x list-none">
-				<li class="mr-6">
-					<button
-						class="tablinks border-2 border-b-0 border-[#5C3F32] px-4 py-2 text-xl font-bold text-[#5C3F32] hover:bg-[#A47343]"
-						data-tab="ingredient"
-					>
-						{tabTitles.ingredient}
-					</button>
-				</li>
-				<li class="mr-6">
-					<button
-						class="tablinks border-b-0 border-[#5C3F32] px-4 py-2 text-xl font-bold text-[#5C3F32] hover:bg-[#A47343]"
-						data-tab="preparation"
-					>
-						{tabTitles.preparation}
-					</button>
-				</li>
-				<li class="mr-6">
-					<button
-						class="tablinks border-b-0 border-[#5C3F32] px-4 py-2 text-xl font-bold text-[#5C3F32] hover:bg-[#A47343]"
-						data-tab="description"
-					>
-						{tabTitles.description}
-					</button>
-				</li>
-			</ul>
-		</div>
+                <div class="mb-4 flex gap-3">
+                    <button
+                        id="btn-250"
+                        class="active rounded-lg bg-[#A47343] px-4 py-2 font-semibold text-white transition hover:bg-[#8B4513] sm:px-5 sm:py-2.5"
+                    >
+                        250g
+                    </button>
+                    <button
+                        id="btn-1000"
+                        class="rounded-lg border-2 border-[#A47343] px-4 py-2 font-semibold text-[#A47343] transition hover:bg-[#A47343] hover:text-white sm:px-5 sm:py-2.5"
+                    >
+                        1kg
+                    </button>
+                </div>
 
-		<div id="ingredient" class="tabcontent mt-5 hidden text-base text-[#A47343]">
-			{formatTextWithLineBreaks(ingredient).map((line) => (
-				<p class="mt-2 text-xl">{line}</p>
-			))}
-		</div>
+                <div class="mb-6 flex items-center gap-4">
+                    <span
+                        id="price"
+                        class="text-3xl font-bold text-[#5C3F32] sm:text-4xl"
+                        >16,99€</span
+                    >
+                    <div
+                        class="flex items-center rounded-lg border-2 border-[#5C3F32]"
+                    >
+                        <button
+                            id="btn-minus"
+                            class="px-3 py-2 transition hover:bg-gray-100"
+                            >-</button
+                        >
+                        <input
+                            type="number"
+                            id="quantity"
+                            value="1"
+                            min="1"
+                            class="w-16 border-x-2 border-[#5C3F32] py-2 text-center focus:outline-none"
+                        />
+                        <button
+                            id="btn-plus"
+                            class="px-3 py-2 transition hover:bg-gray-100"
+                            >+</button
+                        >
+                    </div>
+                </div>
 
-		<div id="preparation" class="tabcontent mt-5 hidden text-base text-[#A47343]">
-			{formatTextWithLineBreaks(preparation).map((line) => (
-				<p class="mt-2 text-xl">{line}</p>
-			))}
-		</div>
+                <button
+                    id="add-to-cart"
+                    class="mb-6 w-full max-w-sm transform rounded-lg bg-[#5C3F32] px-8 py-3 font-bold text-white shadow-lg transition hover:scale-105 hover:bg-[#8B4513]"
+                >
+                    {t('product.addToCart') || 'Ajouter au panier'}
+                </button>
 
-		<div id="description" class="tabcontent mt-5 hidden text-base text-[#A47343]">
-			{formatTextWithLineBreaks(description).map((line) => (
-				<p class="mt-2 text-xl">{line}</p>
-			))}
-		</div>
-	</div>
+                <p class="mb-6 text-sm text-gray-600">{dimension}</p>
+            </div>
+
+            <!-- Tabs Section  -->
+            <div
+                class="mt-8 w-full max-w-2xl rounded-lg bg-white p-4 shadow-lg sm:p-6"
+            >
+                <div
+                    class="mb-4 flex justify-center overflow-x-auto border-b border-gray-200"
+                >
+                    <button
+                        class="tablinks whitespace-nowrap border-b-2 border-[#5C3F32] px-4 py-2 font-semibold text-[#5C3F32]"
+                        data-tab="ingredient"
+                    >
+                        {tabTitles.ingredient}
+                    </button>
+                    <button
+                        class="tablinks whitespace-nowrap px-4 py-2 font-semibold text-gray-500 transition hover:text-[#5C3F32]"
+                        data-tab="preparation"
+                    >
+                        {tabTitles.preparation}
+                    </button>
+                    <button
+                        class="tablinks whitespace-nowrap px-4 py-2 font-semibold text-gray-500 transition hover:text-[#5C3F32]"
+                        data-tab="description"
+                    >
+                        {tabTitles.description}
+                    </button>
+                </div>
+
+                <div id="ingredient" class="tabcontent">
+                    {
+                        formatTextWithLineBreaks(ingredient).map((line) => (
+                            <p class="mb-2 text-gray-700">{line}</p>
+                        ))
+                    }
+                </div>
+
+                <div id="preparation" class="tabcontent hidden">
+                    {
+                        formatTextWithLineBreaks(preparation).map((line) => (
+                            <p class="mb-2 text-gray-700">{line}</p>
+                        ))
+                    }
+                </div>
+
+                <div id="description" class="tabcontent hidden">
+                    {
+                        formatTextWithLineBreaks(description).map((line) => (
+                            <p class="mb-2 text-gray-700">{line}</p>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <!--  Cards d'informations  -->
+            <div class="mt-8 w-full max-w-md px-4 lg:px-0">
+                <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                    <!-- Card Intensité -->
+                    <div
+                        class="transform rounded-lg bg-gradient-to-br from-[#5C3F32] to-[#8B4513] p-3 text-white shadow-md transition-all hover:scale-105 sm:p-5"
+                    >
+                        <div class="flex h-full flex-col items-center justify-center">
+                            <svg
+                                class="mb-2 h-6 w-6 sm:mb-3 sm:h-10 sm:w-10"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z"
+                                ></path>
+                            </svg>
+                            <h3
+                                class="mb-2 text-center text-sm font-bold sm:text-base"
+                            >
+                                {t('product.intensity') || 'Intensité'}
+                            </h3>
+                            <div class="mb-2 flex gap-1">
+                                {
+                                    Array.from({ length: 10 }).map(
+                                        (_, i) => (
+                                            <div
+                                                class={`h-2 w-2 rounded-full sm:h-3 sm:w-3 ${
+                                                    i < intensity
+                                                        ? 'bg-white'
+                                                        : 'bg-white/30'
+                                                }`}
+                                            />
+                                        ),
+                                    )
+                                }
+                            </div>
+                            <p class="text-xs opacity-90 sm:text-sm">
+                                {intensity}/10
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card Type de café -->
+                    <div
+                        class="transform rounded-lg bg-gradient-to-br from-[#6B4423] to-[#5C3F32] p-3 text-white shadow-md transition-all hover:scale-105 sm:p-5"
+                    >
+                        <div class="flex h-full flex-col items-center justify-center">
+                            <svg
+                                class="mb-2 h-6 w-6 sm:mb-3 sm:h-8 sm:w-8"
+                                fill="currentColor"
+                                viewBox="0 0 22 25"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M19.151,4.868a6.744,6.744,0,0,0-5.96-1.69,12.009,12.009,0,0,0-6.54,3.47,11.988,11.988,0,0,0-3.48,6.55,6.744,6.744,0,0,0,1.69,5.95,6.406,6.406,0,0,0,4.63,1.78,11.511,11.511,0,0,0,7.87-3.56C21.3,13.428,22.1,7.818,19.151,4.868Zm-14.99,8.48a11.041,11.041,0,0,1,3.19-5.99,10.976,10.976,0,0,1,5.99-3.19,8.016,8.016,0,0,1,1.18-.09,5.412,5.412,0,0,1,3.92,1.49.689.689,0,0,1,.11.13,6.542,6.542,0,0,1-2.12,1.23,7.666,7.666,0,0,0-2.96,1.93,7.666,7.666,0,0,0-1.93,2.96,6.589,6.589,0,0,1-1.71,2.63,6.7,6.7,0,0,1-2.63,1.71,7.478,7.478,0,0,0-2.35,1.36A6.18,6.18,0,0,1,4.161,13.348Zm12.49,3.31c-3.55,3.55-8.52,4.35-11.08,1.79a1.538,1.538,0,0,1-.12-.13,6.677,6.677,0,0,1,2.13-1.23,7.862,7.862,0,0,0,2.96-1.93,7.738,7.738,0,0,0,1.93-2.96,6.589,6.589,0,0,1,1.71-2.63,6.589,6.589,0,0,1,2.63-1.71,7.6,7.6,0,0,0,2.34-1.37C20.791,9.2,19.821,13.488,16.651,16.658Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <h3
+                                class="mb-2 text-center text-sm font-bold sm:text-base"
+                            >
+                                {t('product.type') || 'Type'}
+                            </h3>
+                            <p
+                                class="mb-1 text-center text-sm font-bold leading-tight sm:text-lg"
+                            >
+                                {coffeeType}
+                            </p>
+                            <p
+                                class="text-center text-xs opacity-90 sm:text-sm"
+                            >
+                                {t('product.origin') || 'Origine'}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<!-- 🟫 Purchase Section OUTSIDE the white container -->
-<div class="flex flex-col items-center justify-center text-center my-8">
-	<h3 class="text-lg font-semibold text-[#5C3F32] mb-2">{t("product.format")}</h3>
-	<div class="flex gap-3 mb-3">
-		<button id="btn-250" class="px-3 py-1 bg-[#A47343] text-white font-semibold rounded active">
-			250g
-		</button>
-		<button id="btn-1000" class="px-3 py-1 border border-[#A47343] text-[#A47343] font-semibold rounded hover:bg-[#A47343] hover:text-white transition">
-			1kg
-		</button>
-	</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const img =
+            document.getElementById('image')?.getAttribute('data-img') || '';
+        const quantityInput = document.getElementById(
+            'quantity',
+        ) as HTMLInputElement;
+        const btnMinus = document.getElementById('btn-minus');
+        const btnPlus = document.getElementById('btn-plus');
+        const addToCartBtn = document.getElementById('add-to-cart');
+        const btn250 = document.getElementById('btn-250');
+        const btn1000 = document.getElementById('btn-1000');
+        const priceEl = document.getElementById('price');
+        const productName =
+            document.querySelector('h2')?.textContent?.trim() ||
+            'Produit inconnu';
 
-	<div class="flex items-center justify-center gap-3 mb-3">
-		<input
-			type="number"
-			value="1"
-			min="1"
-			class="w-12 text-center border border-[#A47343] rounded"
-		/>
-		<span id="price" class="text-xl font-bold text-[#5C3F32]">16,99€</span>
-	</div>
+        let selectedFormat = '250g';
+        let price = 16.99;
 
-	<p class="text-sm text-gray-700 mb-4">
-		🚚 {t("product.delivery")}<br />
-		<span class="text-green-600">✔ {t("product.instock")}</span>
-	</p>
+        // --- Quantity controls ---
+        btnMinus?.addEventListener('click', () => {
+            if (quantityInput && parseInt(quantityInput.value) > 1) {
+                quantityInput.value = String(parseInt(quantityInput.value) - 1);
+            }
+        });
 
-	<button
-	    id="addToCart"
-		class="bg-black text-white rounded-full px-8 py-3 text-sm md:text-base hover:bg-neutral-800 transition"
-	>
-		{t("product.addtocart")}
-	</button>
-</div>
+        btnPlus?.addEventListener('click', () => {
+            if (quantityInput) {
+                quantityInput.value = String(parseInt(quantityInput.value) + 1);
+            }
+        });
 
-<script is:inline>
-	const changeImage = (srcImg, num) => {
-		const image = document.getElementById("image");
-		if (image && srcImg) {
-			image.src = `${srcImg}-${num}.png`;
-		}
-	};
+        // --- Image switching ---
+        function changeImage(base: string, num: string) {
+            const imgEl = document.getElementById('image') as HTMLImageElement;
+            if (imgEl) {
+                imgEl.src = `${base}-${num}.png`;
+            }
+        }
 
-	const openTab = (tabName) => {
-		const tabContentElements = document.querySelectorAll(".tabcontent");
-		const tabLinkElements = document.querySelectorAll(".tablinks");
+        document
+            .getElementById('button1')
+            ?.addEventListener('click', () => changeImage(img, '1'));
+        document
+            .getElementById('button2')
+            ?.addEventListener('click', () => changeImage(img, '2'));
 
-		tabContentElements.forEach((content) => content.classList.add("hidden"));
-		tabLinkElements.forEach((link) => link.classList.remove("border-2"));
+        // --- Tab system ---
+        function openTab(tabName: string) {
+            const tabcontents = document.querySelectorAll('.tabcontent');
+            tabcontents.forEach((tab) => tab.classList.add('hidden'));
 
-		const activeTab = document.getElementById(tabName);
-		if (activeTab) activeTab.classList.remove("hidden");
+            const tablinks = document.querySelectorAll('.tablinks');
+            tablinks.forEach((link) => {
+                link.classList.remove(
+                    'border-b-2',
+                    'border-[#5C3F32]',
+                    'text-[#5C3F32]',
+                );
+                link.classList.add('text-gray-500');
+            });
 
-		const activeLink = Array.from(tabLinkElements).find(
-			(link) => link.getAttribute("data-tab") === tabName
-		);
-		if (activeLink) activeLink.classList.add("border-2");
-	};
+            const activeTab = document.getElementById(tabName);
+            if (activeTab) {
+                activeTab.classList.remove('hidden');
+            }
 
-	document.addEventListener("DOMContentLoaded", () => {
-		const img = document.getElementById("image")?.getAttribute("data-img") || "";
-		const btn250 = document.getElementById("btn-250");
-		const btn1000 = document.getElementById("btn-1000");
-		const priceEl = document.getElementById("price");
-		const addToCartBtn = document.getElementById("addToCart");
-		const productName =
-			document.querySelector("h2")?.textContent?.trim() || "Produit inconnu";
-		const quantityInput = document.querySelector("input[type='number']");
+            const activeLink = document.querySelector(
+                `[data-tab="${tabName}"]`,
+            );
+            if (activeLink) {
+                activeLink.classList.add(
+                    'border-b-2',
+                    'border-[#5C3F32]',
+                    'text-[#5C3F32]',
+                );
+                activeLink.classList.remove('text-gray-500');
+            }
+        }
 
-		let selectedFormat = "250g";
-		let price = 16.99;
+        document.querySelectorAll('.tablinks').forEach((button) => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+                if (tabName) openTab(tabName);
+            });
+        });
+        openTab('ingredient');
 
-		// --- Image switching ---
-		document
-			.getElementById("button1")
-			?.addEventListener("click", () => changeImage(img, "1"));
-		document
-			.getElementById("button2")
-			?.addEventListener("click", () => changeImage(img, "2"));
+        // --- Format toggle ---
+        if (btn250 && btn1000 && priceEl) {
+            btn250.addEventListener('click', () => {
+                selectedFormat = '250g';
+                price = 16.99;
+                btn250.classList.add(
+                    'bg-[#A47343]',
+                    'text-white',
+                    'border-[#A47343]',
+                );
+                btn250.classList.remove('border-2');
+                btn1000.classList.remove('bg-[#A47343]', 'text-white');
+                btn1000.classList.add(
+                    'border-2',
+                    'border-[#A47343]',
+                    'text-[#A47343]',
+                );
+                priceEl.textContent = '16,99€';
+            });
 
-		// --- Tab system ---
-		document.querySelectorAll(".tablinks").forEach((button) => {
-			button.addEventListener("click", () => {
-				const tabName = button.getAttribute("data-tab");
-				if (tabName) openTab(tabName);
-			});
-		});
-		openTab("ingredient");
+            btn1000.addEventListener('click', () => {
+                selectedFormat = '1kg';
+                price = 34.99;
+                btn1000.classList.add(
+                    'bg-[#A47343]',
+                    'text-white',
+                    'border-[#A47343]',
+                );
+                btn1000.classList.remove('border-2');
+                btn250.classList.remove('bg-[#A47343]', 'text-white');
+                btn250.classList.add(
+                    'border-2',
+                    'border-[#A47343]',
+                    'text-[#A47343]',
+                );
+                priceEl.textContent = '34,99€';
+            });
+        }
 
-		// --- Format toggle ---
-		if (btn250 && btn1000 && priceEl) {
-			btn250.addEventListener("click", () => {
-				selectedFormat = "250g";
-				price = 16.99;
-				btn250.classList.add("bg-[#A47343]", "text-white");
-				btn1000.classList.remove("bg-[#A47343]", "text-white");
-				priceEl.textContent = "16,99€";
-			});
+        // --- Add to Cart button ---
+        addToCartBtn?.addEventListener('click', () => {
+            const quantity = parseInt(quantityInput?.value || '1');
 
-			btn1000.addEventListener("click", () => {
-				selectedFormat = "1kg";
-				price = 34.99;
-				btn1000.classList.add("bg-[#A47343]", "text-white");
-				btn250.classList.remove("bg-[#A47343]", "text-white");
-				priceEl.textContent = "34,99€";
-			});
-		}
+            const product = {
+                id: productName.toLowerCase().replace(/\s+/g, '-'),
+                name: productName,
+                price: price,
+                image: `${img}-1.png`,
+                format: selectedFormat,
+                quantity: quantity,
+            };
 
-		// --- Add to Cart button (calls centralized script) ---
-		addToCartBtn?.addEventListener("click", () => {
-			const quantity = parseInt(quantityInput?.value || "1");
-
-			const product = {
-				id: productName.toLowerCase().replace(/\s+/g, "-"),
-				name: productName,
-				price: price,
-				image: `${img}-1.png`,
-				format: selectedFormat,
-				quantity: quantity,
-			};
-
-			if (window.addToCart) {
-				window.addToCart(product);
-				alert("✅ Produit ajouté au panier !");
-			} else {
-				console.error("⚠️ addToCart not found — check Layout script import.");
-			}
-		});
-	});
+            if (window.addToCart) {
+                window.addToCart(product);
+                alert('✅ Produit ajouté au panier !');
+            } else {
+                console.error('⚠️ addToCart not found');
+            }
+        });
+    });
 </script>
 
-
 <style>
-	.tabcontent.hidden {
-		display: none;
-	}
-	.tabcontent {
-		display: block;
-	}
+    .tabcontent.hidden {
+        display: none;
+    }
+    .tabcontent {
+        display: block;
+    }
 </style>

@@ -11,10 +11,22 @@ const t = useTranslations(lang);
 export { getStaticPaths };
 ---
 
-<Layout title={t('login.title') || 'Connexion'}>
+<Layout title={`EMCAFFE - ${t("login.title")|| 'Connexion'} `}>
 	<Header />
-	<div
-		class="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12 pt-28 mt-10"
+	
+ <!-- Banner -->
+   <section class="relative h-[300px] md:h-[400px] w-full overflow-hidden" style="margin-top: 160px; position: relative; z-index: 1;">
+    <img src="/img/PANIER.jpeg" alt="Coffee Banner" class="w-full h-[400px] md:h-[500px] object-cover block">
+    <div class="absolute inset-0 flex items-center justify-start text-center bg-black/40 ">
+      <h1 class="text-white text-4xl md:text-7xl font-[Chalkduster] tracking-wide ml-10 ">
+        {t('login.title')}
+      </h1>
+    </div>
+   </section>
+   <!-- Banner -->
+   
+   <div class="flex items-center justify-center px-4 mt-10 pb-12 relative z-10"
+
 	>
 		<div class="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
 			<!-- Titre -->
