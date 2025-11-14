@@ -573,7 +573,7 @@ const orders = [
 	<Footer />
 </Layout>
 
-<script>
+<script lang="ts">
 	// Script pour éditer le profil
 	const editBtn = document.getElementById('edit-profile-btn');
 	const cancelBtn = document.getElementById('cancel-edit-btn');
@@ -615,7 +615,7 @@ const orders = [
 	const sections = document.querySelectorAll('section[id]');
 
 	// Fonction pour mettre à jour le lien actif
-	function updateActiveLink(targetId: string) {
+	function updateActiveLink(targetId) {
 		navLinks.forEach((link) => {
 			const href = link.getAttribute('href')?.substring(1); // Enlever le #
 
