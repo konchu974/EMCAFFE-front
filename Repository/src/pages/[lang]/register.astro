@@ -34,7 +34,6 @@ export { getStaticPaths };
             </h1>
         </div>
     </section>
-    <!-- Banner -->
 
     <div
         class="relative z-10 mt-10 flex items-center justify-center px-4 pb-12"
@@ -50,8 +49,7 @@ export { getStaticPaths };
 
             <!-- Formulaire d'inscription -->
             <form
-                method="POST"
-                action={`/${lang}/api/register`}
+                id="register-form"
                 class="space-y-5"
             >
                 <!-- Prénom et Nom -->
@@ -113,23 +111,18 @@ export { getStaticPaths };
                                     'Sélectionnez votre genre'
                             }
                         </option>
-                        <option value="male">
+                        <option value="M">
                             {t('register.male') || 'Homme'}
                         </option>
-                        <option value="female">
+                        <option value="F">
                             {t('register.female') || 'Femme'}
                         </option>
-                        <option value="other">
+                        <option value="OTHER">
                             {t('register.other') || 'Autre'}
-                        </option>
-                        <option value="prefer-not-to-say">
-                            {
-                                t('register.preferNotToSay') ||
-                                    'Je préfère ne pas dire'
-                            }
                         </option>
                     </select>
                 </div>
+
 
                 <!-- Email -->
                 <div>
@@ -210,7 +203,7 @@ export { getStaticPaths };
                     />
                 </div>
 
-                <!-- Conditions d'utilisation  -->
+                <!-- Conditions d'utilisation -->
                 <div class="flex items-start">
                     <input
                         type="checkbox"
@@ -234,7 +227,7 @@ export { getStaticPaths };
                     </label>
                 </div>
 
-                <!-- Politique de confidentialité  -->
+                <!-- Politique de confidentialité -->
                 <div class="flex items-start">
                     <input
                         type="checkbox"
@@ -261,7 +254,7 @@ export { getStaticPaths };
                     </label>
                 </div>
 
-                <!-- Newsletter  -->
+                <!-- Newsletter -->
                 <div class="flex items-start">
                     <input
                         type="checkbox"
@@ -284,10 +277,18 @@ export { getStaticPaths };
                 >
                 </div>
 
+                <!-- Message de succès -->
+                <div
+                    id="success-message"
+                    class="hidden rounded-lg bg-green-100 p-3 text-sm text-green-700"
+                >
+                </div>
+
                 <!-- Bouton d'inscription -->
                 <button
                     type="submit"
-                    class="w-full transform rounded-lg bg-[#5C3F32] px-6 py-3 font-bold text-white transition duration-300 hover:scale-105 hover:bg-[#8B4513]"
+                    id="submit-btn"
+                    class="w-full transform rounded-lg bg-[#5C3F32] px-6 py-3 font-bold text-white transition duration-300 hover:scale-105 hover:bg-[#8B4513] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {t('register.submit') || 'Créer mon compte'}
                 </button>
@@ -322,3 +323,275 @@ export { getStaticPaths };
 
     <Footer />
 </Layout>
+
+<script>
+  import { userService } from '@/lib/api/userService';
+  
+  const lang = document.documentElement.lang || 'fr';
+  
+  // ============================================
+  // GESTION DES MESSAGES
+  // ============================================
+  
+  function showError(message: string) {
+    const errorDiv = document.getElementById('error-message');
+    const successDiv = document.getElementById('success-message');
+    
+    if (errorDiv) {
+      errorDiv.textContent = message;
+      errorDiv.classList.remove('hidden');
+    }
+    if (successDiv) {
+      successDiv.classList.add('hidden');
+    }
+    
+    // Scroll vers le message
+    errorDiv?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  
+  function showSuccess(message: string) {
+    const errorDiv = document.getElementById('error-message');
+    const successDiv = document.getElementById('success-message');
+    
+    if (successDiv) {
+      successDiv.textContent = message;
+      successDiv.classList.remove('hidden');
+    }
+    if (errorDiv) {
+      errorDiv.classList.add('hidden');
+    }
+    
+    // Scroll vers le message
+    successDiv?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  
+  function hideMessages() {
+    const errorDiv = document.getElementById('error-message');
+    const successDiv = document.getElementById('success-message');
+    
+    errorDiv?.classList.add('hidden');
+    successDiv?.classList.add('hidden');
+  }
+  
+  // ============================================
+  // VALIDATION DU FORMULAIRE
+  // ============================================
+  
+  function validatePassword(password: string, confirmPassword: string): string | null {
+    if (password.length < 8) {
+      return 'Le mot de passe doit contenir au moins 8 caractères';
+    }
+    
+    if (password !== confirmPassword) {
+      return 'Les mots de passe ne correspondent pas';
+    }
+    
+    // Vérification de la complexité (optionnel)
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    
+    if (!hasUpperCase || !hasLowerCase || !hasNumber) {
+      return 'Le mot de passe doit contenir au moins une majuscule, une minuscule et un chiffre';
+    }
+    
+    return null;
+  }
+  
+  function validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+  
+  function validatePhone(phone: string): boolean {
+    if (!phone) return true; // Optionnel
+    
+    // Format français: +33 ou 0, puis 9 chiffres
+    const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
+    return phoneRegex.test(phone.replace(/\s/g, ''));
+  }
+  
+  // ============================================
+  // SOUMISSION DU FORMULAIRE
+  // ============================================
+  
+  async function handleRegister(event: Event) {
+    event.preventDefault();
+    
+    console.log('📝 Début de l\'inscription...');
+    hideMessages();
+    
+    const form = event.target as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const formData = new FormData(form);
+    
+    // Récupération des données
+    const firstName = (formData.get('firstName') as string).trim();
+    const lastName = (formData.get('lastName') as string).trim();
+    const gender = formData.get('gender') as string;
+    const email = (formData.get('email') as string).trim();
+    const phone = (formData.get('phone') as string).trim();
+    const password = formData.get('password') as string;
+    const confirmPassword = formData.get('confirmPassword') as string;
+    const termsAccepted = formData.get('terms') === 'on';
+    const privacyAccepted = formData.get('privacy') === 'on';
+    const newsletter = formData.get('newsletter') === 'on';
+    
+    // Validations côté client
+    if (!firstName || !lastName) {
+      showError('Veuillez renseigner votre nom et prénom');
+      return;
+    }
+    
+    if (!gender || !['M', 'F', 'OTHER'].includes(gender)) {
+      showError('Veuillez sélectionner un genre valide');
+      return;
+    }
+    
+    if (!validateEmail(email)) {
+      showError('Veuillez entrer une adresse email valide');
+      return;
+    }
+    
+    if (!validatePhone(phone)) {
+      showError('Le numéro de téléphone n\'est pas valide');
+      return;
+    }
+    
+    const passwordError = validatePassword(password, confirmPassword);
+    if (passwordError) {
+      showError(passwordError);
+      return;
+    }
+    
+    if (!termsAccepted || !privacyAccepted) {
+      showError('Vous devez accepter les conditions d\'utilisation et la politique de confidentialité');
+      return;
+    }
+    
+    // Désactiver le bouton
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Création du compte...';
+    
+    try {
+      console.log('📤 Envoi des données à l\'API...');
+      
+      const registerData = {
+        first_name: firstName,
+        last_name: lastName,
+        gender: gender, // ✅ Sera M, F ou OTHER
+        email: email,
+        phone: phone || undefined,
+        password: password,
+        newsletter: newsletter
+      };
+      
+      console.log('📦 Données à envoyer:', registerData);
+      
+      // Appel à l'API
+      const result = await userService.register(registerData);
+      
+      console.log('✅ Inscription réussie:', result);
+      
+      showSuccess('✅ Compte créé avec succès ! Redirection vers la connexion...');
+      
+      // Réinitialiser le formulaire
+      form.reset();
+      
+      // Redirection après 2 secondes
+      setTimeout(() => {
+        window.location.href = `/${lang}/log?registered=true`;
+      }, 2000);
+      
+    } catch (error) {
+      console.error('❌ Erreur lors de l\'inscription:', error);
+      
+      if (error instanceof Error) {
+        // Améliorer le message d'erreur
+        let errorMessage = error.message;
+        
+        if (errorMessage.includes('gender')) {
+          errorMessage = 'Genre invalide. Veuillez sélectionner Homme, Femme ou Autre.';
+        } else if (errorMessage.includes('email')) {
+          errorMessage = 'Cet email est déjà utilisé ou invalide.';
+        } else if (errorMessage.includes('password')) {
+          errorMessage = 'Le mot de passe ne respecte pas les critères de sécurité.';
+        }
+        
+        showError(errorMessage);
+      } else {
+        showError('Une erreur est survenue lors de la création du compte');
+      }
+      
+      // Réactiver le bouton
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Créer mon compte';
+    }
+  }
+
+  
+  // ============================================
+  // INITIALISATION
+  // ============================================
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('✅ Page d\'inscription chargée');
+    
+    // Vérifier si déjà connecté
+    if (userService.isAuthenticated()) {
+      console.log('🔐 Déjà authentifié, redirection...');
+      window.location.href = `/${lang}/account`;
+      return;
+    }
+    
+    // Attacher le gestionnaire de soumission
+    const form = document.getElementById('register-form');
+    if (form) {
+      form.addEventListener('submit', handleRegister);
+      console.log('✅ Gestionnaire de formulaire attaché');
+    }
+    
+    // Validation en temps réel du mot de passe
+    const passwordInput = document.getElementById('password') as HTMLInputElement;
+    const confirmPasswordInput = document.getElementById('confirmPassword') as HTMLInputElement;
+    
+    if (confirmPasswordInput) {
+      confirmPasswordInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+        
+        if (confirmPassword && password !== confirmPassword) {
+          confirmPasswordInput.setCustomValidity('Les mots de passe ne correspondent pas');
+        } else {
+          confirmPasswordInput.setCustomValidity('');
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+    /* Animation de chargement */
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    /* Amélioration du focus */
+    input:focus,
+    select:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(92, 63, 50, 0.1);
+    }
+    
+    /* État invalide */
+    input:invalid:not(:placeholder-shown) {
+        border-color: #EF4444;
+    }
+    
+    /* État valide */
+    input:valid:not(:placeholder-shown) {
+        border-color: #10B981;
+    }
+</style>

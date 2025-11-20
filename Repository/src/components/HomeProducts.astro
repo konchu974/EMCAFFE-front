@@ -4,8 +4,14 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const images = ["300-bio", "200-bio", "300-spe", "200-spe"];
-const notAvailableProducts = ["200-bio", "200-spe", "300-spe"];
+const images = ["300-bio", "200-bio"];
+const notAvailableProducts = ["",];
+
+// Prices for each product
+const prices = {
+  "300-bio": "15.99",
+  "200-bio": "12.99",
+};
 ---
 
 <section class="flex flex-col items-center justify-center py-12">
@@ -25,28 +31,48 @@ const notAvailableProducts = ["200-bio", "200-spe", "300-spe"];
       class="flex transition-transform duration-700 ease-in-out gap-3 sm:gap-6"
     >
       {images.map((image) => (
-        <a
-          href={`/${lang}/product/${image}`}
-          class="relative flex-shrink-0 flex flex-col items-center justify-between bg-[#ffffff] w-1/2 md:w-1/2 rounded-lg p-4 hover:scale-105 transition-transform"
+        <div
+          class="relative flex-shrink-0 flex flex-col items-center justify-between bg-[#ffffff] w-full md:w-1/2 rounded-lg p-4 hover:scale-105 transition-transform"
         >
           {notAvailableProducts.includes(image) && (
             <p
-              class="absolute left-1/2 top-1/2 -translate-x-1/2 -rotate-12 font-[Chalkduster] text-4xl font-bold uppercase text-red-600 opacity-90"
+              class="absolute left-1/2 top-1/4 md:top-1/2 -translate-x-1/2 -rotate-12 font-[Chalkduster] text-4xl font-bold uppercase text-red-600 opacity-90 z-10"
             >
               {t("home-carousel.soon")}
             </p>
           )}
-          <img
-            src={`/img/products/${image}-1.png`}
-            alt={t(`${image}.titlep`)}
-            class="w-full h-auto object-contain rounded-md shadow-lg"
-          />
+          <a href={`/${lang}/product/${image}`} class="w-full">
+            <img
+              src={`/img/products/${image}-1.png`}
+              alt={t(`${image}.titlep`)}
+              class="w-full h-auto object-contain rounded-md shadow-lg"
+            />
+          </a>
+          
+          <!-- Title with product description styling -->
           <h3
-            class="mt-3 text-center text-sm md:text-base font-semibold text-black"
+            class="mt-6 text-lg md:text-xl text-primary font-bold leading-tight text-center"
           >
             {t(`${image}.titlep`)}
           </h3>
-        </a>
+          
+          <!-- Price -->
+          <p class="mt-2 text-xl font-bold text-[#753E1C]">
+            {prices[image]}€
+          </p>
+          
+          <!-- Add to cart button -->
+          <button
+            id="addToCart"
+            class="mt-6 bg-black text-white px-6 py-3 rounded-xl hover:bg-[#5C3F32] transition font-semibold shadow-md"
+            data-product-id={image}
+            data-product-name={t(`${image}.titlep`)}
+            data-product-price={prices[image]}
+            data-product-image={`/img/products/${image}-1.png`}
+          >
+            {t("product.addToCart") || "Ajouter au panier"}
+          </button>
+        </div>
       ))}
     </div>
   </div>
@@ -55,17 +81,23 @@ const notAvailableProducts = ["200-bio", "200-spe", "300-spe"];
 <script is:inline>
   const track = document.getElementById("carousel-track");
   const container = document.getElementById("carousel-container");
-  const cards = document.querySelectorAll("#carousel-track > a");
+  const cards = document.querySelectorAll("#carousel-track > div");
 
   let index = 0;
-  const visible = 2;
+  let visible = window.innerWidth < 768 ? 1 : 2; // 1 card on mobile, 2 on desktop
   const total = cards.length;
+
+  // Update visible cards based on screen size
+  function updateVisible() {
+    visible = window.innerWidth < 768 ? 1 : 2;
+  }
 
   //  Move carousel to correct position
   function updateCarousel() {
     if (!track || cards.length === 0) return;
-    const cardWidth = (cards[0].offsetWidth || 0) + 27;
-    const offset = -index * cardWidth * visible;
+    updateVisible();
+    const cardWidth = (cards[0].offsetWidth || 0) + (window.innerWidth < 640 ? 12 : 24);
+    const offset = -index * cardWidth;
     track.style.transform = `translateX(${offset}px)`;
   }
 
@@ -111,4 +143,22 @@ const notAvailableProducts = ["200-bio", "200-spe", "300-spe"];
   });
 
   window.addEventListener("resize", updateCarousel);
+  
+  // Add to cart functionality
+  document.querySelectorAll('button[id="addToCart"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const productId = e.target.dataset.productId;
+      const productName = e.target.dataset.productName;
+      const productPrice = e.target.dataset.productPrice;
+      const productImage = e.target.dataset.productImage;
+      
+      // Add your cart logic here
+      console.log('Adding to cart:', {
+        id: productId,
+        name: productName,
+        price: productPrice,
+        image: productImage
+      });
+    });
+  });
 </script>

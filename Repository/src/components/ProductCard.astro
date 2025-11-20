@@ -102,7 +102,7 @@ function formatTextWithLineBreaks(text: string): string[] {
 						id="btn-250"
 						class="active rounded-lg bg-[#A47343] px-4 py-2 font-semibold text-white transition hover:bg-[#8B4513] sm:px-5 sm:py-2.5"
 					>
-						250g
+						500g
 					</button>
 					<button
 						id="btn-1000"
@@ -307,7 +307,7 @@ function formatTextWithLineBreaks(text: string): string[] {
 			document.querySelector('h2')?.textContent?.trim() ||
 			'Produit inconnu';
 
-		let selectedFormat = '250g';
+		let selectedFormat = '500g';
 		let price = 16.99;
 
 		// --- Quantity controls ---
@@ -382,7 +382,7 @@ function formatTextWithLineBreaks(text: string): string[] {
 		// --- Format toggle ---
 		if (btn250 && btn1000 && priceEl) {
 			btn250.addEventListener('click', () => {
-				selectedFormat = '250g';
+				selectedFormat = '500g';
 				price = 16.99;
 				btn250.classList.add(
 					'bg-[#A47343]',
@@ -427,7 +427,7 @@ function formatTextWithLineBreaks(text: string): string[] {
 			const product = {
 				id: btn.dataset.productId,
 				name: btn.dataset.productName,
-				price: selectedFormat === '250g' ? 16.99 : 34.99, // <-- FIX HERE
+				price: selectedFormat === '500g' ? 16.99 : 34.99, // <-- FIX HERE
 				image: btn.dataset.productImage,
 				quantity: quantityValue,
 				format: selectedFormat,
