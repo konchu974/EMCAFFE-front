@@ -432,6 +432,13 @@
 		"title": "CAFÉS BIO",
 		"descriptionFront": "GRAINS DE CAFÉ TORRÉFIÉS PURS<br /><strong>ARABIQUE DE FORÊT D'ALTITUDE<br />100% BIO</strong>",
 		"addToCart": "Ajouter au panier"
-	}
+	},
+
+    
+  "popup": {
+    "title": "Titre du popup"
+  }
+
+
 }
 

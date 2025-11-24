@@ -1,74 +1,72 @@
 ---
+import { productService } from '@/lib/api/productService';
+import type { Product, ProductVariant } from "@/lib/api/types/product.types";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const images = ["300-bio", "200-bio"];
-const notAvailableProducts = ["",];
+let products: Product[] = [];
 
-// Prices for each product
-const prices = {
-  "300-bio": "15.99",
-  "200-bio": "12.99",
-};
+try {
+  const response = await productService.getAllProducts();
+  if (response && Array.isArray(response.data)) {
+    products = response.data;
+  }
+} catch (err) {
+  console.error("❌ Erreur API produits:", err);
+}
+
+// Préparer priceMap pour chaque produit
+const preparedProducts = products.map(product => {
+  const priceMap: Record<string, number> = {};
+
+  (product.variants || []).forEach((v: ProductVariant) => {
+    const key = v.format || 'default';
+    priceMap[key] = (v.price);
+  });
+
+  const defaultFormat = Object.keys(priceMap)[0] || 'default';
+
+  // Si pas de variantes, mettre le prix principal
+  if (!priceMap[defaultFormat]) {
+    priceMap['default'] = (product.price);
+  }
+
+  return {
+    ...product,
+    priceMap,
+    defaultFormat,
+  };
+});
 ---
 
 <section class="flex flex-col items-center justify-center py-12">
-  <!-- Title -->
   <h2 class="mb-8 text-5xl font-[Chalkduster] uppercase text-[#753E1C] text-center">
     {t("home-carousel.title")}
   </h2>
 
-  <!-- Outer frame -->
-  <div
-    id="carousel-container"
-    class="relative w-[100vw] sm:w-11/12 md:w-3/4 border-2 border-black rounded-2xl bg-[#FEFBED] p-6 sm:p-8 md:p-12 shadow-md overflow-hidden mx-auto"
-  >
-    <!-- Track -->
-    <div
-      id="carousel-track"
-      class="flex transition-transform duration-700 ease-in-out gap-3 sm:gap-6"
-    >
-      {images.map((image) => (
-        <div
-          class="relative flex-shrink-0 flex flex-col items-center justify-between bg-[#ffffff] w-full md:w-1/2 rounded-lg p-4 hover:scale-105 transition-transform"
-        >
-          {notAvailableProducts.includes(image) && (
-            <p
-              class="absolute left-1/2 top-1/4 md:top-1/2 -translate-x-1/2 -rotate-12 font-[Chalkduster] text-4xl font-bold uppercase text-red-600 opacity-90 z-10"
-            >
-              {t("home-carousel.soon")}
-            </p>
-          )}
-          <a href={`/${lang}/product/${image}`} class="w-full">
-            <img
-              src={`/img/products/${image}-1.png`}
-              alt={t(`${image}.titlep`)}
-              class="w-full h-auto object-contain rounded-md shadow-lg"
-            />
+  <div id="carousel-container" class="relative w-[100vw] sm:w-11/12 md:w-3/4 border-2 border-black rounded-2xl bg-[#FEFBED] p-6 sm:p-8 md:p-12 shadow-md overflow-hidden mx-auto">
+    <div id="carousel-track" class="flex transition-transform duration-700 ease-in-out gap-3 sm:gap-6">
+      {preparedProducts.map(product => (
+        <div class="relative flex-shrink-0 flex flex-col items-center justify-between bg-[#ffffff] w-full md:w-1/2 rounded-lg p-4 hover:scale-105 transition-transform">
+          <a href={`/${lang}/product/${product.id_product}`} class="w-full">
+            <img src={`${product.image_url}-1.png`} alt={product.name} class="w-full h-auto object-contain rounded-md shadow-lg" />
           </a>
-          
-          <!-- Title with product description styling -->
-          <h3
-            class="mt-6 text-lg md:text-xl text-primary font-bold leading-tight text-center"
-          >
-            {t(`${image}.titlep`)}
-          </h3>
-          
-          <!-- Price -->
-          <p class="mt-2 text-xl font-bold text-[#753E1C]">
-            {prices[image]}€
+
+          <h3 class="mt-6 text-lg md:text-xl text-primary font-bold leading-tight text-center">{product.name}</h3>
+
+          <p class="mt-6 border border-gray-300 text-black font-semibold text-lg md:text-xl px-6 py-2 rounded-full">
+            {product.priceMap[product.defaultFormat]}€
           </p>
-          
-          <!-- Add to cart button -->
+
           <button
-            id="addToCart"
-            class="mt-6 bg-black text-white px-6 py-3 rounded-xl hover:bg-[#5C3F32] transition font-semibold shadow-md"
-            data-product-id={image}
-            data-product-name={t(`${image}.titlep`)}
-            data-product-price={prices[image]}
-            data-product-image={`/img/products/${image}-1.png`}
+            class="mt-6 bg-black text-white px-6 py-3 rounded-xl hover:bg-[#5C3F32] transition font-semibold shadow-md add-to-cart"
+            data-product-id={product.id_product}
+            data-product-name={product.name}
+            data-product-image={`${product.image_url}-1.png`}
+            data-price-map={JSON.stringify(product.priceMap)}
+            data-default-format={product.defaultFormat}
           >
             {t("product.addToCart") || "Ajouter au panier"}
           </button>
@@ -79,86 +77,58 @@ const prices = {
 </section>
 
 <script is:inline>
-  const track = document.getElementById("carousel-track");
-  const container = document.getElementById("carousel-container");
-  const cards = document.querySelectorAll("#carousel-track > div");
+const track = document.getElementById("carousel-track");
+const container = document.getElementById("carousel-container");
+const cards = document.querySelectorAll("#carousel-track > div");
 
-  let index = 0;
-  let visible = window.innerWidth < 768 ? 1 : 2; // 1 card on mobile, 2 on desktop
-  const total = cards.length;
+let index = 0;
+let visible = window.innerWidth < 768 ? 1 : 2;
+const total = cards.length;
 
-  // Update visible cards based on screen size
-  function updateVisible() {
-    visible = window.innerWidth < 768 ? 1 : 2;
-  }
+function updateVisible() { visible = window.innerWidth < 768 ? 1 : 2; }
+function updateCarousel() {
+  if (!track || cards.length === 0) return;
+  updateVisible();
+  const cardWidth = (cards[0].offsetWidth || 0) + (window.innerWidth < 640 ? 12 : 24);
+  const offset = -index * cardWidth;
+  track.style.transform = `translateX(${offset}px)`;
+}
+function nextSlide() {
+  index = (index + 1) % Math.ceil(total / visible);
+  updateCarousel();
+}
 
-  //  Move carousel to correct position
-  function updateCarousel() {
-    if (!track || cards.length === 0) return;
-    updateVisible();
-    const cardWidth = (cards[0].offsetWidth || 0) + (window.innerWidth < 640 ? 12 : 24);
-    const offset = -index * cardWidth;
-    track.style.transform = `translateX(${offset}px)`;
-  }
+let autoScroll = setInterval(nextSlide, 5000);
+container?.addEventListener("mouseenter", () => clearInterval(autoScroll));
+container?.addEventListener("mouseleave", () => { autoScroll = setInterval(nextSlide, 5000); });
 
-  function nextSlide() {
-    index = (index + 1) % Math.ceil(total / visible);
-    updateCarousel();
-  }
+window.addEventListener("resize", updateCarousel);
 
-  //  Auto-scroll every 5 seconds
-  let autoScroll = setInterval(nextSlide, 5000);
+// Ajouter au panier
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    const target = e.currentTarget;
+    const priceMap = JSON.parse(target.dataset.priceMap || '{}');
+    const format = target.dataset.defaultFormat || 'default';
+    const price = priceMap[format] ?? 0;
 
-  //  Pause on hover
-  container?.addEventListener("mouseenter", () => clearInterval(autoScroll));
-  container?.addEventListener("mouseleave", () => {
-    autoScroll = setInterval(nextSlide, 5000);
-  });
+    const product = {
+      id: target.dataset.productId,
+      name: target.dataset.productName,
+      price,
+      image: target.dataset.productImage,
+      format,
+      quantity: 1
+    };
 
-  //  Touch/swipe support (for mobile)
-  let startX = 0;
-  let endX = 0;
+    console.log("🛒 Add to cart:", product);
 
-  container?.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  container?.addEventListener("touchmove", (e) => {
-    endX = e.touches[0].clientX;
-  });
-
-  container?.addEventListener("touchend", () => {
-    const diff = startX - endX;
-    if (Math.abs(diff) > 50) {
-      // Swipe threshold
-      if (diff > 0) {
-        // swipe left 
-        index = (index + 1) % Math.ceil(total / visible);
-      } else {
-        // swipe right 
-        index = (index - 1 + Math.ceil(total / visible)) % Math.ceil(total / visible);
-      }
-      updateCarousel();
+    if (typeof window.addToCart === 'function') {
+      window.addToCart(product);
+    }
+    if (typeof window.dispatchAddToCartModal === 'function') {
+      window.dispatchAddToCartModal(product);
     }
   });
-
-  window.addEventListener("resize", updateCarousel);
-  
-  // Add to cart functionality
-  document.querySelectorAll('button[id="addToCart"]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const productId = e.target.dataset.productId;
-      const productName = e.target.dataset.productName;
-      const productPrice = e.target.dataset.productPrice;
-      const productImage = e.target.dataset.productImage;
-      
-      // Add your cart logic here
-      console.log('Adding to cart:', {
-        id: productId,
-        name: productName,
-        price: productPrice,
-        image: productImage
-      });
-    });
-  });
+});
 </script>

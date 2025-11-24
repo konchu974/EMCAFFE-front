@@ -434,5 +434,12 @@
 		"title": "ORGANIC COFFEES",
 		"descriptionFront": "Pure roasted coffee beans<br /><strong>HIGH-ALTITUDE FOREST ARABICA<br />100% ORGANIC</strong>",
 		"addToCart": "Add to Cart"
-	}
+	},
+
+    
+  "popup": {
+    "title": "Popup title"
+  }
+
+
 }

@@ -8,29 +8,27 @@ import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { productService } from '@/lib/api/productService';
 import type { Product } from '@/lib/api/types/product.types';
 
-// ⚡ Astro params
+// Astro params
 const { id } = Astro.params as { id: string; lang: string };
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as 'en' | 'fr' | 'es');
 
-// Définir l'interface de la réponse
 interface ProductResponse {
   success: boolean;
   data: Product;
 }
 
-// Récupération produit via l'API
 let product: Product | null = null;
 
 try {
-  const result: ProductResponse = await productService.getProductById(id);
+  const result: ProductResponse = await productService.getProductWithVariants(id);
   product = result.data; // maintenant product est de type Product
   console.log('Produit récupéré:', product);
 } catch (err) {
   console.error('❌ Impossible de récupérer le produit :', err);
 }
 
-// ⚡ Tabs et contenus
+// Tabs et contenus
 const tabTitles = {
   ingredient: t('tab.ingredient'),
   preparation: t('tab.preparation'),
@@ -61,6 +59,7 @@ const dimension = product?.size || '';
         dimension={dimension}
         tabTitles={tabTitles}
         t={t}
+        variants={product?.variants || []}
       />
     ) : (
       <p class="text-center text-gray-500 mt-8">Produit introuvable.</p>

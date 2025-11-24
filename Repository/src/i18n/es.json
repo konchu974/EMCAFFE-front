@@ -434,5 +434,11 @@
 		"title": "CAFÉS ORGÁNICOS",
 		"descriptionFront": "Granos de café tostado puro<br /><strong>ARÁBICA DE BOSQUE DE ALTURA<br />100% ORGÁNICO</strong>",
 		"addToCart": "Agregar al carrito"
-	}
+	},
+
+    
+  "popup": {
+    "title": "Título del popup"
+  }
+
 }
