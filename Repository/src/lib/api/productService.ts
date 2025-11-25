@@ -18,7 +18,7 @@ import type {
   ProductResponse,
 } from './types/product.types';
 
-const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:3000/api';
+const API_URL = import.meta.env.PUBLIC_API_URL || 'https://api-emcafe-3.onrender.com/api';
 
 class ProductService {
   private getAuthHeaders(): HeadersInit {
