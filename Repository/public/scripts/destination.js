@@ -2,7 +2,8 @@
 const STRIPE_PUBLIC_KEY =
   "pk_test_51SVYto14tHXOJjU15ghHpxe0AP3n8abWKIuwHbRX3oQ55wVLmiHsdZNMVsDeAFuPJEVmknhbHLMLu6Ky0HEEHnRp00gKixVHNi";
 
-const API_BASE_URL = "http://localhost:3000/api";
+const API_BASE_URL = "https://api-emcafe-3.onrender.com/api";
+;
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ destination.js loaded");
