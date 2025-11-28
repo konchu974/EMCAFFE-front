@@ -42,9 +42,11 @@ export function getLangFromUrl(url: URL) {
     return defaultLang as keyof typeof ui; // ✅ Fix : retourner defaultLang
 }
 
-// ✅ Version sécurisée avec gestion des erreurs
+// Créer un type qui exclut les symbols
+type TranslationKey = Exclude<keyof (typeof ui)[typeof defaultLang], symbol>;
+
 export function useTranslations(lang: keyof typeof ui) {
-    return function t(key: keyof (typeof ui)[typeof defaultLang]) {
+    return function t(key: TranslationKey) {
         // Vérifier si la langue existe
         if (!ui[lang]) {
             console.warn(`⚠️ Langue "${lang}" non trouvée, utilisation de "${defaultLang}"`);
@@ -53,22 +55,23 @@ export function useTranslations(lang: keyof typeof ui) {
 
         // Récupérer la traduction
         const translation = ui[lang][key];
-        
+
         // Si pas de traduction dans la langue demandée, essayer la langue par défaut
         if (translation === undefined) {
             const fallback = ui[defaultLang][key];
-            
+
             if (fallback === undefined) {
                 console.warn(`⚠️ Traduction manquante : "${key}" (langue: ${lang})`);
-                return String(key); // Retourner la clé comme texte de secours
+                return key; // ✅ key est garantie d'être une string
             }
-            
+
             return fallback;
         }
-        
+
         return translation;
     };
 }
+
 
 export async function getStaticPaths() {
     return Object.keys(languages).map((lang) => ({ params: { lang } }));
