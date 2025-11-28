@@ -16,6 +16,7 @@ import type {
   CoffeeType,
   RoastLevel,
   ProductResponse,
+  ProductDetailResponse,
 } from './types/product.types';
 
 const API_URL = import.meta.env.PUBLIC_API_URL || 'https://api-emcafe-3.onrender.com/api';
@@ -52,22 +53,37 @@ class ProductService {
    * GET /products - Récupérer tous les produits
    * @param params - Paramètres de requête (pagination, filtres, tri)
    */
-  async getAllProducts(params?: ProductQueryParams): Promise<Product[] | ProductListResponse> {
-    const queryString = params ? this.buildQueryString(params) : '';
-    
-    const response = await fetch(`${API_URL}/products${queryString}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+async getAllProducts(params?: ProductQueryParams): Promise<ProductListResponse> {
+  const queryString = params ? this.buildQueryString(params) : '';
+  
+  const response = await fetch(`${API_URL}/products${queryString}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-    if (!response.ok) {
-      throw new Error('Erreur lors de la récupération des produits');
-    }
-
-    return response.json();
+  if (!response.ok) {
+    throw new Error('Erreur lors de la récupération des produits');
   }
+
+  const result = await response.json();
+
+  // Normalisation de la réponse
+  if (Array.isArray(result)) {
+    return {
+      data: result,
+      products: result,
+      page: 1,
+      limit: result.length,
+      totalPages: 1,
+      total: result.length
+    };
+  }
+
+  return result; // déjà un ProductListResponse
+}
+
 
   /**
    * GET /products/full - Récupérer tous les produits avec leurs variantes
@@ -90,7 +106,7 @@ class ProductService {
   /**
    * GET /products/:id - Récupérer un produit par son ID
    */
-async getProductById(id: string): Promise<ProductResponse> {
+async getProductById(id: string): Promise<ProductDetailResponse> {
   const response = await fetch(`${API_URL}/products/${id}`, {
     headers: { 'Content-Type': 'application/json' },
   });
@@ -103,20 +119,21 @@ async getProductById(id: string): Promise<ProductResponse> {
   /**
    * GET /products/:id/full - Récupérer un produit avec ses variantes
    */
-  async getProductWithVariants(id: string): Promise<ProductWithVariants> {
-    const response = await fetch(`${API_URL}/products/${id}/full`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+ async getProductWithVariants(id: string): Promise<ProductResponse> {
+  const response = await fetch(`${API_URL}/products/${id}/full`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 
-    if (!response.ok) {
-      throw new Error('Produit non trouvé');
-    }
-
-    return response.json();
+  if (!response.ok) {
+    throw new Error('Produit non trouvé');
   }
+
+  return response.json(); // Retourne { success: true, data: ProductWithVariants }
+}
+
 
   /**
    * GET /products/featured - Récupérer les produits en vedette
@@ -403,22 +420,25 @@ async getProductById(id: string): Promise<ProductResponse> {
   /**
    * Vérifier la disponibilité d'une variante
    */
-  async checkVariantAvailability(productId: string, variantId: string, quantity: number = 1): Promise<boolean> {
-    try {
-      const product = await this.getProductWithVariants(productId);
-      const variant = product.variants.find(v => v.idVariant === variantId);
-      return variant ? variant.stock >= quantity : false;
-    } catch {
-      return false;
-    }
+ async checkVariantAvailability(productId: string, variantId: string, quantity: number = 1): Promise<boolean> {
+  try {
+    const result = await this.getProductWithVariants(productId);
+    const product = result.data; 
+    const variant = product.variants.find(v => v.idVariant === variantId);
+    return variant ? variant.stock >= quantity : false;
+  } catch {
+    return false;
   }
+}
+
 
   /**
    * Récupérer le prix d'un produit (avec gestion des variantes)
    */
   async getProductPrice(id: string, variantId?: string): Promise<number> {
     if (variantId) {
-      const product = await this.getProductWithVariants(id);
+      const result = await this.getProductWithVariants(variantId);
+        const product = result.data; 
       const variant = product.variants.find(v => v.idVariant === variantId);
       return variant?.price ?? product.price;
     }
@@ -431,7 +451,8 @@ async getProductById(id: string): Promise<ProductResponse> {
    * Récupérer les variantes actives d'un produit
    */
   async getActiveVariants(productId: string): Promise<ProductVariant[]> {
-    const product = await this.getProductWithVariants(productId);
+    const result = await this.getProductWithVariants(productId);
+    const product = result.data; 
     return product.variants.filter(v => v.isActive);
   }
 
@@ -439,7 +460,8 @@ async getProductById(id: string): Promise<ProductResponse> {
    * Calculer le stock total d'un produit (produit + variantes)
    */
   async getTotalStock(productId: string): Promise<number> {
-    const product = await this.getProductWithVariants(productId);
+    const result = await this.getProductWithVariants(productId);
+    const product = result.data; 
     const variantsStock = product.variants.reduce((sum, v) => sum + v.stock, 0);
     return product.stock + variantsStock;
   }

@@ -21,8 +21,8 @@ interface ProductResponse {
 let product: Product | null = null;
 
 try {
-  const result: ProductResponse = await productService.getProductWithVariants(id);
-  product = result.data; // maintenant product est de type Product
+  const result = await productService.getProductWithVariants(id);
+  product = result.data;
   console.log('Produit récupéré:', product);
 } catch (err) {
   console.error('❌ Impossible de récupérer le produit :', err);

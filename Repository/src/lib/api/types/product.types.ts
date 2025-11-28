@@ -171,13 +171,19 @@ export interface ProductListResponse {
   page: number;
   limit: number;
   totalPages: number;
+    data: Product[];
 }
 
 export interface ProductResponse {
-  product: Product;
+  success: boolean;
+  data: ProductWithVariants;
   message?: string;
 }
 
+export interface ProductDetailResponse {
+  product: Product;
+  message?: string;
+}
 export interface ProductVariantResponse {
   variant: ProductVariant;
   message?: string;
