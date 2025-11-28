@@ -23,7 +23,10 @@ const API_URL = import.meta.env.PUBLIC_API_URL || 'https://api-emcafe-3.onrender
 
 class ProductService {
   private getAuthHeaders(): HeadersInit {
-    const token = localStorage.getItem('token');
+  const token = typeof window !== 'undefined' 
+  ? localStorage.getItem('token') 
+  : null;
+
     return {
       'Content-Type': 'application/json',
       ...(token && { Authorization: `Bearer ${token}` }),
