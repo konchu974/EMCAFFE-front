@@ -3,12 +3,20 @@ const STRIPE_PUBLIC_KEY =
   "pk_test_51SVYto14tHXOJjU15ghHpxe0AP3n8abWKIuwHbRX3oQ55wVLmiHsdZNMVsDeAFuPJEVmknhbHLMLu6Ky0HEEHnRp00gKixVHNi";
 
 const API_BASE_URL = "https://api-emcafe-3.onrender.com/api";
-;
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ destination.js loaded");
 
-  // === STEPS ===
+  /* ---------------------------------------------------------
+    AUTH HELPERS
+  --------------------------------------------------------- */
+  function isLoggedIn() {
+    return !!localStorage.getItem("token");
+  }
+
+  /* ---------------------------------------------------------
+    DOM ELEMENTS
+  --------------------------------------------------------- */
   const stepOne = document.getElementById("stepOne");
   const stepTwo = document.getElementById("stepTwo");
   const stepThree = document.getElementById("stepThree");
@@ -27,6 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailInput = document.getElementById("emailInput");
   const passwordInput = document.getElementById("passwordInput");
 
+  const deliveryAddress = document.getElementById("deliveryAddress");
+  const deliveryAddress2 = document.getElementById("deliveryAddress2");
+  const deliveryCity = document.getElementById("deliveryCity");
+  const deliveryPostal = document.getElementById("deliveryPostal");
+  const deliveryCountry = document.getElementById("deliveryCountry");
+  const deliveryPhone = document.getElementById("deliveryPhone");
+
   let deliveryCost = 5;
 
   function showStep(hideEl, showEl) {
@@ -35,20 +50,53 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 200, behavior: "smooth" });
   }
 
-  /* ---------------- STEP 1 ---------------- */
+  /* ---------------------------------------------------------
+    AUTO-SKIP STEP 1 FOR LOGGED-IN USER
+  --------------------------------------------------------- */
+  if (isLoggedIn()) {
+    console.log("User logged in → skipping Step 1");
+
+    stepOne.classList.add("hidden");
+    stepTwo.classList.remove("hidden");
+
+    if (btnBackToStep1) btnBackToStep1.classList.add("hidden");
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (user) {
+      deliveryAddress.value = user.address_line1 || "";
+      deliveryAddress2.value = user.address_line2 || "";
+      deliveryPostal.value = user.postal_code || "";
+      deliveryCity.value = user.city || "";
+      deliveryCountry.value = user.country || "France";
+      deliveryPhone.value = user.phone || "";
+    }
+  }
+
+  /* ---------------------------------------------------------
+     STEP 1 → STEP 2
+  --------------------------------------------------------- */
   btnToStep2?.addEventListener("click", () => {
+    if (isLoggedIn()) {
+      showStep(stepOne, stepTwo);
+      return;
+    }
+
     const email = emailInput.value.trim();
     const pass = passwordInput.value.trim();
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       return alert("Email invalide");
 
-    if (pass.length < 6) return alert("Mot de passe : 6 caractères minimum");
+    if (pass.length < 6)
+      return alert("Mot de passe : 6 caractères minimum");
 
     showStep(stepOne, stepTwo);
   });
 
-  /* ---------------- STEP 2 ---------------- */
+  /* ---------------------------------------------------------
+     STEP 2 → STEP 3
+  --------------------------------------------------------- */
   btnToStep3?.addEventListener("click", () => {
     const required = stepTwo.querySelectorAll("input[required], select[required]");
 
@@ -59,9 +107,14 @@ document.addEventListener("DOMContentLoaded", () => {
     showStep(stepTwo, stepThree);
   });
 
-  btnBackToStep1?.addEventListener("click", () => showStep(stepTwo, stepOne));
+  btnBackToStep1?.addEventListener("click", () => {
+    if (isLoggedIn()) return;
+    showStep(stepTwo, stepOne);
+  });
 
-  /* ---------------- STEP 3 ---------------- */
+  /* ---------------------------------------------------------
+     STEP 3 → STEP 4
+  --------------------------------------------------------- */
   btnToStep4?.addEventListener("click", () => {
     showStep(stepThree, stepFour);
     renderSummaryCard();
@@ -69,6 +122,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btnBackToStep2?.addEventListener("click", () => showStep(stepThree, stepTwo));
 
+  /* ---------------------------------------------------------
+     STEP 4 ← BACK TO STEP 3
+  --------------------------------------------------------- */
+  btnBackToStep3?.addEventListener("click", () => {
+    showStep(stepFour, stepThree);
+  });
+
+  /* ---------------------------------------------------------
+     DELIVERY COST
+  --------------------------------------------------------- */
   deliveryForm?.addEventListener("change", (e) => {
     deliveryCost = e.target.value === "express" ? 10 : 5;
     localStorage.setItem("deliveryCost", deliveryCost);
@@ -103,7 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderSummaryCard();
 
-  /* ---------------- PAYMENT UI ---------------- */
+  /* ---------------------------------------------------------
+     PAYMENT UI
+  --------------------------------------------------------- */
   const cardRadio = document.querySelector('input[value="card"]');
   const bankRadio = document.querySelector('input[value="bank_transfer"]');
 
@@ -115,8 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
       bankInfo.classList.remove("hidden");
       cardSection.classList.add("hidden");
     } else {
-      cardSection.classList.remove("hidden");
       bankInfo.classList.add("hidden");
+      cardSection.classList.remove("hidden");
       initStripe();
     }
   }
@@ -127,7 +192,9 @@ document.addEventListener("DOMContentLoaded", () => {
   bankRadio.checked = true;
   updatePaymentUI();
 
-  /* ---------------- STRIPE ---------------- */
+  /* ---------------------------------------------------------
+     STRIPE SETUP
+  --------------------------------------------------------- */
   let stripe = null;
   let elements = null;
   let cardElement = null;
@@ -141,9 +208,52 @@ document.addEventListener("DOMContentLoaded", () => {
     cardElement.mount("#card-element");
   }
 
-  /* ---------------- PLACE ORDER ---------------- */
-  document.getElementById("placeOrder")?.addEventListener("click", async () => {
+  /* ---------------------------------------------------------
+     SAVE ADDRESS TO BACKEND
+  --------------------------------------------------------- */
+ async function saveAddressToBackend() {
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!token || !user) return;
 
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+
+  const body = {
+  address_line1: deliveryAddress.value,
+  address_line2: deliveryAddress2.value,
+  city: deliveryCity.value,
+  postal_code: deliveryPostal.value,
+  country: deliveryCountry.value,
+  phone: deliveryPhone.value,
+};
+
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/users/address`, {
+      method: "PUT",   
+      headers,
+      body: JSON.stringify(body),
+    });
+
+    if (!res.ok) throw new Error("Failed to update address");
+
+    const updated = await res.json();
+
+    localStorage.setItem("user", JSON.stringify(updated.data));
+
+    console.log("📦 Address saved!");
+  } catch (err) {
+    console.error("❌ Failed to save address:", err);
+  }
+}
+
+  /* ---------------------------------------------------------
+     PLACE ORDER
+  --------------------------------------------------------- */
+  document.getElementById("placeOrder")?.addEventListener("click", async () => {
     const total = parseFloat(
       document.getElementById("summaryTotal").textContent.replace("€", "")
     );
@@ -164,40 +274,41 @@ document.addEventListener("DOMContentLoaded", () => {
       Authorization: `Bearer ${token}`,
     };
 
-    // ---------------- DELIVERY INPUTS ----------------
-const delivery_address = document.getElementById("deliveryAddress").value;
-const delivery_city = document.getElementById("deliveryCity").value;
-const delivery_postal_code = document.getElementById("deliveryPostal").value;
-const delivery_country = document.getElementById("deliveryCountry").value;
-const delivery_phone = document.getElementById("deliveryPhone").value;
+    const data = {
+      userId: user.id_user_account,
+      amount: total,
+      delivery_address: deliveryAddress.value,
+      delivery_address2: deliveryAddress2.value,
+      delivery_city: deliveryCity.value,
+      delivery_postal_code: deliveryPostal.value,
+      delivery_country: deliveryCountry.value,
+      delivery_phone: deliveryPhone.value,
+    };
 
-
-
-    /* ---------------- BANK TRANSFER ---------------- */
+    /* -------------------- BANK TRANSFER -------------------- */
     if (paymentMethod === "bank_transfer") {
       try {
         const res = await fetch(`${API_BASE_URL}/payments/bank-transfer`, {
           method: "POST",
           headers,
-          body: JSON.stringify({
-            userId: user.id_user_account,
-            amount: total,
-            delivery_address,
-            delivery_city,
-            delivery_postal_code,
-            delivery_country,
-            delivery_phone,
-          }),
+          body: JSON.stringify(data),
         });
 
         if (!res.ok) throw new Error();
 
-        const data = await res.json();
+        const json = await res.json();
 
-        document.getElementById("bankReference").textContent = `ORDER-${data.orderId}`;
-        document.getElementById("bankReferenceTwo").textContent = `ORDER-${data.orderId}`;
-        document.getElementById("bankAmount").textContent = total.toFixed(2);
-        document.getElementById("bankConfirmation").classList.remove("hidden");
+        await saveAddressToBackend(); // SAVE ADDRESS
+
+        document.getElementById("bankReference").textContent =
+          `ORDER-${json.orderId}`;
+        document.getElementById("bankReferenceTwo").textContent =
+          `ORDER-${json.orderId}`;
+        document.getElementById("bankAmount").textContent =
+          total.toFixed(2);
+        document
+          .getElementById("bankConfirmation")
+          .classList.remove("hidden");
 
         alert("Commande enregistrée. Veuillez effectuer le virement bancaire.");
       } catch (err) {
@@ -207,21 +318,13 @@ const delivery_phone = document.getElementById("deliveryPhone").value;
       return;
     }
 
-    /* ---------------- CARD PAYMENT ---------------- */
+    /* -------------------- CARD PAYMENT -------------------- */
     if (paymentMethod === "card") {
       try {
         const res = await fetch(`${API_BASE_URL}/payments/card`, {
           method: "POST",
           headers,
-          body: JSON.stringify({
-            userId: user.id_user_account,
-            amount: total,
-            delivery_address,
-            delivery_city,
-            delivery_postal_code,
-            delivery_country,
-            delivery_phone,
-          }),
+          body: JSON.stringify(data),
         });
 
         if (!res.ok) throw new Error();
@@ -229,10 +332,14 @@ const delivery_phone = document.getElementById("deliveryPhone").value;
         const { clientSecret } = await res.json();
 
         const confirm = await stripe.confirmCardPayment(clientSecret, {
-          payment_method: { card: cardElement },
+          payment_method: {
+            card: cardElement,
+          },
         });
 
         if (confirm.error) return alert(confirm.error.message);
+
+        await saveAddressToBackend();
 
         alert("Paiement par carte réussi !");
       } catch (err) {

@@ -16,7 +16,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout title="Destination">
+<Layout title="EMCAFFE">
   <Header />
 
   <!-- Banner -->
@@ -31,7 +31,7 @@ const t = useTranslations(lang);
     />
     <div class="absolute inset-0 flex items-center justify-center bg-black/40">
       <h1 class="text-white text-4xl md:text-6xl font-[Chalkduster] tracking-widest">
-        DESTINATION
+        EMCAFFE
       </h1>
     </div>
   </section>
@@ -128,18 +128,33 @@ const t = useTranslations(lang);
             </div>
 
          
+<!-- MAIN ADDRESS -->
 <div>
   <label class="block font-semibold mb-1 text-[#5C3F32]">
-    {t("destination.addressComplement")} *
+    {t("destination.address")} *
   </label>
   <input
     id="deliveryAddress"
     type="text"
     class="w-full border border-[#5C3F32] rounded-md p-2"
-    placeholder="12 Rue du Marché, Appartement B"
+    placeholder="12 Rue du Marché"
     required
   />
 </div>
+
+<!-- ADDRESS COMPLEMENT -->
+<div>
+  <label class="block font-semibold mb-1 text-[#5C3F32]">
+    {t("destination.addressComplement")}
+  </label>
+  <input
+    id="deliveryAddress2"
+    type="text"
+    class="w-full border border-[#5C3F32] rounded-md p-2"
+    placeholder="Appartement B, Bâtiment 3, etc."
+  />
+</div>
+
 
 
 <div>
