@@ -301,6 +301,14 @@
   "city": "Ciudad",
   "country": "País",
   "phone": "Teléfono",
+"myAddress": "Mi dirección",
+  "addressUsedForBoth": "La dirección seleccionada se utilizará como dirección de facturación y envío.",
+  "editAddress": "Modificar",
+  "deleteAddress": "Eliminar",
+  "addNewAddress": "añadir una nueva dirección",
+   "save": "Guardar",
+  "cancel": "Cancelar",
+
 
   "deliveryMode": "Modo de entrega",
   "deliveryStandard": "Entrega estándar",

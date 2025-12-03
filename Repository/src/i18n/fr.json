@@ -293,6 +293,13 @@
   "city": "Ville",
   "country": "Pays",
   "phone": "Téléphone",
+  "myAddress": "Mon adresse",
+  "addressUsedForBoth": "L'adresse sélectionnée sera utilisée comme adresse de facturation et de livraison.",
+  "editAddress": "Modifier",
+  "deleteAddress": "Supprimer",
+  "addNewAddress": "ajouter une nouvelle adresse",
+  "save": "Sauvegarder",
+  "cancel": "Annuler",
 
   "deliveryMode": "Mode de livraison",
   "deliveryStandard": "Livraison standard",

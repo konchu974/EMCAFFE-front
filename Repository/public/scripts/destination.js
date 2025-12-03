@@ -1,40 +1,32 @@
-// === CONFIG ===
+
 const STRIPE_PUBLIC_KEY =
   "pk_test_51SVYto14tHXOJjU15ghHpxe0AP3n8abWKIuwHbRX3oQ55wVLmiHsdZNMVsDeAFuPJEVmknhbHLMLu6Ky0HEEHnRp00gKixVHNi";
 
 const API_BASE_URL = "https://api-emcafe-3.onrender.com/api";
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("✅ destination.js loaded");
+  console.log("destination.js loaded");
 
-  /* ---------------------------------------------------------
-    AUTH HELPERS
-  --------------------------------------------------------- */
-  function isLoggedIn() {
-    return !!localStorage.getItem("token");
-  }
+  const isLoggedIn = () => !!localStorage.getItem("token");
+  const getToken = () => localStorage.getItem("token");
+  const getUser = () => JSON.parse(localStorage.getItem("user") || "{}");
 
-  /* ---------------------------------------------------------
-    DOM ELEMENTS
-  --------------------------------------------------------- */
+  let addresses = [];
+  let selectedAddressId = null;
+  let editingAddressId = null;
+
   const stepOne = document.getElementById("stepOne");
   const stepTwo = document.getElementById("stepTwo");
   const stepThree = document.getElementById("stepThree");
   const stepFour = document.getElementById("stepFour");
 
-  const btnToStep2 = document.getElementById("toStep2");
-  const btnToStep3 = document.getElementById("toStep3");
-  const btnToStep4 = document.getElementById("toStep4");
+  const addressList = document.getElementById("addressList");
+  const addressForm = document.getElementById("addressForm");
+  const showAddressFormBtn = document.getElementById("showAddressForm");
 
-  const btnBackToStep1 = document.getElementById("backToStep1");
-  const btnBackToStep2 = document.getElementById("backToStep2");
-  const btnBackToStep3 = document.getElementById("backToStep3");
 
-  const deliveryForm = document.getElementById("deliveryForm");
-
-  const emailInput = document.getElementById("emailInput");
-  const passwordInput = document.getElementById("passwordInput");
-
+  const firstNameInput = document.getElementById("firstNameInput");
+  const lastNameInput = document.getElementById("lastNameInput");
   const deliveryAddress = document.getElementById("deliveryAddress");
   const deliveryAddress2 = document.getElementById("deliveryAddress2");
   const deliveryCity = document.getElementById("deliveryCity");
@@ -42,12 +34,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const deliveryCountry = document.getElementById("deliveryCountry");
   const deliveryPhone = document.getElementById("deliveryPhone");
 
-  let deliveryCost = 5;
+  const btnToStep2 = document.getElementById("toStep2");
+  const btnToStep3 = document.getElementById("toStep3");
+  const btnToStep4 = document.getElementById("toStep4");
+  const backToStep1 = document.getElementById("backToStep1");
+  const backToStep2 = document.getElementById("backToStep2");
+  const backToStep3 = document.getElementById("backToStep3");
 
+  const saveAddressBtn = document.getElementById("saveAddressBtn");
+  const cancelAddressForm = document.getElementById("cancelAddressForm");
+
+  // ================================================
+  // STEP NAVIGATION
+  // ================================================
   function showStep(hideEl, showEl) {
     hideEl.classList.add("hidden");
     showEl.classList.remove("hidden");
-    window.scrollTo({ top: 200, behavior: "smooth" });
+    window.scrollTo({ top: 150, behavior: "smooth" });
   }
 /* ---------------------------------------------------------
   VARIABLES GLOBALES
@@ -354,165 +357,70 @@ renderSummaryCard();
     }
   }
 
-  cardRadio?.addEventListener("change", updatePaymentUI);
-  bankRadio?.addEventListener("change", updatePaymentUI);
-
   bankRadio.checked = true;
   updatePaymentUI();
 
-  /* ---------------------------------------------------------
-     STRIPE SETUP
-  --------------------------------------------------------- */
+  bankRadio.addEventListener("change", updatePaymentUI);
+  cardRadio.addEventListener("change", updatePaymentUI);
+
   let stripe = null;
   let elements = null;
   let cardElement = null;
 
   function initStripe() {
     if (stripe) return;
-
     stripe = Stripe(STRIPE_PUBLIC_KEY);
     elements = stripe.elements();
     cardElement = elements.create("card");
     cardElement.mount("#card-element");
   }
 
-  /* ---------------------------------------------------------
-     SAVE ADDRESS TO BACKEND
-  --------------------------------------------------------- */
- async function saveAddressToBackend() {
-  const token = localStorage.getItem("token");
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!token || !user) return;
-
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-  };
-
-  const body = {
-  address_line1: deliveryAddress.value,
-  address_line2: deliveryAddress2.value,
-  city: deliveryCity.value,
-  postal_code: deliveryPostal.value,
-  country: deliveryCountry.value,
-  phone: deliveryPhone.value,
-};
-
-
-  try {
-    const res = await fetch(`${API_BASE_URL}/users/address`, {
-      method: "PUT",   
-      headers,
-      body: JSON.stringify(body),
-    });
-
-    if (!res.ok) throw new Error("Failed to update address");
-
-    const updated = await res.json();
-
-    localStorage.setItem("user", JSON.stringify(updated.data));
-
-    console.log("📦 Address saved!");
-  } catch (err) {
-    console.error("❌ Failed to save address:", err);
-  }
-}
-
-  /* ---------------------------------------------------------
-     PLACE ORDER
-  --------------------------------------------------------- */
+  // ================================================
+  // PLACE ORDER
+  // ================================================
   document.getElementById("placeOrder")?.addEventListener("click", async () => {
-    const total = parseFloat(
+    const paymentMethod = document.querySelector(
+      'input[name="payment"]:checked'
+    ).value;
+
+    const amount = parseFloat(
       document.getElementById("summaryTotal").textContent.replace("€", "")
     );
 
-    const paymentMethod = document.querySelector(
-      'input[name="payment"]:checked'
-    )?.value;
-
-    const token = localStorage.getItem("token");
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    if (!token || !user?.id_user_account) {
-      return alert("Vous devez être connecté.");
-    }
-
-    const headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    };
+    const user = getUser();
 
     const data = {
       userId: user.id_user_account,
-      amount: total,
-      delivery_address: deliveryAddress.value,
-      delivery_address2: deliveryAddress2.value,
-      delivery_city: deliveryCity.value,
-      delivery_postal_code: deliveryPostal.value,
-      delivery_country: deliveryCountry.value,
-      delivery_phone: deliveryPhone.value,
+      addressId: selectedAddressId,
+      amount
     };
 
-    /* -------------------- BANK TRANSFER -------------------- */
     if (paymentMethod === "bank_transfer") {
-      try {
-        const res = await fetch(`${API_BASE_URL}/payments/bank-transfer`, {
-          method: "POST",
-          headers,
-          body: JSON.stringify(data),
-        });
-
-        if (!res.ok) throw new Error();
-
-        const json = await res.json();
-
-        await saveAddressToBackend(); // SAVE ADDRESS
-
-        document.getElementById("bankReference").textContent =
-          `ORDER-${json.orderId}`;
-        document.getElementById("bankReferenceTwo").textContent =
-          `ORDER-${json.orderId}`;
-        document.getElementById("bankAmount").textContent =
-          total.toFixed(2);
-        document
-          .getElementById("bankConfirmation")
-          .classList.remove("hidden");
-
-        alert("Commande enregistrée. Veuillez effectuer le virement bancaire.");
-      } catch (err) {
-        alert("Erreur pendant le paiement par virement.");
-      }
-
+      alert("Virement enregistré.");
       return;
     }
 
-    /* -------------------- CARD PAYMENT -------------------- */
-    if (paymentMethod === "card") {
-      try {
-        const res = await fetch(`${API_BASE_URL}/payments/card`, {
-          method: "POST",
-          headers,
-          body: JSON.stringify(data),
-        });
+    // CARD
+    const res = await fetch(`${API_BASE_URL}/payments/card`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getToken()}`
+      },
+      body: JSON.stringify(data)
+    });
 
-        if (!res.ok) throw new Error();
+    const { clientSecret } = await res.json();
 
-        const { clientSecret } = await res.json();
+    const confirm = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: { card: cardElement }
+    });
 
-        const confirm = await stripe.confirmCardPayment(clientSecret, {
-          payment_method: {
-            card: cardElement,
-          },
-        });
+    if (confirm.error) return alert(confirm.error.message);
 
-        if (confirm.error) return alert(confirm.error.message);
-
-        await saveAddressToBackend();
-
-        alert("Paiement par carte réussi !");
-      } catch (err) {
-        alert("Erreur Stripe.");
-      }
-    }
+    alert("Paiement effectué !");
   });
+
+  // Load addresses immediately if logged in
+  if (isLoggedIn()) loadAddressesFromBackend();
 });
