@@ -6,10 +6,15 @@
 [build.environment]
   NODE_VERSION = "20"
 
+[functions]
+  directory = ".netlify/functions"
+  node_bundler = "esbuild"
+
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/entry"
   status = 200
+  force = true
 
 [[headers]]
   for = "/_astro/*"
