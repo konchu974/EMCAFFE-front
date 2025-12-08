@@ -4,9 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   output: 'server',
-  adapter: netlify({
-    edgeMiddlewares: false,  // Désactive les edge functions si non utilisées
-  }),
+  adapter: netlify(),
   integrations: [tailwind()],
   redirects: {
     '/': '/fr',
