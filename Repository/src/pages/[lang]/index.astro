@@ -9,31 +9,32 @@ import EmcaInfo from '@/components/EmcaInfo.astro';
 import ProductHighlight from '@/components/ProductHighlight.astro';
 import HomeProducts from '@/components/HomeProducts.astro';
 
-import { getStaticPaths, getLangFromUrl, useTranslations } from '@/i18n/utils';
-export { getStaticPaths };
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+// ❌ RETIREZ : export { getStaticPaths };
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// ✅ AJOUTEZ : Validation de la langue
+const validLangs = ['fr', 'en']; // Ajustez selon vos langues
+if (!validLangs.includes(lang)) {
+  return Astro.redirect('/fr', 302);
+}
 ---
 
 <Layout title="EMCAFFE">
-	<Header />
+    <Header />
 
-	<main
-		class="mb-8 mt-[255px] flex w-full flex-col items-center gap-y-8 md:mt-0 md:gap-y-20"
-	>
-		<Hero />
+    <main
+        class="mb-8 mt-[255px] flex w-full flex-col items-center gap-y-8 md:mt-0 md:gap-y-20"
+    >
+        <Hero />
+        <InfoCoffee />
+        <ProductHighlight />
+        <EmcaInfo />
+        <HomeProducts />
+        <Contact />
+    </main>
 
-		<InfoCoffee />
-
-		<ProductHighlight />
-
-		<EmcaInfo />
-
-		<HomeProducts />
-
-		<Contact />
-	</main>
-
-	<Footer />
+    <Footer />
 </Layout>
