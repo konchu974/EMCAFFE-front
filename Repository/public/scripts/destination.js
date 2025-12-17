@@ -3,6 +3,9 @@ const STRIPE_PUBLIC_KEY =
 
 const API_BASE_URL = 'https://api-emcafe-3.onrender.com/api';
 
+import { sendcloudService } from '../../src/lib/api/sendCloudService';
+
+
 document.addEventListener('DOMContentLoaded', () => {
 	async function computeSendcloudDeliveryCost({
 		isRelay,
@@ -846,9 +849,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				// --- Création du colis SendCloud ---
 				try {
-					const { sendcloudService } = await import(
-						'../../src/lib/api/sendCloudService'
-					);
 
 					const parcelData = {
 						order_id: `order-${Date.now()}`,
