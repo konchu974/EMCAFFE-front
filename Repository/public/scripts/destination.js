@@ -3,8 +3,6 @@ const STRIPE_PUBLIC_KEY =
 
 const API_BASE_URL = 'https://api-emcafe-3.onrender.com/api';
 
-import { sendcloudService } from '../../src/lib/api/sendCloudService';
-
 
 document.addEventListener('DOMContentLoaded', () => {
 	async function computeSendcloudDeliveryCost({
