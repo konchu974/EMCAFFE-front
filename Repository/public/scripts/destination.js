@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 
 	let selectedAddressId = null;
-	let deliveryCost = parseFloat(localStorage.getItem('deliveryCost') || '5');
+	let deliveryCost = parseFloat(localStorage.getItem('deliveryCost') || '0');
 
 	/* ---------------------------------------------------------
       GUEST USER MANAGEMENT
@@ -306,10 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Order Total -->
         <div class="border-t pt-4 mb-6">
           <div class="space-y-2 text-sm">
-            <div class="flex justify-between text-gray-700">
-              <span>Sous-total</span>
-              <span>${(total - deliveryCost).toFixed(2)} €</span>
-            </div>
             <div class="flex justify-between text-gray-700">
               <span>Frais de livraison</span>
               <span>${deliveryCost.toFixed(2)} €</span>
@@ -599,13 +595,6 @@ document.addEventListener('DOMContentLoaded', () => {
 					return;
 				}
 
-				const total = parseFloat(
-					sessionStorage.getItem('cartTotal') || '0',
-				);
-				if (total <= 0) {
-					alert('Le montant total doit être supérieur à 0.');
-					return;
-				}
 
 				const paymentMethod = document.querySelector(
 					'input[name="payment"]:checked',
@@ -784,6 +773,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				console.log('📦 Payload avant livraison:', paymentPayload);
 
+				const cartTotal = cart.reduce(
+					(sum, item) =>
+						sum +
+						parseFloat(item.price || 0) *
+							parseInt(item.quantity, 10),
+					0,
+				);
+
 				let sendcloudMethodId = null;
 				let selectedMethod = null;
 				let deliveryPrice = 0;
@@ -841,8 +838,6 @@ document.addEventListener('DOMContentLoaded', () => {
 					paymentPayload.sendcloud_shipping_method_id =
 						sendcloudMethodId;
 				}
-
-				console.log('📦 Payload final:', paymentPayload);
 
 				async function createParcel(parcelData, token) {
 					const API_BASE = 'https://api-emcafe-3.onrender.com/api'; // ou import.meta.env.PUBLIC_API_URL si Astro
@@ -923,6 +918,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 					const parcel = await createParcel(parcelData, token);
 					console.log('✅ Colis SendCloud créé:', parcel);
+
+					// 🔗 LIAISON COMMANDE ↔ SENDCLOUD
+
+					paymentPayload.sendcloud_parcel_id = parcel.id;
+					paymentPayload.sendcloud_order_number = parcel.order_number;
+					paymentPayload.tracking_number =
+						parcel.tracking_number || null;
+
+					const cartTotal = cart.reduce(
+						(sum, item) =>
+							sum +
+							parseFloat(item.price || 0) *
+								parseInt(item.quantity, 10),
+						0,
+					);
+
+					paymentPayload.delivery_cost = deliveryPrice; // frais SendCloud
+					paymentPayload.amount = cartTotal + deliveryPrice;
+
+					console.log('🔗 SendCloud injecté dans paymentPayload:', {
+						sendcloud_parcel_id: parcel.id,
+						sendcloud_order_number: parcel.order_number,
+						tracking_number: parcel.tracking_number,
+					});
+
+					console.log('📦 Payload final:', paymentPayload);
 				} catch (err) {
 					alert(
 						'Erreur lors de la création du colis SendCloud : ' +
@@ -978,7 +999,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						orderId: orderId,
 						email: customerEmail,
 						items: cart,
-						total: total,
+						total: paymentPayload.amount,
 						deliveryCost: deliveryCost,
 						deliveryInfo: deliveryInfo,
 						paymentMethod: 'Virement bancaire',
@@ -1126,7 +1147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						orderId: orderId,
 						email: customerEmail,
 						items: cart,
-						total: total,
+						total: paymentPayload.amount,
 						deliveryCost: deliveryCost,
 						deliveryInfo: deliveryInfo,
 						paymentMethod: 'Carte bancaire',
@@ -1218,17 +1239,13 @@ document.addEventListener('DOMContentLoaded', () => {
       <div style="margin: 1.5rem 0;">
         <h3 style="margin-bottom: 1rem;">Détails de la commande</h3>
         ${itemsList}
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; font-weight: bold;">
-          <span>Sous-total</span>
-          <span>${total.toFixed(2)} €</span>
-        </div>
         <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
           <span>Livraison</span>
           <span>${deliveryCost.toFixed(2)} €</span>
         </div>
         <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; font-size: 1.2rem; font-weight: bold; border-top: 2px solid #333; margin-top: 0.5rem;">
           <span>Total</span>
-          <span>${(total + deliveryCost).toFixed(2)} €</span>
+          <span>${(total).toFixed(2)} €</span>
         </div>
       </div>
 
