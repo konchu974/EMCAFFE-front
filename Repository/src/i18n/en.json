@@ -2,6 +2,8 @@
 	"nav.home": "Home",
 	"nav.products": "Products",
 	"nav.contact": "Contact us",
+		"nav.recipes": "Recipes",
+
 
 	"hero.coffee": "Organic coffee and specialty",
 
@@ -483,6 +485,7 @@
    "shop": { "title": "EMCAFFÉ" },
   "trackOrder": {
     "title": "Order Tracking",
+    "subtitle": "Check the status and details of your order.",
     "enterPostalCode": "Please enter your postal code to see the status of your order.",
     "postalCode": "Postal Code",
     "track": "Track My Order",
@@ -499,6 +502,21 @@
   },
   "product": {
   "details": "Product details"
+},
+
+"recipe": {
+  "title": "Recipes",
+  "info": "Information",
+  "ingredients": "Ingredients",
+  "preparation": "Preparation",
+  "chefNote": "Chef’s Tip",
+  "prepTime": "Preparation Time",
+  "difficulty": "Difficulty",
+  "temperature": "Temperature",
+  "presentation": "Serving",
+  "back": "Back to recipes",
+  "viewRecipe": "View recipe",
+  "all": "All"
 }
 
 

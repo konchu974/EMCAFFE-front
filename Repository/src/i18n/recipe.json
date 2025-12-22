@@ -1,0 +1,2673 @@
+{
+  "coffee_recipes": [
+    {
+      "id": 1,
+      "name": {
+        "es": "Aroma de Mujer",
+        "fr": "Arôme Féminin",
+        "en": "Woman's Aroma"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "45 ml"
+        },
+        {
+          "name": {
+            "es": "Licor de café",
+            "fr": "Liqueur de café",
+            "en": "Coffee liqueur"
+          },
+          "quantity": "15 ml"
+        },
+        {
+          "name": {
+            "es": "Canela en polvo",
+            "fr": "Cannelle en poudre",
+            "en": "Ground cinnamon"
+          },
+          "quantity": {
+            "es": "1 pizca",
+            "fr": "1 pincée",
+            "en": "1 pinch"
+          }
+        }
+      ],
+      "preparation": {
+        "es": [
+          "En taza de café de 60 ml, colar el espresso.",
+          "Agregar el licor de café.",
+          "Espolvorear con canela en polvo.",
+          "Servir con azucarera y especiero con canela."
+        ],
+        "fr": [
+          "Dans une tasse à café de 60 ml, filtrer l'espresso.",
+          "Ajouter la liqueur de café.",
+          "Saupoudrer de cannelle en poudre.",
+          "Servir avec un sucrier et une boîte à épices contenant de la cannelle."
+        ],
+        "en": [
+          "In a 60 ml coffee cup, strain the espresso.",
+          "Add the coffee liqueur.",
+          "Sprinkle with ground cinnamon.",
+          "Serve with a sugar bowl and a cinnamon shaker."
+        ]
+      },
+      "presentation": {
+        "es": "Taza de café de 60 ml",
+        "fr": "Tasse à café de 60 ml",
+        "en": "60 ml coffee cup"
+      },
+      "serving_temperature": {
+        "es": "Caliente",
+        "fr": "Chaud",
+        "en": "Hot"
+      },
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "cinnamon", "after_dinner", "alcoholic"],
+      "chef_note": {
+        "es": "Ideal para servir después de la cena. La canela realza el aroma del café.",
+        "fr": "Idéal à servir après le dîner. La cannelle rehausse l'arôme du café.",
+        "en": "Perfect to serve after dinner. Cinnamon enhances the coffee's aroma."
+      }
+    },
+    {
+      "id": 2,
+      "name": {
+        "es": "Balkánico",
+        "fr": "Balkanique",
+        "en": "Balkan Coffee"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "60 ml"
+        },
+        {
+          "name": {
+            "es": "Yogurt natural",
+            "fr": "Yaourt nature",
+            "en": "Plain yogurt"
+          },
+          "quantity": "140 ml"
+        },
+        {
+          "name": {
+            "es": "Azúcar refinado o miel",
+            "fr": "Sucre raffiné ou miel",
+            "en": "Refined sugar or honey"
+          },
+          "quantity": {
+            "es": "Al gusto",
+            "fr": "Au goût",
+            "en": "To taste"
+          }
+        },
+        {
+          "name": {
+            "es": "Jugo de ½ limón",
+            "fr": "Jus de ½ citron",
+            "en": "Juice of ½ lemon"
+          },
+          "quantity": "15 ml"
+        }
+      ],
+      "preparation": {
+        "es": [
+          "En copa de cóctel alta (8 oz), servir el yogurt natural.",
+          "Agregar el café espresso y azúcar a gusto.",
+          "Remover y agregar jugo de ½ limón.",
+          "Variante: sustituir el jugo de limón por 15-20 ml de licor de naranjas."
+        ],
+        "fr": [
+          "Dans un verre à cocktail haut (8 oz), servir le yaourt nature.",
+          "Ajouter l'espresso et le sucre selon le goût.",
+          "Mélanger et ajouter le jus de ½ citron.",
+          "Variante : remplacer le jus de citron par 15-20 ml de liqueur d'orange."
+        ],
+        "en": [
+          "In a tall cocktail glass (8 oz), serve the plain yogurt.",
+          "Add espresso and sugar to taste.",
+          "Stir and add juice of ½ lemon.",
+          "Variation: replace lemon juice with 15-20 ml of orange liqueur."
+        ]
+      },
+      "presentation": {
+        "es": "Copa de cóctel alta de 8 oz",
+        "fr": "Verre à cocktail haut de 8 oz",
+        "en": "8 oz tall cocktail glass"
+      },
+      "serving_temperature": {
+        "es": "Frío",
+        "fr": "Froid",
+        "en": "Cold"
+      },
+      "prep_time": "7 min",
+      "difficulty": "easy",
+      "tags": ["yogurt", "citrus", "refreshing", "non_alcoholic", "variant_alcoholic"],
+      "chef_note": {
+        "es": "Perfecto para días calurosos. El yogurt aporta cremosidad sin lácteos pesados.",
+        "fr": "Parfait pour les journées chaudes. Le yaourt apporte de l'onctuosité sans produits laitiers lourds.",
+        "en": "Perfect for hot days. Yogurt adds creaminess without heavy dairy."
+      }
+    },
+    {
+      "id": 3,
+      "name": {
+        "es": "Barítono",
+        "fr": "Baryton",
+        "en": "Baritone"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "45 ml"
+        },
+        {
+          "name": {
+            "es": "½ hoja de salvia fresca",
+            "fr": "½ feuille de sauge fraîche",
+            "en": "½ fresh sage leaf"
+          },
+          "quantity": "1"
+        },
+        {
+          "name": {
+            "es": "Azúcar refinado",
+            "fr": "Sucre raffiné",
+            "en": "Refined sugar"
+          },
+          "quantity": {
+            "es": "Al gusto",
+            "fr": "Au goût",
+            "en": "To taste"
+          }
+        }
+      ],
+      "preparation": {
+        "es": [
+          "Colocar ½ hoja de salvia en taza de 90 ml, desde el fondo hasta el borde por el lado derecho del asa.",
+          "Colar el espresso en la taza.",
+          "Dejar reposar 1-2 minutos.",
+          "Extraer la salvia y endulzar a gusto."
+        ],
+        "fr": [
+          "Placer ½ feuille de sauge dans une tasse de 90 ml, du fond jusqu'au bord, côté droit de l'anse.",
+          "Filtrer l'espresso dans la tasse.",
+          "Laisser reposer 1-2 minutes.",
+          "Retirer la sauge et sucrer selon le goût."
+        ],
+        "en": [
+          "Place ½ sage leaf in a 90 ml cup, from bottom to rim on the right side of the handle.",
+          "Strain the espresso into the cup.",
+          "Let it steep for 1-2 minutes.",
+          "Remove the sage and sweeten to taste."
+        ]
+      },
+      "presentation": {
+        "es": "Taza de 90 ml",
+        "fr": "Tasse de 90 ml",
+        "en": "90 ml cup"
+      },
+      "serving_temperature": {
+        "es": "Caliente",
+        "fr": "Chaud",
+        "en": "Hot"
+      },
+      "prep_time": "6 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "herbal", "therapeutic", "sage", "non_alcoholic"],
+      "chef_note": {
+        "es": "La salvia aporta propiedades antiinflamatorias. Tradicionalmente usado para la afonía.",
+        "fr": "La sauge apporte des propriétés anti-inflammatoires. Traditionnellement utilisé pour l'aphonie.",
+        "en": "Sage provides anti-inflammatory properties. Traditionally used for hoarseness."
+      }
+    },
+    {
+      "id": 4,
+      "name": {
+        "es": "Bembita Bombón",
+        "fr": "Bembita Bonbon",
+        "en": "Bembita Bonbon"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "45 ml"
+        },
+        {
+          "name": {
+            "es": "Licor de cacao",
+            "fr": "Liqueur de cacao",
+            "en": "Cocoa liqueur"
+          },
+          "quantity": "30 ml"
+        },
+        {
+          "name": {
+            "es": "Canela en polvo",
+            "fr": "Cannelle en poudre",
+            "en": "Ground cinnamon"
+          },
+          "quantity": {
+            "es": "1 pizca",
+            "fr": "1 pincée",
+            "en": "1 pinch"
+          }
+        },
+        {
+          "name": {
+            "es": "Gotas de limón",
+            "fr": "Gouttes de citron",
+            "en": "Drops of lemon"
+          },
+          "quantity": "2-5"
+        },
+        {
+          "name": {
+            "es": "Azúcar refinado",
+            "fr": "Sucre raffiné",
+            "en": "Refined sugar"
+          },
+          "quantity": {
+            "es": "Al gusto",
+            "fr": "Au goût",
+            "en": "To taste"
+          }
+        }
+      ],
+      "preparation": {
+        "es": [
+          "En taza de 90 ml, colar el espresso.",
+          "Agregar el licor de cacao.",
+          "Añadir 2-5 gotas de limón y mezclar con cuchara.",
+          "Espolvorear con canela en polvo."
+        ],
+        "fr": [
+          "Dans une tasse de 90 ml, filtrer l'espresso.",
+          "Ajouter la liqueur de cacao.",
+          "Ajouter 2-5 gouttes de citron et mélanger avec une cuillère.",
+          "Saupoudrer de cannelle en poudre."
+        ],
+        "en": [
+          "In a 90 ml cup, strain the espresso.",
+          "Add the cocoa liqueur.",
+          "Add 2-5 drops of lemon and stir with a spoon.",
+          "Sprinkle with ground cinnamon."
+        ]
+      },
+      "presentation": {
+        "es": "Taza de 90 ml con azucarera",
+        "fr": "Tasse de 90 ml avec sucrier",
+        "en": "90 ml cup with sugar bowl"
+      },
+      "serving_temperature": {
+        "es": "Caliente",
+        "fr": "Chaud",
+        "en": "Hot"
+      },
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "chocolate", "cinnamon", "alcoholic", "citrus"],
+      "chef_note": {
+        "es": "El limón corta la dulzura del cacao. Ideal para amantes del contraste dulce-ácido.",
+        "fr": "Le citron coupe la douceur du cacao. Idéal pour les amateurs de contraste sucré-acide.",
+        "en": "Lemon cuts through the cocoa's sweetness. Perfect for lovers of sweet-sour contrast."
+      }
+    },
+    {
+      "id": 5,
+      "name": {
+        "es": "Bombón",
+        "fr": "Bonbon",
+        "en": "Bonbon"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "45 ml"
+        },
+        {
+          "name": {
+            "es": "Leche condensada",
+            "fr": "Lait concentré sucré",
+            "en": "Condensed milk"
+          },
+          "quantity": "15 g"
+        },
+        {
+          "name": {
+            "es": "Palito de canela",
+            "fr": "Bâton de cannelle",
+            "en": "Cinnamon stick"
+          },
+          "quantity": "1"
+        }
+      ],
+      "preparation": {
+        "es": [
+          "Verter el espresso en copa de 2 oz caliente.",
+          "Añadir la leche condensada.",
+          "Remover con palito de canela."
+        ],
+        "fr": [
+          "Verser l'espresso dans un verre de 2 oz chaud.",
+          "Ajouter le lait concentré sucré.",
+          "Remuer avec un bâton de cannelle."
+        ],
+        "en": [
+          "Pour the espresso into a hot 2 oz cup.",
+          "Add the condensed milk.",
+          "Stir with a cinnamon stick."
+        ]
+      },
+      "presentation": {
+        "es": "Copa de 2 oz caliente",
+        "fr": "Verre de 2 oz chaud",
+        "en": "Hot 2 oz cup"
+      },
+      "serving_temperature": {
+        "es": "Caliente",
+        "fr": "Chaud",
+        "en": "Hot"
+      },
+      "prep_time": "3 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "condensed_milk", "cinnamon", "sweet", "non_alcoholic"],
+      "chef_note": {
+        "es": "Clásico español. La canela en palito aporta aroma sin sobrecargar el sabor.",
+        "fr": "Classique espagnol. La cannelle en bâton apporte de l'arôme sans surcharger le goût.",
+        "en": "Spanish classic. Cinnamon stick adds aroma without overpowering the flavor."
+      }
+    },
+    {
+      "id": 6,
+      "name": {
+        "es": "Brazilia",
+        "fr": "Brésilien",
+        "en": "Brazilian"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "45 ml"
+        },
+        {
+          "name": {
+            "es": "Leche caliente",
+            "fr": "Lait chaud",
+            "en": "Hot milk"
+          },
+          "quantity": "20 ml"
+        },
+        {
+          "name": {
+            "es": "Ron añejo",
+            "fr": "Rhum vieilli",
+            "en": "Aged rum"
+          },
+          "quantity": "30 ml"
+        },
+        {
+          "name": {
+            "es": "Chocolate en polvo",
+            "fr": "Poudre de chocolat",
+            "en": "Cocoa powder"
+          },
+          "quantity": "40 g"
+        },
+        {
+          "name": {
+            "es": "Crema de leche",
+            "fr": "Crème fraîche",
+            "en": "Cream"
+          },
+          "quantity": "1 cucharadita"
+        },
+        {
+          "name": {
+            "es": "Azúcar refinado",
+            "fr": "Sucre raffiné",
+            "en": "Refined sugar"
+          },
+          "quantity": "2 cucharadas"
+        },
+        {
+          "name": {
+            "es": "Canela en polvo",
+            "fr": "Cannelle en poudre",
+            "en": "Ground cinnamon"
+          },
+          "quantity": {
+            "es": "1 pizca",
+            "fr": "1 pincée",
+            "en": "1 pinch"
+          }
+        }
+      ],
+      "preparation": {
+        "es": [
+          "En taza caliente, colar el espresso.",
+          "Derretir suavemente el chocolate en el espresso.",
+          "Añadir azúcar, leche y canela, mezclando todo.",
+          "Finalizar agregando el ron."
+        ],
+        "fr": [
+          "Dans une tasse chaude, filtrer l'espresso.",
+          "Faire fondre doucement le chocolat dans l'espresso.",
+          "Ajouter le sucre, le lait et la cannelle, en mélangeant le tout.",
+          "Terminer en ajoutant le rhum."
+        ],
+        "en": [
+          "In a hot cup, strain the espresso.",
+          "Gently melt the chocolate in the espresso.",
+          "Add sugar, milk and cinnamon, mixing everything.",
+          "Finish by adding the rum."
+        ]
+      },
+      "presentation": {
+        "es": "Taza de café con leche caliente",
+        "fr": "Tasse de café au lait chaud",
+        "en": "Hot coffee with milk cup"
+      },
+      "serving_temperature": {
+        "es": "Caliente",
+        "fr": "Chaud",
+        "en": "Hot"
+      },
+      "prep_time": "10 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "chocolate", "rum", "spiced", "alcoholic", "creamy"],
+      "chef_note": {
+        "es": "El ron añejo equilibra la intensidad del chocolate. Usar chocolate de alta calidad (70% cacao mínimo).",
+        "fr": "Le rhum vieilli équilibre l'intensité du chocolat. Utiliser du chocolat de haute qualité (70% cacao minimum).",
+        "en": "Aged rum balances the chocolate's intensity. Use high-quality chocolate (minimum 70% cocoa)."
+      }
+    },
+    {
+      "id": 7,
+      "name": {
+        "es": "Café a la Llama",
+        "fr": "Café Flamébe",
+        "en": "Flaming Coffee"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "45 ml"
+        },
+        {
+          "name": {
+            "es": "Ron carta blanca",
+            "fr": "Rhum blanc",
+            "en": "White rum"
+          },
+          "quantity": "30 ml"
+        },
+        {
+          "name": {
+            "es": "Azúcar refinado",
+            "fr": "Sucre raffiné",
+            "en": "Refined sugar"
+          },
+          "quantity": "1 cucharadita"
+        }
+      ],
+      "preparation": {
+        "es": [
+          "En taza de 90 ml, colar el espresso y endulzar.",
+          "Verter el ron en una cuchara y flamearlo con cuidado.",
+          "Pasar el ron flameado a la taza sin apagar la llama."
+        ],
+        "fr": [
+          "Dans une tasse de 90 ml, filtrer l'espresso et sucrer.",
+          "Verser le rhum dans une cuillère et l'enflammer prudemment.",
+          "Transférer le rhum enflammé dans la tasse sans éteindre la flamme."
+        ],
+        "en": [
+          "In a 90 ml cup, strain the espresso and sweeten.",
+          "Pour the rum into a spoon and carefully flame it.",
+          "Transfer the flaming rum to the cup without extinguishing the flame."
+        ]
+      },
+      "presentation": {
+        "es": "Taza de 90 ml",
+        "fr": "Tasse de 90 ml",
+        "en": "90 ml cup"
+      },
+      "serving_temperature": {
+        "es": "Caliente",
+        "fr": "Chaud",
+        "en": "Hot"
+      },
+      "prep_time": "8 min",
+      "difficulty": "hard",
+      "tags": ["espresso", "rum", "flambé", "alcoholic", "spectacular"],
+      "chef_note": {
+        "es": "¡Precaución con el fuego! Usar cuchara larga de metal y mantener el cabello alejado de la llama.",
+        "fr": "Attention au feu ! Utiliser une longue cuillère en métal et garder les cheveux éloignés de la flamme.",
+        "en": "Caution with fire! Use a long metal spoon and keep hair away from the flame."
+      },
+      "safety_warning": {
+        "es": "No recomendado para menores o en presencia de niños.",
+        "fr": "Non recommandé pour les mineurs ou en présence d'enfants.",
+        "en": "Not recommended for minors or in the presence of children."
+      }
+    },
+    {
+      "id": 8,
+      "name": {
+        "es": "Café al Licor",
+        "fr": "Café au Liqueur",
+        "en": "Liqueur Coffee"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "45 ml"
+        },
+        {
+          "name": {
+            "es": "Coñac",
+            "fr": "Cognac",
+            "en": "Cognac"
+          },
+          "quantity": "15 ml"
+        },
+        {
+          "name": {
+            "es": "Hielo",
+            "fr": "Glace",
+            "en": "Ice"
+          },
+          "quantity": "2 cubitos"
+        }
+      ],
+      "preparation": {
+        "es": [
+          "Servir el espresso endulzado y enfriado en vaso pequeño.",
+          "Agregar el coñac y los cubitos de hielo."
+        ],
+        "fr": [
+          "Servir l'espresso sucré et refroidi dans un petit verre.",
+          "Ajouter le cognac et les glaçons."
+        ],
+        "en": [
+          "Serve the sweetened and chilled espresso in a small glass.",
+          "Add the cognac and ice cubes."
+        ]
+      },
+      "presentation": {
+        "es": "Vaso pequeño con hielo",
+        "fr": "Petit verre avec glace",
+        "en": "Small glass with ice"
+      },
+      "serving_temperature": {
+        "es": "Frío",
+        "fr": "Froid",
+        "en": "Cold"
+      },
+      "prep_time": "4 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "cognac", "iced", "alcoholic", "elegant"],
+      "chef_note": {
+        "es": "El coñac de calidad (VSOP o superior) mejora notablemente el resultado.",
+        "fr": "Un cognac de qualité (VSOP ou supérieur) améliore considérablement le résultat.",
+        "en": "High-quality cognac (VSOP or higher) significantly improves the result."
+      }
+    },
+    
+    {
+      "id": 50,
+      "name": {
+        "es": "Damisela",
+        "fr": "Demoiselle",
+        "en": "Damisel"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "45 ml"
+        },
+        {
+          "name": {
+            "es": "Licor de naranjas o mandarinas",
+            "fr": "Liqueur d'orange ou de mandarine",
+            "en": "Orange or mandarin liqueur"
+          },
+          "quantity": "45 ml"
+        }
+      ],
+      "preparation": {
+        "es": [
+          "En copa de vino blanco (4 oz), servir el espresso frío.",
+          "Agregar el licor de naranjas sin remover para crear capas."
+        ],
+        "fr": [
+          "Dans un verre à vin blanc (4 oz), servir l'espresso froid.",
+          "Ajouter la liqueur d'orange sans remuer pour créer des couches."
+        ],
+        "en": [
+          "In a white wine glass (4 oz), serve the chilled espresso.",
+          "Add the orange liqueur without stirring to create layers."
+        ]
+      },
+      "presentation": {
+        "es": "Copa de vino blanco de 4 oz",
+        "fr": "Verre à vin blanc de 4 oz",
+        "en": "4 oz white wine glass"
+      },
+      "serving_temperature": {
+        "es": "Frío",
+        "fr": "Froid",
+        "en": "Cold"
+      },
+      "prep_time": "3 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "citrus", "layered", "alcoholic", "elegant"],
+      "chef_note": {
+        "es": "Servir con una rodaja de naranja como garnish para realzar el aroma cítrico.",
+        "fr": "Servir avec une tranche d'orange en garniture pour rehausser l'arôme citrique.",
+        "en": "Serve with an orange slice as garnish to enhance the citrus aroma."
+      }
+    },
+    {
+      "id": 9,
+      "name": {"es": "Café con Leche", "fr": "Café au Lait", "en": "Coffee with Milk"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Leche caliente", "fr": "Lait chaud", "en": "Hot milk"}, "quantity": "120 ml"},
+        {"name": {"es": "Azúcar", "fr": "Sucre", "en": "Sugar"}, "quantity": {"es": "Al gusto", "fr": "Au goût", "en": "To taste"}}
+      ],
+      "preparation": {
+        "es": ["Calentar leche a 60-65°C.", "Verter espresso en taza de 200 ml.", "Añadir leche y azúcar."],
+        "fr": ["Chauffer le lait à 60-65°C.", "Verser l'espresso dans une tasse de 200 ml.", "Ajouter lait et sucre."],
+        "en": ["Heat milk to 60-65°C.", "Pour espresso into a 200 ml cup.", "Add milk and sugar."]
+      },
+      "presentation": {"es": "Taza de 200 ml", "fr": "Tasse de 200 ml", "en": "200 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "milk", "breakfast"],
+      "chef_note": {
+        "es": "Precalentar la taza. Leche no debe superar 65°C.",
+        "fr": "Préchauffer la tasse. Le lait ne doit pas dépasser 65°C.",
+        "en": "Preheat the cup. Milk should not exceed 65°C."
+      }
+    },
+    {
+      "id": 10,
+      "name": {"es": "Cappuccino", "fr": "Cappuccino", "en": "Cappuccino"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Leche", "fr": "Lait", "en": "Milk"}, "quantity": "120 ml"},
+        {"name": {"es": "Espuma de leche", "fr": "Mousse de lait", "en": "Milk foam"}, "quantity": "30 ml"},
+        {"name": {"es": "Cacao", "fr": "Cacao", "en": "Cocoa"}, "quantity": "1 pincée"}
+      ],
+      "preparation": {
+        "es": ["Preparar espresso en taza de 180 ml.", "Montar leche a 60°C hasta obtener 30 ml de espuma.", "Verter leche, luego espuma.", "Espolvorear cacao."],
+        "fr": ["Préparer espresso dans une tasse de 180 ml.", "Monter le lait à 60°C pour obtenir 30 ml de mousse.", "Verser le lait, puis la mousse.", "Saupoudrer de cacao."],
+        "en": ["Prepare espresso in an 180 ml cup.", "Froth milk to 60°C to get 30 ml foam.", "Pour milk, then foam.", "Sprinkle cocoa."]
+      },
+      "presentation": {"es": "Taza de 180 ml", "fr": "Tasse de 180 ml", "en": "180 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "7 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "milk_foam", "italian"],
+      "chef_note": {
+        "es": "Proporción 1/3 espresso, 1/3 leche, 1/3 espuma. Usar leche entera.",
+        "fr": "Proportion 1/3 espresso, 1/3 lait, 1/3 mousse. Utiliser du lait entier.",
+        "en": "Ratio 1/3 espresso, 1/3 milk, 1/3 foam. Use whole milk."
+      }
+    },
+    {
+      "id": 11,
+      "name": {"es": "Espresso Macchiato", "fr": "Macchiato", "en": "Espresso Macchiato"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Espuma de leche", "fr": "Mousse de lait", "en": "Milk foam"}, "quantity": "1 cucharadita"}
+      ],
+      "preparation": {
+        "es": ["Preparar espresso en taza de 90 ml.", "Añadir espuma de leche en el centro."],
+        "fr": ["Préparer espresso dans une tasse de 90 ml.", "Ajouter mousse de lait au centre."],
+        "en": ["Prepare espresso in a 90 ml cup.", "Add milk foam in the center."]
+      },
+      "presentation": {"es": "Taza de 90 ml", "fr": "Tasse de 90 ml", "en": "90 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "4 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "milk_foam"],
+      "chef_note": {
+        "es": "'Macchiato' = 'manchado'. La espuma debe ser densa.",
+        "fr": "'Macchiato' = 'taché'. La mousse doit être dense.",
+        "en": "'Macchiato' = 'stained'. Foam should be dense."
+      }
+    },
+    {
+      "id": 12,
+      "name": {"es": "Flat White", "fr": "Flat White", "en": "Flat White"},
+      "ingredients": [
+        {"name": {"es": "Ristretto", "fr": "Ristretto", "en": "Ristretto"}, "quantity": "60 ml"},
+        {"name": {"es": "Leche microespumada", "fr": "Lait micro-mousse", "en": "Microfoam milk"}, "quantity": "120 ml"}
+      ],
+      "preparation": {
+        "es": ["Preparar ristretto en taza de 180 ml.", "Texturizar leche a 60°C hasta microespuma sedosa.", "Verter lentamente integrando bien."],
+        "fr": ["Préparer ristretto dans une tasse de 180 ml.", "Texturiser le lait à 60°C pour une micro-mousse soyeuse.", "Verser lentement en intégrant."],
+        "en": ["Prepare ristretto in an 180 ml cup.", "Texture milk to 60°C for silky microfoam.", "Pour slowly while integrating."]
+      },
+      "presentation": {"es": "Taza tulipán 180 ml", "fr": "Tasse tulipe 180 ml", "en": "180 ml tulip cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "8 min",
+      "difficulty": "medium",
+      "tags": ["ristretto", "microfoam", "australian"],
+      "chef_note": {
+        "es": "Microespuma debe tener textura de 'pintura húmeda'. Usar leche fría y fresca.",
+        "fr": "Micro-mousse doit avoir la texture de 'peinture humide'. Utiliser du lait frais et froid.",
+        "en": "Microfoam should have 'wet paint' texture. Use fresh, cold milk."
+      }
+    },
+    {
+      "id": 13,
+      "name": {"es": "Latte Macchiato", "fr": "Latte Macchiato", "en": "Latte Macchiato"},
+      "ingredients": [
+        {"name": {"es": "Leche caliente", "fr": "Lait chaud", "en": "Hot milk"}, "quantity": "200 ml"},
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "30 ml"},
+        {"name": {"es": "Espuma de leche", "fr": "Mousse de lait", "en": "Milk foam"}, "quantity": "1 cm"}
+      ],
+      "preparation": {
+        "es": ["Calentar leche en vaso alto (250 ml).", "Añadir 1 cm de espuma.", "Verter espresso lentamente sobre la leche."],
+        "fr": ["Chauffer le lait dans un grand verre (250 ml).", "Ajouter 1 cm de mousse.", "Verser l'espresso lentement sur le lait."],
+        "en": ["Heat milk in a tall glass (250 ml).", "Add 1 cm of foam.", "Pour espresso slowly over milk."]
+      },
+      "presentation": {"es": "Vaso alto 250 ml", "fr": "Grand verre 250 ml", "en": "Tall 250 ml glass"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "6 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "milk", "layered"],
+      "chef_note": {
+        "es": "Verter espresso desde 5 cm de altura sobre cuchara invertida para capas nítidas.",
+        "fr": "Verser l'espresso depuis 5 cm de hauteur sur une cuillère retournée pour des couches nettes.",
+        "en": "Pour espresso from 5 cm height over an inverted spoon for sharp layers."
+      }
+    },
+    {
+      "id": 14,
+      "name": {"es": "Mocha", "fr": "Mocha", "en": "Mocha"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Leche caliente", "fr": "Lait chaud", "en": "Hot milk"}, "quantity": "150 ml"},
+        {"name": {"es": "Chocolate", "fr": "Chocolat", "en": "Chocolate"}, "quantity": "20 g"},
+        {"name": {"es": "Crema batida", "fr": "Crème fouettée", "en": "Whipped cream"}, "quantity": "30 ml"}
+      ],
+      "preparation": {
+        "es": ["Mezclar chocolate con 30 ml de leche caliente.", "Añadir espresso y el resto de leche.", "Coronar con crema batida y cacao."],
+        "fr": ["Mélanger chocolat avec 30 ml de lait chaud.", "Ajouter espresso et le reste de lait.", "Couronner de crème fouettée et cacao."],
+        "en": ["Mix chocolate with 30 ml hot milk.", "Add espresso and remaining milk.", "Top with whipped cream and cocoa."]
+      },
+      "presentation": {"es": "Taza 250 ml", "fr": "Tasse 250 ml", "en": "250 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "8 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "chocolate", "whipped_cream"],
+      "chef_note": {
+        "es": "Usar chocolate 70% cacao. Originario de Yemen (puerto Mocha).",
+        "fr": "Utiliser chocolat 70% cacao. Originaire du Yémen (port de Mocha).",
+        "en": "Use 70% cocoa chocolate. Originated in Yemen (Mocha port)."
+      }
+    },
+    {
+      "id": 15,
+      "name": {"es": "Irish Coffee", "fr": "Café Irlandais", "en": "Irish Coffee"},
+      "ingredients": [
+        {"name": {"es": "Café negro", "fr": "Café noir", "en": "Black coffee"}, "quantity": "120 ml"},
+        {"name": {"es": "Whiskey irlandés", "fr": "Whiskey irlandais", "en": "Irish whiskey"}, "quantity": "45 ml"},
+        {"name": {"es": "Azúcar moreno", "fr": "Sucre roux", "en": "Brown sugar"}, "quantity": "1 cucharadita"},
+        {"name": {"es": "Crema batida", "fr": "Crème fouettée", "en": "Whipped cream"}, "quantity": "30 ml"}
+      ],
+      "preparation": {
+        "es": ["Precalentar copa con agua caliente.", "Disolver azúcar en café.", "Añadir whiskey.", "Flotar crema batida con cuchara."],
+        "fr": ["Préchauffer le verre avec eau chaude.", "Dissoudre sucre dans le café.", "Ajouter whiskey.", "Faire flotter crème fouettée avec cuillère."],
+        "en": ["Preheat glass with hot water.", "Dissolve sugar in coffee.", "Add whiskey.", "Float whipped cream with spoon."]
+      },
+      "presentation": {"es": "Copa 180 ml", "fr": "Verre 180 ml", "en": "180 ml glass"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "7 min",
+      "difficulty": "medium",
+      "tags": ["black_coffee", "whiskey", "whipped_cream", "alcoholic"],
+      "chef_note": {
+        "es": "Creado en 1940 en Shannon Airport (Irlanda). Usar whiskey suave como Jameson.",
+        "fr": "Créé en 1940 à l'aéroport de Shannon (Irlande). Utiliser whiskey doux comme Jameson.",
+        "en": "Created in 1940 at Shannon Airport (Ireland). Use smooth whiskey like Jameson."
+      }
+    },
+    {
+      "id": 16,
+      "name": {"es": "Viennés", "fr": "Viennois", "en": "Vienna Coffee"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Crema batida", "fr": "Crème fouettée", "en": "Whipped cream"}, "quantity": "50 ml"},
+        {"name": {"es": "Chocolate rallado", "fr": "Chocolat râpé", "en": "Grated chocolate"}, "quantity": "1 cucharada"}
+      ],
+      "preparation": {
+        "es": ["Preparar espresso en taza de 150 ml.", "Cubrir con crema batida.", "Espolvorear chocolate rallado."],
+        "fr": ["Préparer espresso dans une tasse de 150 ml.", "Couvrir de crème fouettée.", "Saupoudrer de chocolat râpé."],
+        "en": ["Prepare espresso in a 150 ml cup.", "Top with whipped cream.", "Sprinkle grated chocolate."]
+      },
+      "presentation": {"es": "Taza 150 ml", "fr": "Tasse 150 ml", "en": "150 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "whipped_cream", "chocolate", "austrian"],
+      "chef_note": {
+        "es": "Originario de Viena (siglo XVII). Tradicionalmente se sirve con un vaso de agua.",
+        "fr": "Originaire de Vienne (XVIIe siècle). Traditionnellement servi avec un verre d'eau.",
+        "en": "Originated in Vienna (17th century). Traditionally served with a glass of water."
+      }
+    },
+    {
+      "id": 17,
+      "name": {"es": "Affogato", "fr": "Affogato", "en": "Affogato"},
+      "ingredients": [
+        {"name": {"es": "Helado de vainilla", "fr": "Glace vanille", "en": "Vanilla ice cream"}, "quantity": "1 bola"},
+        {"name": {"es": "Espresso caliente", "fr": "Espresso chaud", "en": "Hot espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Biscotti (opcional)", "fr": "Biscotti (optionnel)", "en": "Biscotti (optional)"}, "quantity": "1"}
+      ],
+      "preparation": {
+        "es": ["Colocar helado en copa de 180 ml.", "Verter espresso caliente sobre el helado.", "Servir con biscotti."],
+        "fr": ["Placer la glace dans un verre de 180 ml.", "Verser espresso chaud sur la glace.", "Servir avec biscotti."],
+        "en": ["Place ice cream in a 180 ml glass.", "Pour hot espresso over ice cream.", "Serve with biscotti."]
+      },
+      "presentation": {"es": "Copa 180 ml", "fr": "Verre 180 ml", "en": "180 ml glass"},
+      "serving_temperature": {"es": "Contraste caliente/frío", "fr": "Contraste chaud/froid", "en": "Hot/cold contrast"},
+      "prep_time": "3 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "ice_cream", "dessert", "italian"],
+      "chef_note": {
+        "es": "'Affogato' = 'ahogado' en italiano. Usar helado artesanal para mejor textura.",
+        "fr": "'Affogato' = 'noyé' en italien. Utiliser glace artisanale pour meilleure texture.",
+        "en": "'Affogato' = 'drowned' in Italian. Use artisanal ice cream for best texture."
+      }
+    },
+    {
+      "id": 18,
+      "name": {"es": "Frappé", "fr": "Frappé", "en": "Frappé"},
+      "ingredients": [
+        {"name": {"es": "Café instantáneo", "fr": "Café instantané", "en": "Instant coffee"}, "quantity": "2 cucharaditas"},
+        {"name": {"es": "Azúcar", "fr": "Sucre", "en": "Sugar"}, "quantity": "2 cucharadas"},
+        {"name": {"es": "Agua fría", "fr": "Eau froide", "en": "Cold water"}, "quantity": "30 ml"},
+        {"name": {"es": "Leche fría", "fr": "Lait froid", "en": "Cold milk"}, "quantity": "120 ml"},
+        {"name": {"es": "Hielo", "fr": "Glace", "en": "Ice"}, "quantity": "1 taza"}
+      ],
+      "preparation": {
+        "es": ["Mezclar café, azúcar y agua en coctelera.", "Agitar vigorosamente hasta espumar.", "Añadir hielo y leche.", "Servir con pajita."],
+        "fr": ["Mélanger café, sucre et eau dans un shaker.", "Secouer vigoureusement jusqu'à mousser.", "Ajouter glace et lait.", "Servir avec paille."],
+        "en": ["Mix coffee, sugar, and water in a shaker.", "Shake vigorously until frothy.", "Add ice and milk.", "Serve with straw."]
+      },
+      "presentation": {"es": "Vaso alto 300 ml", "fr": "Grand verre 300 ml", "en": "Tall 300 ml glass"},
+      "serving_temperature": {"es": "Frío", "fr": "Froid", "en": "Cold"},
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["instant_coffee", "milk", "iced", "greek"],
+      "chef_note": {
+        "es": "Inventado en Grecia en 1957. La clave es la espuma densa del batido inicial.",
+        "fr": "Inventé en Grèce en 1957. La clé est la mousse dense du mélange initial.",
+        "en": "Invented in Greece in 1957. The key is the dense foam from initial shaking."
+      }
+    },
+    {
+      "id": 19,
+      "name": {"es": "Café Glacé", "fr": "Café Glacé", "en": "Iced Coffee"},
+      "ingredients": [
+        {"name": {"es": "Café frío", "fr": "Café froid", "en": "Cold coffee"}, "quantity": "180 ml"},
+        {"name": {"es": "Leche o crema", "fr": "Lait ou crème", "en": "Milk or cream"}, "quantity": "30 ml"},
+        {"name": {"es": "Azúcar o jarabe", "fr": "Sucre ou sirop", "en": "Sugar or syrup"}, "quantity": {"es": "Al gusto", "fr": "Au goût", "en": "To taste"}},
+        {"name": {"es": "Hielo", "fr": "Glace", "en": "Ice"}, "quantity": "1 taza"}
+      ],
+      "preparation": {
+        "es": ["Preparar café fuerte y enfriar 4 horas.", "Llenar vaso con hielo.", "Verter café frío y leche.", "Añadir azúcar."],
+        "fr": ["Préparer café fort et refroidir 4 heures.", "Remplir verre de glace.", "Verser café froid et lait.", "Ajouter sucre."],
+        "en": ["Brew strong coffee and chill for 4 hours.", "Fill glass with ice.", "Pour cold coffee and milk.", "Add sugar."]
+      },
+      "presentation": {"es": "Vaso alto 300 ml", "fr": "Grand verre 300 ml", "en": "Tall 300 ml glass"},
+      "serving_temperature": {"es": "Frío", "fr": "Froid", "en": "Cold"},
+      "prep_time": "4 h 5 min",
+      "difficulty": "easy",
+      "tags": ["cold_brew", "milk", "iced"],
+      "chef_note": {
+        "es": "Para versión rápida: usar café espresso enfriado con hielo.",
+        "fr": "Pour version rapide: utiliser espresso refroidi avec glace.",
+        "en": "For quick version: use espresso chilled with ice."
+      }
+    },
+    {
+      "id": 20,
+      "name": {"es": "Cold Brew", "fr": "Cold Brew", "en": "Cold Brew"},
+      "ingredients": [
+        {"name": {"es": "Café molido grueso", "fr": "Café moulu grossièrement", "en": "Coarse ground coffee"}, "quantity": "100 g"},
+        {"name": {"es": "Agua fría", "fr": "Eau froide", "en": "Cold water"}, "quantity": "1 L"},
+        {"name": {"es": "Hielo", "fr": "Glace", "en": "Ice"}, "quantity": {"es": "Al servir", "fr": "Au service", "en": "When serving"}}
+      ],
+      "preparation": {
+        "es": ["Mezclar café y agua en jarra.", "Dejar en nevera 12-24 horas.", "Filtrar con filtro de papel.", "Servir con hielo."],
+        "fr": ["Mélanger café et eau dans une cruche.", "Laisser au frigo 12-24 heures.", "Filtrer avec filtre papier.", "Servir avec glace."],
+        "en": ["Mix coffee and water in a pitcher.", "Refrigerate for 12-24 hours.", "Strain through paper filter.", "Serve with ice."]
+      },
+      "presentation": {"es": "Vaso 240 ml", "fr": "Verre 240 ml", "en": "240 ml glass"},
+      "serving_temperature": {"es": "Frío", "fr": "Froid", "en": "Cold"},
+      "prep_time": "12-24 h",
+      "difficulty": "medium",
+      "tags": ["cold_brew", "slow_extraction", "low_acidity"],
+      "chef_note": {
+        "es": "Molienda gruesa para evitar amargor. Conservar máximo 7 días en nevera.",
+        "fr": "Mouture grossière pour éviter l'amertume. Conserver max 7 jours au frigo.",
+        "en": "Coarse grind to avoid bitterness. Keep max 7 days refrigerated."
+      }
+    },
+    {
+      "id": 51,
+      "name": {
+        "es": "Lechita Villa Clara",
+        "fr": "Lait de Villa Clara",
+        "en": "Villa Clara Milk Coffee"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "60 ml"
+        },
+        {
+          "name": {
+            "es": "Leche entera",
+            "fr": "Lait entier",
+            "en": "Whole milk"
+          },
+          "quantity": "140-150 ml"
+        },
+        {
+          "name": {
+            "es": "Azúcar refinado",
+            "fr": "Sucre raffiné",
+            "en": "Refined sugar"
+          },
+          "quantity": "1-3 cucharaditas"
+        },
+        {
+          "name": {
+            "es": "Hielo frappé",
+            "fr": "Glace pilée",
+            "en": "Crushed ice"
+          },
+          "quantity": {
+            "es": "Hasta el borde del vaso",
+            "fr": "Jusqu'au bord du verre",
+            "en": "To the rim of the glass"
+          }
+        },
+        {
+          "name": {
+            "es": "Canela en polvo",
+            "fr": "Cannelle en poudre",
+            "en": "Ground cinnamon"
+          },
+          "quantity": {
+            "es": "1 pizca",
+            "fr": "1 pincée",
+            "en": "1 pinch"
+          }
+        }
+      ],
+      "preparation": {
+        "es": [
+          "Mezclar suavemente en coctelera la leche, el café espresso y el azúcar.",
+          "Servir sobre hielo frappé en vaso de 8 oz.",
+          "Espolvorear con canela en polvo."
+        ],
+        "fr": [
+          "Mélanger doucement dans un shaker le lait, l'espresso et le sucre.",
+          "Servir sur glace pilée dans un verre de 8 oz.",
+          "Saupoudrer de cannelle en poudre."
+        ],
+        "en": [
+          "Gently mix milk, espresso and sugar in a shaker.",
+          "Serve over crushed ice in an 8 oz glass.",
+          "Sprinkle with ground cinnamon."
+        ]
+      },
+      "presentation": {
+        "es": "Vaso de 8 oz (240 ml)",
+        "fr": "Verre de 8 oz (240 ml)",
+        "en": "8 oz (240 ml) glass"
+      },
+      "serving_temperature": {
+        "es": "Frío",
+        "fr": "Froid",
+        "en": "Cold"
+      },
+      "prep_time": "7 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "milk", "cinnamon", "refreshing", "non_alcoholic", "cuban"],
+      "chef_note": {
+        "es": "Receta típica de Villa Clara, Cuba. El hielo frappé debe estar bien compactado para evitar dilución rápida.",
+        "fr": "Recette typique de Villa Clara, Cuba. La glace pilée doit être bien tassée pour éviter une dilution rapide.",
+        "en": "Typical recipe from Villa Clara, Cuba. Crushed ice should be well compacted to prevent rapid dilution."
+      }
+    },
+    {
+      "id": 52,
+      "name": {
+        "es": "Mobby Dic",
+        "fr": "Mobby Dic",
+        "en": "Mobby Dic"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "60 ml"
+        },
+        {
+          "name": {
+            "es": "Ginebra",
+            "fr": "Gin",
+            "en": "Gin"
+          },
+          "quantity": "60 ml"
+        },
+        {
+          "name": {
+            "es": "Cerveza rubia",
+            "fr": "Bière blonde",
+            "en": "Lager beer"
+          },
+          "quantity": "120 ml"
+        }
+      ],
+      "preparation": {
+        "es": [
+          "En jarra de cerveza (12 oz), verter el espresso sin endulzar.",
+          "Agregar la ginebra y remover ligeramente.",
+          "Completar con cerveza fría, inclinando la jarra para minimizar la espuma."
+        ],
+        "fr": [
+          "Dans un pichet à bière (12 oz), verser l'espresso non sucré.",
+          "Ajouter le gin et remuer légèrement.",
+          "Compléter avec de la bière froide en inclinant le pichet pour minimiser la mousse."
+        ],
+        "en": [
+          "In a beer pitcher (12 oz), pour the unsweetened espresso.",
+          "Add the gin and stir gently.",
+          "Top up with cold beer, tilting the pitcher to minimize foam."
+        ]
+      },
+      "presentation": {
+        "es": "Jarra de cerveza de 12 oz",
+        "fr": "Pichet à bière de 12 oz",
+        "en": "12 oz beer pitcher"
+      },
+      "serving_temperature": {
+        "es": "Frío",
+        "fr": "Froid",
+        "en": "Cold"
+      },
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "gin", "beer", "alcoholic", "refreshing", "unconventional"],
+      "chef_note": {
+        "es": "Combinación inesperada pero equilibrada. Usar cerveza tipo lager para mejor resultado.",
+        "fr": "Combinaison inattendue mais équilibrée. Utiliser une bière de type lager pour un meilleur résultat.",
+        "en": "Unexpected but balanced combination. Use lager beer for best results."
+      }
+    },
+    {
+      "id": 53,
+      "name": {
+        "es": "Serrano Helado",
+        "fr": "Serrano Glacé",
+        "en": "Iced Serrano"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "60 ml"
+        },
+        {
+          "name": {
+            "es": "Helado de vainilla",
+            "fr": "Glace à la vanille",
+            "en": "Vanilla ice cream"
+          },
+          "quantity": "30 ml"
+        },
+        {
+          "name": {
+            "es": "Granadina",
+            "fr": "Sirop de grenadine",
+            "en": "Grenadine syrup"
+          },
+          "quantity": "5 gotas"
+        },
+        {
+          "name": {
+            "es": "Almíbar",
+            "fr": "Sirop simple",
+            "en": "Simple syrup"
+          },
+          "quantity": "10 ml"
+        }
+      ],
+      "preparation": {
+        "es": [
+          "En vaso de batidora, mezclar el café, helado y almíbar hasta obtener una textura cremosa.",
+          "Batir a velocidad media para no derretir completamente el helado.",
+          "Servir en vaso de 6 oz y añadir gotas de granadina sobre la espuma."
+        ],
+        "fr": [
+          "Dans un verre de mixeur, mélanger le café, la glace et le sirop simple jusqu'à obtenir une texture crémeuse.",
+          "Battre à vitesse moyenne pour ne pas faire fondre complètement la glace.",
+          "Servir dans un verre de 6 oz et ajouter des gouttes de grenadine sur la mousse."
+        ],
+        "en": [
+          "In a blender glass, mix the coffee, ice cream and simple syrup until creamy.",
+          "Blend at medium speed to avoid completely melting the ice cream.",
+          "Serve in a 6 oz glass and add drops of grenadine on the foam."
+        ]
+      },
+      "presentation": {
+        "es": "Vaso de 6 oz",
+        "fr": "Verre de 6 oz",
+        "en": "6 oz glass"
+      },
+      "serving_temperature": {
+        "es": "Frío",
+        "fr": "Froid",
+        "en": "Cold"
+      },
+      "prep_time": "8 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "ice_cream", "grenadine", "creamy", "non_alcoholic", "dessert"],
+      "chef_note": {
+        "es": "La granadina no solo decora, sino que aporta un toque afrutado que contrasta con el amargor del café.",
+        "fr": "La grenadine ne décore pas seulement, mais apporte une touche fruitée qui contraste avec l'amertume du café.",
+        "en": "Grenadine not only decorates but adds a fruity touch that contrasts with the coffee's bitterness."
+      }
+    },
+     {
+      "id": 21,
+      "name": {"es": "Nitro Cold Brew", "fr": "Nitro Cold Brew", "en": "Nitro Cold Brew"},
+      "ingredients": [
+        {"name": {"es": "Cold Brew concentrado", "fr": "Cold Brew concentré", "en": "Concentrated Cold Brew"}, "quantity": "120 ml"},
+        {"name": {"es": "Nitrógeno", "fr": "Azote", "en": "Nitrogen"}, "quantity": "Infusión"}
+      ],
+      "preparation": {
+        "es": ["Infundir Cold Brew con nitrógeno en keg.", "Enfriar a 2-4°C.", "Servir desde grifo de cerveza nitro en vaso inclinado 45°."],
+        "fr": ["Infuser Cold Brew avec azote dans un fût.", "Refroidir à 2-4°C.", "Servir depuis robinet à bière nitro dans verre incliné à 45°."],
+        "en": ["Infuse Cold Brew with nitrogen in keg.", "Chill to 2-4°C.", "Serve from nitro beer tap into glass tilted at 45°."]
+      },
+      "presentation": {"es": "Vaso pint 240 ml", "fr": "Verre pint 240 ml", "en": "240 ml pint glass"},
+      "serving_temperature": {"es": "Muy frío (2-4°C)", "fr": "Très froid (2-4°C)", "en": "Very cold (2-4°C)"},
+      "prep_time": "13 h (incluye enfriado)",
+      "difficulty": "hard",
+      "tags": ["cold_brew", "nitrogen", "creamy"],
+      "chef_note": {
+        "es": "Requiere equipo especializado (keg + grifo nitro).",
+        "fr": "Nécessite équipement spécialisé (fût + robinet nitro).",
+        "en": "Requires specialized equipment (keg + nitro tap)."
+      }
+    },
+    {
+      "id": 22,
+      "name": {"es": "Red Eye", "fr": "Œil Rouge", "en": "Red Eye"},
+      "ingredients": [
+        {"name": {"es": "Café de filtro", "fr": "Café filtre", "en": "Drip coffee"}, "quantity": "240 ml"},
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"}
+      ],
+      "preparation": {
+        "es": ["Preparar café de filtro en taza de 300 ml.", "Añadir espresso recién hecho.", "Servir inmediatamente."],
+        "fr": ["Préparer café filtre dans tasse de 300 ml.", "Ajouter espresso fraîchement fait.", "Servir immédiatement."],
+        "en": ["Prepare drip coffee in a 300 ml cup.", "Add freshly made espresso.", "Serve immediately."]
+      },
+      "presentation": {"es": "Taza 300 ml", "fr": "Tasse 300 ml", "en": "300 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["drip_coffee", "espresso", "strong"],
+      "chef_note": {
+        "es": "Variantes: 'Black Eye' (2 shots) o 'Dead Eye' (3 shots).",
+        "fr": "Variantes: 'Black Eye' (2 shots) ou 'Dead Eye' (3 shots).",
+        "en": "Variations: 'Black Eye' (2 shots) or 'Dead Eye' (3 shots)."
+      }
+    },
+    {
+      "id": 23,
+      "name": {"es": "Café Cubano", "fr": "Café Cubain", "en": "Cuban Coffee"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Azúcar moreno", "fr": "Sucre roux", "en": "Brown sugar"}, "quantity": "2 cucharadas"}
+      ],
+      "preparation": {
+        "es": ["Colocar azúcar en taza pequeña.", "Verter primeros 15 ml de espresso y batir hasta espumar ('espumita').", "Añadir resto de espresso."],
+        "fr": ["Placer sucre dans petite tasse.", "Verser premiers 15 ml d'espresso et fouetter jusqu'à mousser ('espumita').", "Ajouter reste d'espresso."],
+        "en": ["Place sugar in small cup.", "Pour first 15 ml of espresso and whisk until frothy ('espumita').", "Add remaining espresso."]
+      },
+      "presentation": {"es": "Taza 60 ml (precalentada)", "fr": "Tasse 60 ml (préchauffée)", "en": "60 ml cup (preheated)"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "5 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "brown_sugar", "cuban"],
+      "chef_note": {
+        "es": "La 'espumita' debe ser densa y color caramelo. Usar café cubano tostado oscuro.",
+        "fr": "L''espumita' doit être dense et couleur caramel. Utiliser café cubain torréfié foncé.",
+        "en": "The 'espumita' should be dense and caramel-colored. Use dark-roasted Cuban coffee."
+      }
+    },
+    {
+      "id": 24,
+      "name": {"es": "Cortado", "fr": "Cortado", "en": "Cortado"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Leche caliente", "fr": "Lait chaud", "en": "Hot milk"}, "quantity": "60 ml"}
+      ],
+      "preparation": {
+        "es": ["Preparar espresso en taza de 120 ml.", "Calentar leche a 60°C (sin espuma).", "Verter leche sobre espresso 1:1."],
+        "fr": ["Préparer espresso dans tasse de 120 ml.", "Chauffer lait à 60°C (sans mousse).", "Verser lait sur espresso 1:1."],
+        "en": ["Prepare espresso in a 120 ml cup.", "Heat milk to 60°C (no foam).", "Pour milk over espresso 1:1."]
+      },
+      "presentation": {"es": "Taza 120 ml", "fr": "Tasse 120 ml", "en": "120 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "4 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "milk", "spanish"],
+      "chef_note": {
+        "es": "'Cortado' = 'cortado' con leche para reducir acidez. En España se sirve a cualquier hora.",
+        "fr": "'Cortado' = 'coupé' avec lait pour réduire acidité. En Espagne, servi à toute heure.",
+        "en": "'Cortado' = 'cut' with milk to reduce acidity. In Spain, served at any time."
+      }
+    },
+    {
+      "id": 25,
+      "name": {"es": "Flat White con Caramelo", "fr": "Flat White Caramel", "en": "Caramel Flat White"},
+      "ingredients": [
+        {"name": {"es": "Ristretto", "fr": "Ristretto", "en": "Ristretto"}, "quantity": "60 ml"},
+        {"name": {"es": "Leche microespumada", "fr": "Lait micro-mousse", "en": "Microfoam milk"}, "quantity": "120 ml"},
+        {"name": {"es": "Jarabe de caramelo", "fr": "Sirop de caramel", "en": "Caramel syrup"}, "quantity": "20 ml"}
+      ],
+      "preparation": {
+        "es": ["Verter jarabe en taza de 180 ml.", "Preparar ristretto sobre el jarabe.", "Añadir leche microespumada.", "Decorar con caramelo."],
+        "fr": ["Verser sirop dans tasse de 180 ml.", "Préparer ristretto sur le sirop.", "Ajouter lait micro-mousse.", "Décorer avec caramel."],
+        "en": ["Pour syrup into 180 ml cup.", "Prepare ristretto over syrup.", "Add microfoam milk.", "Garnish with caramel."]
+      },
+      "presentation": {"es": "Taza tulipán 180 ml", "fr": "Tasse tulipe 180 ml", "en": "180 ml tulip cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "8 min",
+      "difficulty": "medium",
+      "tags": ["ristretto", "caramel", "microfoam"],
+      "chef_note": {
+        "es": "Usar jarabe de caramelo premium (ej: Monin).",
+        "fr": "Utiliser sirop de caramel premium (ex: Monin).",
+        "en": "Use premium caramel syrup (e.g., Monin)."
+      }
+    },
+    {
+      "id": 26,
+      "name": {"es": "Mazagran", "fr": "Mazagran", "en": "Mazagran"},
+      "ingredients": [
+        {"name": {"es": "Espresso frío", "fr": "Espresso froid", "en": "Cold espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Agua con gas", "fr": "Eau gazeuse", "en": "Sparkling water"}, "quantity": "120 ml"},
+        {"name": {"es": "Limón", "fr": "Citron", "en": "Lemon"}, "quantity": "1 rodaja"},
+        {"name": {"es": "Hielo", "fr": "Glace", "en": "Ice"}, "quantity": "4-5 cubos"}
+      ],
+      "preparation": {
+        "es": ["Llenar vaso con hielo.", "Añadir espresso y azúcar.", "Completar con agua con gas.", "Decorar con limón."],
+        "fr": ["Remplir verre de glace.", "Ajouter espresso et sucre.", "Compléter avec eau gazeuse.", "Décorer avec citron."],
+        "en": ["Fill glass with ice.", "Add espresso and sugar.", "Top with sparkling water.", "Garnish with lemon."]
+      },
+      "presentation": {"es": "Vaso alto 240 ml", "fr": "Grand verre 240 ml", "en": "Tall 240 ml glass"},
+      "serving_temperature": {"es": "Frío", "fr": "Froid", "en": "Cold"},
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "sparkling_water", "lemon", "portuguese"],
+      "chef_note": {
+        "es": "Originario de Argelia (1840). El limón realza sabores frutales del café.",
+        "fr": "Originaire d'Algérie (1840). Le citron rehausse les saveurs fruitées du café.",
+        "en": "Originated in Algeria (1840). Lemon enhances coffee's fruity flavors."
+      }
+    },
+    {
+      "id": 27,
+      "name": {"es": "Café de Olla", "fr": "Café de Olla", "en": "Café de Olla"},
+      "ingredients": [
+        {"name": {"es": "Café molido", "fr": "Café moulu", "en": "Ground coffee"}, "quantity": "30 g"},
+        {"name": {"es": "Agua", "fr": "Eau", "en": "Water"}, "quantity": "500 ml"},
+        {"name": {"es": "Piloncillo", "fr": "Piloncillo", "en": "Piloncillo"}, "quantity": "50 g"},
+        {"name": {"es": "Canela", "fr": "Cannelle", "en": "Cinnamon"}, "quantity": "1 rama"}
+      ],
+      "preparation": {
+        "es": ["Hervir agua con piloncillo y canela 5 min.", "Añadir café, tapar y reposar 10 min.", "Filtrar y servir en tazas de barro."],
+        "fr": ["Faire bouillir eau avec piloncillo et cannelle 5 min.", "Ajouter café, couvrir et laisser reposer 10 min.", "Filtrer et servir dans tasses en terre cuite."],
+        "en": ["Boil water with piloncillo and cinnamon for 5 min.", "Add coffee, cover, and steep for 10 min.", "Strain and serve in clay cups."]
+      },
+      "presentation": {"es": "Taza de barro 150 ml", "fr": "Tasse en terre cuite 150 ml", "en": "150 ml clay cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "20 min",
+      "difficulty": "medium",
+      "tags": ["mexican", "clay_pot", "cinnamon"],
+      "chef_note": {
+        "es": "Tradicional de México central. Usar café de Chiapas o Veracruz.",
+        "fr": "Traditionnel du centre du Mexique. Utiliser café de Chiapas ou Veracruz.",
+        "en": "Traditional from central Mexico. Use coffee from Chiapas or Veracruz."
+      }
+    },
+    {
+      "id": 28,
+      "name": {"es": "Café Tonic", "fr": "Café Tonic", "en": "Coffee Tonic"},
+      "ingredients": [
+        {"name": {"es": "Espresso frío", "fr": "Espresso froid", "en": "Cold espresso"}, "quantity": "90 ml"},
+        {"name": {"es": "Agua tónica", "fr": "Eau tonique", "en": "Tonic water"}, "quantity": "120 ml"},
+        {"name": {"es": "Hielo", "fr": "Glace", "en": "Ice"}, "quantity": "3-4 cubos"},
+        {"name": {"es": "Limón", "fr": "Citron", "en": "Lemon"}, "quantity": "1 twist"}
+      ],
+      "preparation": {
+        "es": ["Llenar vaso con hielo grande.", "Verter espresso frío.", "Completar con agua tónica.", "Decorar con twist de limón."],
+        "fr": ["Remplir verre de gros glaçons.", "Verser espresso froid.", "Compléter avec eau tonique.", "Décorer avec zeste de citron."],
+        "en": ["Fill glass with large ice cubes.", "Pour cold espresso.", "Top with tonic water.", "Garnish with lemon twist."]
+      },
+      "presentation": {"es": "Vaso 240 ml", "fr": "Verre 240 ml", "en": "240 ml glass"},
+      "serving_temperature": {"es": "Frío", "fr": "Froid", "en": "Cold"},
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "tonic", "refreshing"],
+      "chef_note": {
+        "es": "Usar agua tónica premium (ej: Fever-Tree) para mejor sabor.",
+        "fr": "Utiliser eau tonique premium (ex: Fever-Tree) pour meilleur goût.",
+        "en": "Use premium tonic water (e.g., Fever-Tree) for better taste."
+      }
+    },
+    {
+      "id": 29,
+      "name": {"es": "Espresso Martini", "fr": "Espresso Martini", "en": "Espresso Martini"},
+      "ingredients": [
+        {"name": {"es": "Vodka", "fr": "Vodka", "en": "Vodka"}, "quantity": "50 ml"},
+        {"name": {"es": "Licor de café", "fr": "Liqueur de café", "en": "Coffee liqueur"}, "quantity": "30 ml"},
+        {"name": {"es": "Espresso fresco", "fr": "Espresso frais", "en": "Fresh espresso"}, "quantity": "30 ml"},
+        {"name": {"es": "Jarabe simple", "fr": "Sirop simple", "en": "Simple syrup"}, "quantity": "10 ml"},
+        {"name": {"es": "Hielo", "fr": "Glace", "en": "Ice"}, "quantity": "1 taza"}
+      ],
+      "preparation": {
+        "es": ["Llenar coctelera con hielo.", "Añadir todos los ingredientes.", "Agitar 15 segundos.", "Colar en copa de martini pre-enfriada."],
+        "fr": ["Remplir shaker de glace.", "Ajouter tous les ingrédients.", "Secouer 15 secondes.", "Filtrer dans coupe à martini pré-refroidie."],
+        "en": ["Fill shaker with ice.", "Add all ingredients.", "Shake for 15 seconds.", "Strain into chilled martini glass."]
+      },
+      "presentation": {"es": "Copa de martini", "fr": "Coupe à martini", "en": "Martini glass"},
+      "serving_temperature": {"es": "Muy frío", "fr": "Très froid", "en": "Very cold"},
+      "prep_time": "5 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "vodka", "coffee_liqueur", "cocktail"],
+      "chef_note": {
+        "es": "Creado en Londres en los 80. Usar espresso recién hecho y vodka de calidad (ej: Ketel One).",
+        "fr": "Créé à Londres dans les années 80. Utiliser espresso fraîchement fait et vodka de qualité (ex: Ketel One).",
+        "en": "Created in London in the 80s. Use freshly made espresso and quality vodka (e.g., Ketel One)."
+      }
+    },
+    {
+      "id": 30,
+      "name": {"es": "Carajillo", "fr": "Carajillo", "en": "Carajillo"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Licor 43 o brandy", "fr": "Licor 43 ou brandy", "en": "Licor 43 or brandy"}, "quantity": "30 ml"},
+        {"name": {"es": "Azúcar", "fr": "Sucre", "en": "Sugar"}, "quantity": {"es": "Al gusto", "fr": "Au goût", "en": "To taste"}},
+        {"name": {"es": "Cáscara de limón", "fr": "Zeste de citron", "en": "Lemon zest"}, "quantity": "1"}
+      ],
+      "preparation": {
+        "es": ["Preparar espresso en taza de 120 ml.", "Añadir licor y azúcar.", "Flambear con cáscara de limón (opcional).", "Servir caliente."],
+        "fr": ["Préparer espresso dans tasse de 120 ml.", "Ajouter liqueur et sucre.", "Flamber avec zeste de citron (optionnel).", "Servir chaud."],
+        "en": ["Prepare espresso in a 120 ml cup.", "Add liqueur and sugar.", "Flambe with lemon zest (optional).", "Serve hot."]
+      },
+      "presentation": {"es": "Taza 120 ml", "fr": "Tasse 120 ml", "en": "120 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "5 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "licor_43", "spanish", "flambé"],
+      "chef_note": {
+        "es": "Tradicional en España. El Licor 43 (vanilla, cítricos, especias) es clave.",
+        "fr": "Traditionnel en Espagne. Le Licor 43 (vanille, agrumes, épices) est clé.",
+        "en": "Traditional in Spain. Licor 43 (vanilla, citrus, spices) is key."
+      },
+      "safety_warning": {
+        "es": "Cuidado al flambear: alejar el rostro y usar recipientes resistentes al calor.",
+        "fr": "Attention lors du flambage: éloigner le visage et utiliser des récipients résistants à la chaleur.",
+        "en": "Caution when flambéing: keep face away and use heat-resistant containers."
+      }
+    },
+    {
+      "id": 31,
+      "name": {"es": "Café Bombón", "fr": "Café Bombón", "en": "Café Bombón"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Leche condensada", "fr": "Lait concentré sucré", "en": "Condensed milk"}, "quantity": "30 ml"}
+      ],
+      "preparation": {
+        "es": ["Verter leche condensada en taza de 120 ml.", "Preparar espresso directamente sobre la leche.", "Remover ligeramente para crear efecto 'bombón'."],
+        "fr": ["Verser lait concentré dans tasse de 120 ml.", "Préparer espresso directement sur le lait.", "Remuer légèrement pour effet 'bonbon'."],
+        "en": ["Pour condensed milk into a 120 ml cup.", "Prepare espresso directly over the milk.", "Stir gently for 'bonbon' effect."]
+      },
+      "presentation": {"es": "Taza 120 ml", "fr": "Tasse 120 ml", "en": "120 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "4 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "condensed_milk", "spanish", "sweet"],
+      "chef_note": {
+        "es": "Originario de Valencia (España). La leche condensada debe ser espesa para crear capas.",
+        "fr": "Originaire de Valence (Espagne). Le lait concentré doit être épais pour créer des couches.",
+        "en": "Originated in Valencia (Spain). Condensed milk should be thick to create layers."
+      }
+    },
+    {
+      "id": 32,
+      "name": {"es": "Dalgona Coffee", "fr": "Café Dalgona", "en": "Dalgona Coffee"},
+      "ingredients": [
+        {"name": {"es": "Café instantáneo", "fr": "Café instantané", "en": "Instant coffee"}, "quantity": "2 cucharadas"},
+        {"name": {"es": "Azúcar", "fr": "Sucre", "en": "Sugar"}, "quantity": "2 cucharadas"},
+        {"name": {"es": "Agua caliente", "fr": "Eau chaude", "en": "Hot water"}, "quantity": "2 cucharadas"},
+        {"name": {"es": "Leche fría", "fr": "Lait froid", "en": "Cold milk"}, "quantity": "200 ml"},
+        {"name": {"es": "Hielo", "fr": "Glace", "en": "Ice"}, "quantity": {"es": "Opcional", "fr": "Optionnel", "en": "Optional"}}
+      ],
+      "preparation": {
+        "es": ["Batir café, azúcar y agua a mano o con batidora hasta punto de merengue.", "Llenar vaso con leche fría y hielo.", "Colocar la espuma de café sobre la leche."],
+        "fr": ["Fouetter café, sucre et eau à la main ou au batteur jusqu'à consistance de meringue.", "Remplir verre de lait froid et glace.", "Placer la mousse de café sur le lait."],
+        "en": ["Whip coffee, sugar, and water by hand or mixer until meringue-like.", "Fill glass with cold milk and ice.", "Place coffee foam on top of milk."]
+      },
+      "presentation": {"es": "Vaso alto 250 ml", "fr": "Grand verre 250 ml", "en": "Tall 250 ml glass"},
+      "serving_temperature": {"es": "Frío", "fr": "Froid", "en": "Cold"},
+      "prep_time": "10 min",
+      "difficulty": "medium",
+      "tags": ["instant_coffee", "whipped", "korean", "social_media"],
+      "chef_note": {
+        "es": "Viralizado en 2020. La espuma debe ser densa y brillante. Usar café instantáneo de calidad (ej: Nescafé Azera).",
+        "fr": "Viralisé en 2020. La mousse doit être dense et brillante. Utiliser café instantané de qualité (ex: Nescafé Azera).",
+        "en": "Went viral in 2020. Foam should be dense and shiny. Use quality instant coffee (e.g., Nescafé Azera)."
+      }
+    },
+    {
+      "id": 33,
+      "name": {"es": "Café con Hielo", "fr": "Café Glacé Espagnol", "en": "Spanish Iced Coffee"},
+      "ingredients": [
+        {"name": {"es": "Café solo caliente", "fr": "Café noir chaud", "en": "Hot black coffee"}, "quantity": "120 ml"},
+        {"name": {"es": "Azúcar", "fr": "Sucre", "en": "Sugar"}, "quantity": {"es": "Al gusto", "fr": "Au goût", "en": "To taste"}},
+        {"name": {"es": "Hielo", "fr": "Glace", "en": "Ice"}, "quantity": "1 taza"}
+      ],
+      "preparation": {
+        "es": ["Preparar café solo con azúcar en vaso de 250 ml.", "Remover bien hasta disolver.", "Añadir hielo hasta el borde.", "Servir con cuchara."],
+        "fr": ["Préparer café noir avec sucre dans verre de 250 ml.", "Bien remuer jusqu'à dissolution.", "Ajouter glace jusqu'au bord.", "Servir avec cuillère."],
+        "en": ["Prepare black coffee with sugar in a 250 ml glass.", "Stir well until dissolved.", "Add ice to the rim.", "Serve with spoon."]
+      },
+      "presentation": {"es": "Vaso 250 ml", "fr": "Verre 250 ml", "en": "250 ml glass"},
+      "serving_temperature": {"es": "Frío", "fr": "Froid", "en": "Cold"},
+      "prep_time": "3 min",
+      "difficulty": "easy",
+      "tags": ["black_coffee", "ice", "spanish", "summer"],
+      "chef_note": {
+        "es": "Popular en Andalucía. El azúcar se disuelve mejor en caliente antes de añadir hielo.",
+        "fr": "Populaire en Andalousie. Le sucre se dissout mieux à chaud avant d'ajouter la glace.",
+        "en": "Popular in Andalusia. Sugar dissolves better when hot before adding ice."
+      }
+    },
+    {
+      "id": 34,
+      "name": {"es": "Café con Leche Condensada", "fr": "Café au Lait Concentré", "en": "Coffee with Condensed Milk"},
+      "ingredients": [
+        {"name": {"es": "Café de filtro", "fr": "Café filtre", "en": "Drip coffee"}, "quantity": "180 ml"},
+        {"name": {"es": "Leche condensada", "fr": "Lait concentré sucré", "en": "Condensed milk"}, "quantity": "30 ml"},
+        {"name": {"es": "Hielo", "fr": "Glace", "en": "Ice"}, "quantity": {"es": "Opcional", "fr": "Optionnel", "en": "Optional"}}
+      ],
+      "preparation": {
+        "es": ["Verter leche condensada en vaso de 250 ml.", "Añadir café caliente y remover.", "Dejar enfriar o añadir hielo."],
+        "fr": ["Verser lait concentré dans verre de 250 ml.", "Ajouter café chaud et remuer.", "Laisser refroidir ou ajouter glace."],
+        "en": ["Pour condensed milk into a 250 ml glass.", "Add hot coffee and stir.", "Let cool or add ice."]
+      },
+      "presentation": {"es": "Vaso 250 ml", "fr": "Verre 250 ml", "en": "250 ml glass"},
+      "serving_temperature": {"es": "Tibio o frío", "fr": "Tiède ou froid", "en": "Lukewarm or cold"},
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["drip_coffee", "condensed_milk", "vietnamese", "sweet"],
+      "chef_note": {
+        "es": "Versión simplificada del 'Cà phê sữa đá' vietnamita. Usar leche condensada de marca (ej: La Lechera).",
+        "fr": "Version simplifiée du 'Cà phê sữa đá' vietnamien. Utiliser lait concentré de marque (ex: La Lechera).",
+        "en": "Simplified version of Vietnamese 'Cà phê sữa đá'. Use branded condensed milk (e.g., La Lechera)."
+      }
+    },
+    {
+      "id": 35,
+      "name": {"es": "Café con Chocolate", "fr": "Café au Chocolat", "en": "Coffee with Chocolate"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Chocolate caliente", "fr": "Chocolat chaud", "en": "Hot chocolate"}, "quantity": "120 ml"},
+        {"name": {"es": "Crema batida", "fr": "Crème fouettée", "en": "Whipped cream"}, "quantity": "20 ml"},
+        {"name": {"es": "Canela", "fr": "Cannelle", "en": "Cinnamon"}, "quantity": "1 pincée"}
+      ],
+      "preparation": {
+        "es": ["Preparar chocolate caliente en taza de 200 ml.", "Verter espresso sobre el chocolate.", "Coronar con crema batida y canela."],
+        "fr": ["Préparer chocolat chaud dans tasse de 200 ml.", "Verser espresso sur le chocolat.", "Couronner de crème fouettée et cannelle."],
+        "en": ["Prepare hot chocolate in a 200 ml cup.", "Pour espresso over the chocolate.", "Top with whipped cream and cinnamon."]
+      },
+      "presentation": {"es": "Taza 200 ml", "fr": "Tasse 200 ml", "en": "200 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "7 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "hot_chocolate", "whipped_cream", "winter"],
+      "chef_note": {
+        "es": "Ideal para días fríos. Usar chocolate negro 70% para equilibrar la dulzura.",
+        "fr": "Idéal pour les jours froids. Utiliser chocolat noir 70% pour équilibrer la douceur.",
+        "en": "Perfect for cold days. Use 70% dark chocolate to balance sweetness."
+      }
+    },
+
+    {
+      "id": 36,
+      "name": {"es": "Café Viennés con Nata", "fr": "Viennois à la Crème", "en": "Vienna Coffee with Cream"},
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Nata montada", "fr": "Crème fouettée", "en": "Whipped cream"}, "quantity": "50 ml"},
+        {"name": {"es": "Chocolate negro rallado", "fr": "Chocolat noir râpé", "en": "Dark chocolate shavings"}, "quantity": "1 cucharada"}
+      ],
+      "preparation": {
+        "es": ["Preparar espresso en taza de 150 ml.", "Cubrir con nata montada.", "Espolvorear chocolate rallado."],
+        "fr": ["Préparer espresso dans tasse de 150 ml.", "Couvrir de crème fouettée.", "Saupoudrer de chocolat râpé."],
+        "en": ["Prepare espresso in a 150 ml cup.", "Top with whipped cream.", "Sprinkle with chocolate shavings."]
+      },
+      "presentation": {"es": "Taza 150 ml", "fr": "Tasse 150 ml", "en": "150 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "6 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "whipped_cream", "chocolate", "austrian", "dessert"],
+      "chef_note": {
+        "es": "Variante más indulgente del Viennés clásico. Usar nata con 35% grasa para mejor textura.",
+        "fr": "Variante plus indulgent du Viennois classique. Utiliser crème à 35% MG pour meilleure texture.",
+        "en": "More indulgent version of classic Viennese. Use 35% fat cream for best texture."
+      }
+    },
+    {
+      "id": 37,
+      "name": {"es": "Café Turco", "fr": "Café Turc", "en": "Turkish Coffee"},
+      "ingredients": [
+        {"name": {"es": "Café molido finísimo", "fr": "Café moulu très fin", "en": "Finely ground coffee"}, "quantity": "7 g"},
+        {"name": {"es": "Agua", "fr": "Eau", "en": "Water"}, "quantity": "60 ml"},
+        {"name": {"es": "Azúcar", "fr": "Sucre", "en": "Sugar"}, "quantity": {"es": "Al gusto", "fr": "Au goût", "en": "To taste"}},
+        {"name": {"es": "Cardamomo (opcional)", "fr": "Cardamome (optionnel)", "en": "Cardamom (optional)"}, "quantity": "1 semilla"}
+      ],
+      "preparation": {
+        "es": ["Mezclar café, azúcar y agua en cezve (ollita de cobre).", "Calentar a fuego lento hasta espuma (sin hervir).", "Retirar del fuego, repetir 2 veces.", "Dejar reposar 1 min y servir con posos."],
+        "fr": ["Mélanger café, sucre et eau dans un cezve (petite casserole en cuivre).", "Chauffer à feu doux jusqu'à mousse (sans ébullition).", "Retirer du feu, répéter 2 fois.", "Laisser reposer 1 min et servir avec marc."],
+        "en": ["Mix coffee, sugar, and water in a cezve (copper pot).", "Heat gently until frothy (do not boil).", "Remove from heat, repeat twice.", "Let rest 1 min and serve with grounds."]
+      },
+      "presentation": {"es": "Taza pequeña 60 ml", "fr": "Petite tasse 60 ml", "en": "Small 60 ml cup"},
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "10 min",
+      "difficulty": "medium",
+      "tags": ["turkish_coffee", "unfiltered", "cardamom", "middle_eastern"],
+      "chef_note": {
+        "es": "El café turco se sirve con los posos. Tradicionalmente se acompaña de un vaso de agua y algo dulce (ej: lokum).",
+        "fr": "Le café turc se sert avec le marc. Traditionnellement accompagné d'un verre d'eau et d'un doux (ex: lokum).",
+        "en": "Turkish coffee is served with grounds. Traditionally paired with water and sweets (e.g., lokum)."
+      },
+      "cultural_note": {
+        "es": "En Turquía, se considera de mala educación tomar café turco sin dejar posos en la taza.",
+        "fr": "En Turquie, il est malpoli de boire un café turc sans laisser de marc dans la tasse.",
+        "en": "In Turkey, it's considered rude to drink Turkish coffee without leaving grounds in the cup."
+      }
+    },
+    {
+      "id": 39,
+      "name": {
+        "es": "Café de Olla Mexicano",
+        "fr": "Café de Olla Mexicain",
+        "en": "Mexican Clay Pot Coffee"
+      },
+      "ingredients": [
+        {"name": {"es": "Café molido grueso", "fr": "Café moulu grossièrement", "en": "Coarse ground coffee"}, "quantity": "50 g"},
+        {"name": {"es": "Agua", "fr": "Eau", "en": "Water"}, "quantity": "1 L"},
+        {"name": {"es": "Piloncillo (o azúcar moreno)", "fr": "Piloncillo (ou sucre roux)", "en": "Piloncillo (or brown sugar)"}, "quantity": "100 g"},
+        {"name": {"es": "Canela en rama", "fr": "Bâton de cannelle", "en": "Cinnamon stick"}, "quantity": "1"},
+        {"name": {"es": "Cáscara de naranja (opcional)", "fr": "Écorce d'orange (optionnel)", "en": "Orange peel (optional)"}, "quantity": "1"}
+      ],
+      "preparation": {
+        "es": [
+          "Hervir agua con piloncillo y canela en olla de barro por 10 min.",
+          "Añadir café molido, remover y dejar reposar 5 min.",
+          "Filtrar con un colador de tela y servir en tazas de barro."
+        ],
+        "fr": [
+          "Faire bouillir eau, piloncillo et cannelle dans une poterie pendant 10 min.",
+          "Ajouter café moulu, remuer et laisser reposer 5 min.",
+          "Filtrer avec un tamis en tissu et servir dans des tasses en terre cuite."
+        ],
+        "en": [
+          "Boil water with piloncillo and cinnamon in a clay pot for 10 min.",
+          "Add ground coffee, stir, and let steep for 5 min.",
+          "Strain through a cloth filter and serve in clay cups."
+        ]
+      },
+      "presentation": {
+        "es": "Taza de barro 150 ml",
+        "fr": "Tasse en terre cuite 150 ml",
+        "en": "150 ml clay cup"
+      },
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "20 min",
+      "difficulty": "medium",
+      "tags": ["mexican", "clay_pot", "cinnamon", "piloncillo", "traditional"],
+      "chef_note": {
+        "es": "Originario de Jalisco. El piloncillo (azúcar de caña sin refinar) da un sabor a caramelo. Usar café de Chiapas para autenticidad.",
+        "fr": "Originaire de Jalisco. Le piloncillo (sucre de canne non raffiné) donne un goût caramel. Utiliser du café de Chiapas pour l'authenticité.",
+        "en": "From Jalisco. Piloncillo (unrefined cane sugar) adds caramel flavor. Use Chiapas coffee for authenticity."
+      },
+      "cultural_note": {
+        "es": "Se sirve tradicionalmente con pan dulce (ej: conchas) en el desayuno.",
+        "fr": "Traditionnellement servi avec des viennoiseries (ex: conchas) au petit-déjeuner.",
+        "en": "Traditionally served with sweet bread (e.g., conchas) for breakfast."
+      }
+    },
+    {
+      "id": 40,
+      "name": {
+        "es": "Café Cubano (Colada)",
+        "fr": "Café Cubain (Colada)",
+        "en": "Cuban Coffee (Colada)"
+      },
+      "ingredients": [
+        {"name": {"es": "Café cubano molido finamente", "fr": "Café cubain moulu finement", "en": "Finely ground Cuban coffee"}, "quantity": "60 g"},
+        {"name": {"es": "Agua", "fr": "Eau", "en": "Water"}, "quantity": "1 L"},
+        {"name": {"es": "Azúcar morena (demerara)", "fr": "Sucre roux (demerara)", "en": "Brown sugar (demerara)"}, "quantity": "100 g"}
+      ],
+      "preparation": {
+        "es": [
+          "Preparar café en una 'moka' o cafetera italiana con agua y café molido.",
+          "Mezclar el café caliente con azúcar en un recipiente metálico (escumillera).",
+          "Batir vigorosamente hasta formar una espuma densa ('espumita').",
+          "Servir en tacitas pequeñas, vertiendo primero la espuma."
+        ],
+        "fr": [
+          "Préparer le café dans une 'moka' ou cafetière italienne avec eau et café moulu.",
+          "Mélanger le café chaud avec le sucre dans un récipient métallique (écumoire).",
+          "Battre vigoureusement jusqu'à obtenir une mousse dense ('espumita').",
+          "Servir dans petites tasses, en versant d'abord la mousse."
+        ],
+        "en": [
+          "Brew coffee in a 'moka' pot or Italian coffee maker with water and ground coffee.",
+          "Mix hot coffee with sugar in a metal container (foamer).",
+          "Whisk vigorously until a thick foam ('espumita') forms.",
+          "Serve in small cups, pouring the foam first."
+        ]
+      },
+      "presentation": {
+        "es": "Tacitas de 60 ml (servido en 'tazas de colada')",
+        "fr": "Petites tasses de 60 ml (servi en 'tasses à colada')",
+        "en": "60 ml cups (served in 'colada cups')"
+      },
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "15 min",
+      "difficulty": "medium",
+      "tags": ["cuban", "moka_pot", "sweet", "social", "espressino"],
+      "chef_note": {
+        "es": "En Cuba, se comparte en grupos: una 'colada' (4-6 tacitas) por persona. El azúcar demerara es tradicional.",
+        "fr": "À Cuba, on partage en groupe : une 'colada' (4-6 petites tasses) par personne. Le sucre demerara est traditionnel.",
+        "en": "In Cuba, it's shared in groups: one 'colada' (4-6 small cups) per person. Demerara sugar is traditional."
+      },
+      "cultural_note": {
+        "es": "Ritual social cubano: el que prepara el café grita '¡Colada!' para avisar a los vecinos.",
+        "fr": "Rituel social cubain : celui qui prépare le café crie '¡Colada!' pour prévenir les voisins.",
+        "en": "Cuban social ritual: the person making coffee shouts '¡Colada!' to alert neighbors."
+      }
+    },
+    {
+      "id": 42,
+      "name": {
+        "es": "Café con Cardamomo (Gahwa)",
+        "fr": "Café à la Cardamome (Gahwa)",
+        "en": "Cardamom Coffee (Gahwa)"
+      },
+      "ingredients": [
+        {"name": {"es": "Café arábica ligero", "fr": "Café arabica léger", "en": "Light arabica coffee"}, "quantity": "15 g"},
+        {"name": {"es": "Agua", "fr": "Eau", "en": "Water"}, "quantity": "200 ml"},
+        {"name": {"es": "Cardamomo verde", "fr": "Cardamome verte", "en": "Green cardamom"}, "quantity": "2 cápsulas"},
+        {"name": {"es": "Azúcar (opcional)", "fr": "Sucre (optionnel)", "en": "Sugar (optional)"}, "quantity": {"es": "Al gusto", "fr": "Au goût", "en": "To taste"}}
+      ],
+      "preparation": {
+        "es": [
+          "Moler café con semillas de cardamomo (sin cápsulas).",
+          "Preparar en cafetera italiana o turca con agua caliente.",
+          "Dejar reposar 2 min antes de servir en tazas pequeñas."
+        ],
+        "fr": [
+          "Moudre le café avec les graines de cardamome (sans gousses).",
+          "Préparer dans une cafetière italienne ou turque avec eau chaude.",
+          "Laisser reposer 2 min avant de servir dans petites tasses."
+        ],
+        "en": [
+          "Grind coffee with cardamom seeds (no pods).",
+          "Brew in a moka pot or Turkish coffee maker with hot water.",
+          "Let rest for 2 min before serving in small cups."
+        ]
+      },
+      "presentation": {
+        "es": "Taza pequeña 60 ml (tradicionalmente con dátiles)",
+        "fr": "Petite tasse 60 ml (traditionnellement avec des dattes)",
+        "en": "Small 60 ml cup (traditionally with dates)"
+      },
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "10 min",
+      "difficulty": "medium",
+      "tags": ["arabic", "cardamom", "spiced", "ceremonial", "middle_eastern"],
+      "chef_note": {
+        "es": "El gahwa es símbolo de hospitalidad en países del Golfo. Tradicionalmente se sirve con dátiles y se sostiene la taza con la mano derecha.",
+        "fr": "Le gahwa est un symbole d'hospitalité dans les pays du Golfe. Traditionnellement servi avec des dattes et tenu avec la main droite.",
+        "en": "Gahwa symbolizes hospitality in Gulf countries. Traditionally served with dates and held with the right hand."
+      },
+      "cultural_note": {
+        "es": "En Emiratos Árabes, negarse a tomar gahwa puede considerarse una ofensa.",
+        "fr": "Aux Émirats Arabes Unis, refuser le gahwa peut être considéré comme une offense.",
+        "en": "In the UAE, refusing gahwa can be considered offensive."
+      }
+    },
+    {
+      "id": 43,
+      "name": {
+        "es": "Café Dalgona con Matcha",
+        "fr": "Café Dalgona au Matcha",
+        "en": "Matcha Dalgona Coffee"
+      },
+      "ingredients": [
+        {"name": {"es": "Café instantáneo", "fr": "Café instantané", "en": "Instant coffee"}, "quantity": "1 cucharada"},
+        {"name": {"es": "Matcha en polvo", "fr": "Matcha en poudre", "en": "Matcha powder"}, "quantity": "1 cucharadita"},
+        {"name": {"es": "Azúcar", "fr": "Sucre", "en": "Sugar"}, "quantity": "2 cucharadas"},
+        {"name": {"es": "Agua caliente", "fr": "Eau chaude", "en": "Hot water"}, "quantity": "2 cucharadas"},
+        {"name": {"es": "Leche fría", "fr": "Lait froid", "en": "Cold milk"}, "quantity": "200 ml"},
+        {"name": {"es": "Hielo", "fr": "Glace", "en": "Ice"}, "quantity": "1 taza"}
+      ],
+      "preparation": {
+        "es": [
+          "Mezclar café, matcha, azúcar y agua en un bol.",
+          "Batir con batidora de mano hasta obtener una espuma densa (3-5 min).",
+          "Llenar un vaso con hielo y leche fría.",
+          "Colocar la espuma de café-matcha sobre la leche con una cuchara."
+        ],
+        "fr": [
+          "Mélanger café, matcha, sucre et eau dans un bol.",
+          "Battre avec un mixeur jusqu'à obtenir une mousse dense (3-5 min).",
+          "Remplir un verre de glace et de lait froid.",
+          "Placer la mousse café-matcha sur le lait avec une cuillère."
+        ],
+        "en": [
+          "Mix coffee, matcha, sugar, and water in a bowl.",
+          "Whisk with a hand mixer until thick foam forms (3-5 min).",
+          "Fill a glass with ice and cold milk.",
+          "Spoon the coffee-matcha foam over the milk."
+        ]
+      },
+      "presentation": {
+        "es": "Vaso alto 300 ml con pajita",
+        "fr": "Grand verre 300 ml avec paille",
+        "en": "Tall 300 ml glass with straw"
+      },
+      "serving_temperature": {"es": "Frío", "fr": "Froid", "en": "Cold"},
+      "prep_time": "8 min",
+      "difficulty": "medium",
+      "tags": ["dalgona", "matcha", "korean_japanese_fusion", "instagrammable", "layered"],
+      "chef_note": {
+        "es": "El matcha añade un sabor terroso que equilibra el amargor del café. Usar matcha ceremonial para mejor color y sabor.",
+        "fr": "Le matcha ajoute une saveur terreuse qui équilibre l'amertume du café. Utiliser du matcha cérémoniel pour une meilleure couleur et saveur.",
+        "en": "Matcha adds an earthy flavor that balances coffee's bitterness. Use ceremonial matcha for better color and taste."
+      }
+    },
+    {
+      "id": 44,
+      "name": {
+        "es": "Café con Licor de Avellana",
+        "fr": "Café au Liqueur de Noisette",
+        "en": "Coffee with Hazelnut Liqueur"
+      },
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Licor de avellana (ej: Frangelico)", "fr": "Liqueur de noisette (ex: Frangelico)", "en": "Hazelnut liqueur (e.g., Frangelico)"}, "quantity": "30 ml"},
+        {"name": {"es": "Crema batida", "fr": "Crème fouettée", "en": "Whipped cream"}, "quantity": "20 ml"},
+        {"name": {"es": "Avellanas picadas", "fr": "Noisettes hachées", "en": "Chopped hazelnuts"}, "quantity": "1 cucharadita"}
+      ],
+      "preparation": {
+        "es": [
+          "Preparar espresso en taza de 150 ml.",
+          "Añadir licor de avellana y remover.",
+          "Coronar con crema batida y avellanas picadas."
+        ],
+        "fr": [
+          "Préparer espresso dans une tasse de 150 ml.",
+          "Ajouter liqueur de noisette et remuer.",
+          "Couronner de crème fouettée et noisettes hachées."
+        ],
+        "en": [
+          "Prepare espresso in a 150 ml cup.",
+          "Add hazelnut liqueur and stir.",
+          "Top with whipped cream and chopped hazelnuts."
+        ]
+      },
+      "presentation": {
+        "es": "Taza 150 ml",
+        "fr": "Tasse 150 ml",
+        "en": "150 ml cup"
+      },
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "5 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "hazelnut_liqueur", "whipped_cream", "nutty", "after_dinner"],
+      "chef_note": {
+        "es": "Combinación perfecta para amantes de los sabores tostados. El Frangelico (avellanas + cacao) es el licor ideal.",
+        "fr": "Combinaison parfaite pour les amateurs de saveurs torréfiées. Le Frangelico (noisette + cacao) est le liqueur idéal.",
+        "en": "Perfect for lovers of toasted flavors. Frangelico (hazelnut + cocoa) is the ideal liqueur."
+      },
+      "pairing": {
+        "es": "Marida bien con postres de chocolate o frutos secos.",
+        "fr": "S'accorde bien avec des desserts au chocolat ou aux fruits secs.",
+        "en": "Pairs well with chocolate or nut-based desserts."
+      }
+    },
+    {
+      "id": 45,
+      "name": {
+        "es": "Café con Speculoos",
+        "fr": "Café aux Speculoos",
+        "en": "Speculoos Coffee"
+      },
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Leche caliente", "fr": "Lait chaud", "en": "Hot milk"}, "quantity": "120 ml"},
+        {"name": {"es": "Jarabe de speculoos", "fr": "Sirop de speculoos", "en": "Speculoos syrup"}, "quantity": "20 ml"},
+        {"name": {"es": "Crema de speculoos", "fr": "Crème de speculoos", "en": "Speculoos spread"}, "quantity": "1 cucharadita"},
+        {"name": {"es": "Galleta speculoos", "fr": "Biscuit speculoos", "en": "Speculoos cookie"}, "quantity": "1"}
+      ],
+      "preparation": {
+        "es": [
+          "Mezclar jarabe de speculoos con leche caliente.",
+          "Verter espresso en taza de 200 ml.",
+          "Añadir la leche aromatizada y remover.",
+          "Coronar con crema de speculoos y una galleta al lado."
+        ],
+        "fr": [
+          "Mélanger sirop de speculoos avec lait chaud.",
+          "Verser espresso dans une tasse de 200 ml.",
+          "Ajouter le lait aromatisé et remuer.",
+          "Couronner avec crème de speculoos et servir avec un biscuit."
+        ],
+        "en": [
+          "Mix speculoos syrup with hot milk.",
+          "Pour espresso into a 200 ml cup.",
+          "Add flavored milk and stir.",
+          "Top with speculoos spread and serve with a cookie."
+        ]
+      },
+      "presentation": {
+        "es": "Taza 200 ml con galleta al lado",
+        "fr": "Tasse 200 ml avec biscuit à côté",
+        "en": "200 ml cup with cookie on the side"
+      },
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "7 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "speculoos", "spiced", "belgian", "comfort_food"],
+      "chef_note": {
+        "es": "Inspirado en las especias de los speculoos (canela, jengibre, clavo). Usar jarabe artesanal para mejor sabor.",
+        "fr": "Inspiré par les épices des speculoos (cannelle, gingembre, clou de girofle). Utiliser un sirop artisanal pour meilleur goût.",
+        "en": "Inspired by speculoos spices (cinnamon, ginger, clove). Use artisanal syrup for best flavor."
+      }
+    },
+    {
+      "id": 46,
+      "name": {
+        "es": "Café con Jengibre y Cúrcuma",
+        "fr": "Café au Gingembre et Curcuma",
+        "en": "Coffee with Ginger and Turmeric"
+      },
+      "ingredients": [
+        {"name": {"es": "Café de filtro", "fr": "Café filtre", "en": "Drip coffee"}, "quantity": "180 ml"},
+        {"name": {"es": "Leche de coco", "fr": "Lait de coco", "en": "Coconut milk"}, "quantity": "60 ml"},
+        {"name": {"es": "Jengibre fresco rallado", "fr": "Gingembre frais râpé", "en": "Fresh grated ginger"}, "quantity": "1 cucharadita"},
+        {"name": {"es": "Cúrcuma en polvo", "fr": "Curcuma en poudre", "en": "Turmeric powder"}, "quantity": "½ cucharadita"},
+        {"name": {"es": "Miel", "fr": "Miel", "en": "Honey"}, "quantity": "10 ml"},
+        {"name": {"es": "Pimienta negra", "fr": "Poivre noir", "en": "Black pepper"}, "quantity": "1 pincée"}
+      ],
+      "preparation": {
+        "es": [
+          "Calentar leche de coco con jengibre, cúrcuma, miel y pimienta a 60°C (sin hervir).",
+          "Dejar infusionar 5 min y colar.",
+          "Verter café en taza de 250 ml y añadir la mezcla de leche.",
+          "Remover y servir."
+        ],
+        "fr": [
+          "Chauffer le lait de coco avec gingembre, curcuma, miel et poivre à 60°C (sans ébullition).",
+          "Laisser infuser 5 min et filtrer.",
+          "Verser le café dans une tasse de 250 ml et ajouter le mélange de lait.",
+          "Remuer et servir."
+        ],
+        "en": [
+          "Heat coconut milk with ginger, turmeric, honey, and pepper to 60°C (do not boil).",
+          "Let steep for 5 min and strain.",
+          "Pour coffee into a 250 ml cup and add the milk mixture.",
+          "Stir and serve."
+        ]
+      },
+      "presentation": {
+        "es": "Taza 250 ml",
+        "fr": "Tasse 250 ml",
+        "en": "250 ml cup"
+      },
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "10 min",
+      "difficulty": "medium",
+      "tags": ["drip_coffee", "turmeric", "ginger", "anti-inflammatory", "golden_latte"],
+      "chef_note": {
+        "es": "La cúrcuma y la pimienta negra aumentan la biodisponibilidad de curcumina (compuesto antiinflamatorio). Ideal para días fríos o resfriados.",
+        "fr": "Le curcuma et le poivre noir augmentent la biodisponibilité de la curcumine (composé anti-inflammatoire). Idéal pour les jours froids ou les rhumes.",
+        "en": "Turmeric and black pepper increase curcumin bioavailability (anti-inflammatory compound). Ideal for cold days or colds."
+      },
+      "health_benefits": {
+        "es": "El jengibre ayuda a la digestión, la cúrcuma es antiinflamatoria y el café proporciona antioxidantes.",
+        "fr": "Le gingembre aide à la digestion, le curcuma est anti-inflammatoire et le café fournit des antioxydants.",
+        "en": "Ginger aids digestion, turmeric is anti-inflammatory, and coffee provides antioxidants."
+      }
+    },
+    {
+      "id": 47,
+      "name": {
+        "es": "Café con Helado de Vainilla y Caramelo",
+        "fr": "Café avec Glace à la Vanille et Caramel",
+        "en": "Coffee with Vanilla Ice Cream and Caramel"
+      },
+      "ingredients": [
+        {"name": {"es": "Espresso frío", "fr": "Espresso froid", "en": "Cold espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Helado de vainilla", "fr": "Glace vanille", "en": "Vanilla ice cream"}, "quantity": "2 bolas"},
+        {"name": {"es": "Salsa de caramelo", "fr": "Sauce caramel", "en": "Caramel sauce"}, "quantity": "30 ml"},
+        {"name": {"es": "Crema batida", "fr": "Crème fouettée", "en": "Whipped cream"}, "quantity": "20 ml"},
+        {"name": {"es": "Cacahuetes caramelizados", "fr": "Cacahuètes caramélisées", "en": "Caramelized peanuts"}, "quantity": "1 cucharada"}
+      ],
+      "preparation": {
+        "es": [
+          "Verter salsa de caramelo en un vaso alto de 300 ml.",
+          "Añadir el helado de vainilla.",
+          "Verter espresso frío lentamente sobre el helado.",
+          "Coronar con crema batida y cacahuetes caramelizados."
+        ],
+        "fr": [
+          "Verser la sauce caramel dans un grand verre de 300 ml.",
+          "Ajouter la glace vanille.",
+          "Verser l'espresso froid lentement sur la glace.",
+          "Couronner de crème fouettée et cacahuètes caramélisées."
+        ],
+        "en": [
+          "Pour caramel sauce into a tall 300 ml glass.",
+          "Add vanilla ice cream.",
+          "Slowly pour cold espresso over the ice cream.",
+          "Top with whipped cream and caramelized peanuts."
+        ]
+      },
+      "presentation": {
+        "es": "Vaso alto 300 ml con cuchara larga",
+        "fr": "Grand verre 300 ml avec cuillère longue",
+        "en": "Tall 300 ml glass with long spoon"
+      },
+      "serving_temperature": {"es": "Frío", "fr": "Froid", "en": "Cold"},
+      "prep_time": "8 min",
+      "difficulty": "easy",
+      "tags": ["espresso", "ice_cream", "caramel", "dessert", "indulgent"],
+      "chef_note": {
+        "es": "Para un efecto 'affogato deluxe', usar helado artesanal y caramelo líquido caliente.",
+        "fr": "Pour un effet 'affogato deluxe', utiliser de la glace artisanale et du caramel liquide chaud.",
+        "en": "For a 'deluxe affogato' effect, use artisanal ice cream and warm liquid caramel."
+      }
+    },
+    {
+      "id": 48,
+      "name": {
+        "es": "Café con Avena y Canela",
+        "fr": "Café à l'Avoine et à la Cannelle",
+        "en": "Oatmeal Cinnamon Coffee"
+      },
+      "ingredients": [
+        {"name": {"es": "Café de filtro", "fr": "Café filtre", "en": "Drip coffee"}, "quantity": "180 ml"},
+        {"name": {"es": "Leche de avena", "fr": "Lait d'avoine", "en": "Oat milk"}, "quantity": "120 ml"},
+        {"name": {"es": "Avena en copos", "fr": "Flocons d'avoine", "en": "Rolled oats"}, "quantity": "1 cucharada"},
+        {"name": {"es": "Canela en polvo", "fr": "Cannelle en poudre", "en": "Ground cinnamon"}, "quantity": "½ cucharadita"},
+        {"name": {"es": "Miel", "fr": "Miel", "en": "Honey"}, "quantity": "10 ml"}
+      ],
+      "preparation": {
+        "es": [
+          "Calentar leche de avena con avena en copos y canela a 60°C durante 5 min.",
+          "Filtrar la mezcla para eliminar sólidos.",
+          "Mezclar con miel y verter sobre el café en taza de 300 ml.",
+          "Espolvorear canela adicional."
+        ],
+        "fr": [
+          "Chauffer le lait d'avoine avec flocons d'avoine et cannelle à 60°C pendant 5 min.",
+          "Filtrer le mélange pour éliminer les solides.",
+          "Mélanger avec le miel et verser sur le café dans une tasse de 300 ml.",
+          "Saupoudrer de cannelle supplémentaire."
+        ],
+        "en": [
+          "Heat oat milk with rolled oats and cinnamon to 60°C for 5 min.",
+          "Strain the mixture to remove solids.",
+          "Mix with honey and pour over coffee in a 300 ml cup.",
+          "Sprinkle additional cinnamon."
+        ]
+      },
+      "presentation": {
+        "es": "Taza 300 ml",
+        "fr": "Tasse 300 ml",
+        "en": "300 ml cup"
+      },
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "10 min",
+      "difficulty": "medium",
+      "tags": ["drip_coffee", "oat_milk", "cinnamon", "vegan", "breakfast"],
+      "chef_note": {
+        "es": "La avena añade cremosidad natural sin lácteos. Ideal para desayunos energéticos.",
+        "fr": "L'avoine ajoute une onctuosité naturelle sans produits laitiers. Idéal pour les petits-déjeuners énergisants.",
+        "en": "Oats add natural creaminess without dairy. Ideal for energizing breakfasts."
+      },
+      "health_benefits": {
+        "es": "La avena es rica en fibra soluble (beta-glucanos), que ayuda a reducir el colesterol.",
+        "fr": "L'avoine est riche en fibres solubles (bêta-glucanes), qui aident à réduire le cholestérol.",
+        "en": "Oats are rich in soluble fiber (beta-glucans), which helps lower cholesterol."
+      }
+    },
+    {
+      "id": 49,
+      "name": {
+        "es": "Café con Chocolate Blanco y Frambuesas",
+        "fr": "Café au Chocolat Blanc et Framboises",
+        "en": "White Chocolate and Raspberry Coffee"
+      },
+      "ingredients": [
+        {"name": {"es": "Espresso", "fr": "Espresso", "en": "Espresso"}, "quantity": "60 ml"},
+        {"name": {"es": "Leche caliente", "fr": "Lait chaud", "en": "Hot milk"}, "quantity": "120 ml"},
+        {"name": {"es": "Chocolate blanco", "fr": "Chocolat blanc", "en": "White chocolate"}, "quantity": "30 g"},
+        {"name": {"es": "Jarabe de frambuesa", "fr": "Sirop de framboise", "en": "Raspberry syrup"}, "quantity": "15 ml"},
+        {"name": {"es": "Frambuesas frescas", "fr": "Framboises fraîches", "en": "Fresh raspberries"}, "quantity": "3"},
+        {"name": {"es": "Crema batida", "fr": "Crème fouettée", "en": "Whipped cream"}, "quantity": "20 ml"}
+      ],
+      "preparation": {
+        "es": [
+          "Derretir chocolate blanco en leche caliente y mezclar hasta disintegrar.",
+          "Añadir jarabe de frambuesa y verter sobre el espresso en taza de 200 ml.",
+          "Decorar con crema batida, frambuesas y ralladura de chocolate blanco."
+        ],
+        "fr": [
+          "Faire fondre le chocolat blanc dans le lait chaud et mélanger jusqu'à dissolution.",
+          "Ajouter le sirop de framboise et verser sur l'espresso dans une tasse de 200 ml.",
+          "Décorer avec crème fouettée, framboises et copeaux de chocolat blanc."
+        ],
+        "en": [
+          "Melt white chocolate in hot milk and stir until dissolved.",
+          "Add raspberry syrup and pour over espresso in a 200 ml cup.",
+          "Garnish with whipped cream, raspberries, and white chocolate shavings."
+        ]
+      },
+      "presentation": {
+        "es": "Taza 200 ml con decoración de frambuesas",
+        "fr": "Tasse 200 ml avec décoration de framboises",
+        "en": "200 ml cup with raspberry garnish"
+      },
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "8 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "white_chocolate", "raspberry", "romantic", "valentine"],
+      "chef_note": {
+        "es": "Combinación de sabores afrutados y cremosos. Usar chocolate blanco de alta calidad (30% manteca de cacao).",
+        "fr": "Combinaison de saveurs fruitées et onctueuses. Utiliser du chocolat blanc de haute qualité (30% beurre de cacao).",
+        "en": "Fruity and creamy flavor combination. Use high-quality white chocolate (30% cocoa butter)."
+      }
+    },
+    {
+      "id": 50,
+      "name": {
+        "es": "Café con Whiskey y Miel (Hot Toddy de Café)",
+        "fr": "Café au Whiskey et Miel (Hot Toddy Café)",
+        "en": "Coffee with Whiskey and Honey (Coffee Hot Toddy)"
+      },
+      "ingredients": [
+        {"name": {"es": "Café negro", "fr": "Café noir", "en": "Black coffee"}, "quantity": "180 ml"},
+        {"name": {"es": "Whiskey (ej: bourbon)", "fr": "Whiskey (ex: bourbon)", "en": "Whiskey (e.g., bourbon)"}, "quantity": "45 ml"},
+        {"name": {"es": "Miel", "fr": "Miel", "en": "Honey"}, "quantity": "20 ml"},
+        {"name": {"es": "Limón (rodaja y jugo)", "fr": "Citron (tranche et jus)", "en": "Lemon (slice and juice)"}, "quantity": "½ limón"},
+        {"name": {"es": "Clavo de olor", "fr": "Clou de girofle", "en": "Clove"}, "quantity": "1"},
+        {"name": {"es": "Canela en rama", "fr": "Bâton de cannelle", "en": "Cinnamon stick"}, "quantity": "1"}
+      ],
+      "preparation": {
+        "es": [
+          "Calentar café con miel, jugo de limón, clavo y canela a 70°C (sin hervir).",
+          "Dejar infusionar 5 min y colar.",
+          "Añadir whiskey y verter en taza de 250 ml.",
+          "Decorar con rodaja de limón y rama de canela."
+        ],
+        "fr": [
+          "Chauffer le café avec miel, jus de citron, clou de girofle et cannelle à 70°C (sans ébullition).",
+          "Laisser infuser 5 min et filtrer.",
+          "Ajouter le whiskey et verser dans une tasse de 250 ml.",
+          "Décorer avec une tranche de citron et un bâton de cannelle."
+        ],
+        "en": [
+          "Heat coffee with honey, lemon juice, clove, and cinnamon to 70°C (do not boil).",
+          "Let steep for 5 min and strain.",
+          "Add whiskey and pour into a 250 ml cup.",
+          "Garnish with lemon slice and cinnamon stick."
+        ]
+      },
+      "presentation": {
+        "es": "Taza 250 ml con decoración de limón",
+        "fr": "Tasse 250 ml avec décoration de citron",
+        "en": "250 ml cup with lemon garnish"
+      },
+      "serving_temperature": {"es": "Caliente", "fr": "Chaud", "en": "Hot"},
+      "prep_time": "10 min",
+      "difficulty": "medium",
+      "tags": ["black_coffee", "whiskey", "honey", "hot_toddy", "winter", "remedy"],
+      "chef_note": {
+        "es": "Versión cafetera del clásico Hot Toddy. El whiskey bourbon (ej: Maker's Mark) complementa los sabores del café. Ideal para aliviar síntomas de resfriado.",
+        "fr": "Version café du Hot Toddy classique. Le whiskey bourbon (ex: Maker's Mark) complète les saveurs du café. Idéal pour soulager les symptômes de rhume.",
+        "en": "Coffee version of the classic Hot Toddy. Bourbon whiskey (e.g., Maker's Mark) complements coffee flavors. Ideal for relieving cold symptoms."
+      },
+      "health_benefits": {
+        "es": "La miel calmante para la garganta, el whiskey como vasodilatador y el limón rico en vitamina C.",
+        "fr": "Le miel apaisant pour la gorge, le whiskey comme vasodilatateur et le citron riche en vitamine C.",
+        "en": "Honey soothes the throat, whiskey acts as a vasodilator, and lemon is rich in vitamin C."
+      },
+      "safety_warning": {
+        "es": "No recomendado para menores de edad, embarazadas o personas con problemas de alcohol.",
+        "fr": "Non recommandé pour les mineurs, femmes enceintes ou personnes ayant des problèmes d'alcool.",
+        "en": "Not recommended for minors, pregnant women, or individuals with alcohol issues."
+      }
+    },
+    {
+      "id": 54,
+      "name": {
+        "es": "Sueños de Kahlúa",
+        "fr": "Rêves de Kahlúa",
+        "en": "Kahlúa Dreams"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "15 ml"
+        },
+        {
+          "name": {
+            "es": "Licor de café (Kahlúa)",
+            "fr": "Liqueur de café (Kahlúa)",
+            "en": "Coffee liqueur (Kahlúa)"
+          },
+          "quantity": "15 ml"
+        },
+        {
+          "name": {
+            "es": "Helado de café",
+            "fr": "Glace au café",
+            "en": "Coffee ice cream"
+          },
+          "quantity": "60 ml"
+        },
+        {
+          "name": {
+            "es": "Crema de leche batida",
+            "fr": "Crème fouettée",
+            "en": "Whipped cream"
+          },
+          "quantity": "120 ml"
+        }
+      ],
+      "preparation": {
+        "es": [
+          "Mezclar todos los ingredientes en licuadora a velocidad media hasta obtener una textura homogénea y cremosa.",
+          "Servir inmediatamente en vaso alto de 10 oz para evitar que se derrita.",
+          "Decorar con un poco más de crema batida y una llovizna de cacao en polvo."
+        ],
+        "fr": [
+          "Mélanger tous les ingrédients dans un mixeur à vitesse moyenne jusqu'à obtenir une texture homogène et crémeuse.",
+          "Servir immédiatement dans un grand verre de 10 oz pour éviter la fonte.",
+          "Décorer avec un peu plus de crème fouettée et une poussière de cacao en poudre."
+        ],
+        "en": [
+          "Blend all ingredients in a blender at medium speed until smooth and creamy.",
+          "Serve immediately in a tall 10 oz glass to prevent melting.",
+          "Garnish with extra whipped cream and a dusting of cocoa powder."
+        ]
+      },
+      "presentation": {
+        "es": "Vaso alto de 10 oz",
+        "fr": "Grand verre de 10 oz",
+        "en": "Tall 10 oz glass"
+      },
+      "serving_temperature": {
+        "es": "Frío",
+        "fr": "Froid",
+        "en": "Cold"
+      },
+      "prep_time": "10 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "ice_cream", "kahlua", "creamy", "alcoholic", "dessert", "decadent"],
+      "chef_note": {
+        "es": "Para un toque profesional, congelar el vaso 10 minutos antes de servir. Usar helado de café artesanal si es posible.",
+        "fr": "Pour une touche professionnelle, congeler le verre 10 minutes avant de servir. Utiliser de la glace au café artisanale si possible.",
+        "en": "For a professional touch, freeze the glass for 10 minutes before serving. Use artisanal coffee ice cream if possible."
+      }
+    },
+    {
+      "id": 55,
+      "name": {
+        "es": "Tornado",
+        "fr": "Tornade",
+        "en": "Tornado"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "60 ml"
+        },
+        {
+          "name": {
+            "es": "Ron carta oro",
+            "fr": "Rhum doré",
+            "en": "Gold rum"
+          },
+          "quantity": "60 ml"
+        },
+        {
+          "name": {
+            "es": "½ limón mediano",
+            "fr": "½ citron moyen",
+            "en": "½ medium lemon"
+          },
+          "quantity": "1"
+        },
+        {
+          "name": {
+            "es": "Hielo frappé",
+            "fr": "Glace pilée",
+            "en": "Crushed ice"
+          },
+          "quantity": {
+            "es": "Hasta la mitad del vaso",
+            "fr": "Jusqu'à la moitié du verre",
+            "en": "Up to half the glass"
+          }
+        }
+      ],
+      "preparation": {
+        "es": [
+          "Llenar un vaso de 8-9 oz con hielo frappé hasta la mitad.",
+          "Verter el espresso caliente sobre el hielo (creará un efecto de 'tormenta').",
+          "Agregar el ron doré y remover ligeramente.",
+          "Exprimir el ½ limón y dejar caer la cáscara en el vaso."
+        ],
+        "fr": [
+          "Remplir un verre de 8-9 oz avec de la glace pilée jusqu'à la moitié.",
+          "Verser l'espresso chaud sur la glace (créera un effet de 'tempête').",
+          "Ajouter le rhum doré et remuer légèrement.",
+          "Presser le ½ citron et laisser tomber l'écorce dans le verre."
+        ],
+        "en": [
+          "Fill an 8-9 oz glass with crushed ice up to halfway.",
+          "Pour hot espresso over the ice (will create a 'storm' effect).",
+          "Add gold rum and stir gently.",
+          "Squeeze the ½ lemon and drop the peel into the glass."
+        ]
+      },
+      "presentation": {
+        "es": "Vaso de 8-9 oz o copa de clarete",
+        "fr": "Verre de 8-9 oz ou verre à claret",
+        "en": "8-9 oz glass or claret glass"
+      },
+      "serving_temperature": {
+        "es": "Frío con contraste caliente",
+        "fr": "Froid avec contraste chaud",
+        "en": "Cold with hot contrast"
+      },
+      "prep_time": "7 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "rum", "citrus", "iced", "alcoholic", "refreshing", "dramatic"],
+      "chef_note": {
+        "es": "El contraste entre el espresso caliente y el hielo crea un efecto visual espectacular. Usar ron de calidad media (no demasiado barato).",
+        "fr": "Le contraste entre l'espresso chaud et la glace crée un effet visuel spectaculaire. Utiliser du rhum de qualité moyenne (pas trop bon marché).",
+        "en": "The contrast between hot espresso and ice creates a spectacular visual effect. Use medium-quality rum (not too cheap)."
+      }
+    },
+    {
+      "id": 56,
+      "name": {
+        "es": "Torpedino Liornés",
+        "fr": "Torpedino Liornais",
+        "en": "Liornes Torpedo"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Ron (cualquier carta o añejo)",
+            "fr": "Rhum (toute qualité ou vieilli)",
+            "en": "Rum (any type or aged)"
+          },
+          "quantity": {
+            "es": "50 ml (o al gusto)",
+            "fr": "50 ml (ou au goût)",
+            "en": "50 ml (or to taste)"
+          }
+        },
+        {
+          "name": {
+            "es": "Gotas de café espresso sin azúcar",
+            "fr": "Gouttes de café espresso non sucré",
+            "en": "Drops of unsweetened espresso"
+          },
+          "quantity": {
+            "es": "2-5 gotas (o al gusto)",
+            "fr": "2-5 gouttes (ou au goût)",
+            "en": "2-5 drops (or to taste)"
+          }
+        }
+      ],
+      "preparation": {
+        "es": [
+          "Servir el ron a la roca (con hielo) o straight en vaso para trago corto.",
+          "Agregar 2-5 gotas de espresso sin azúcar según preferencia del comensal.",
+          "No remover para mantener las capas de sabor."
+        ],
+        "fr": [
+          "Servir le rhum sur glace (a la roca) ou pur dans un verre à alcool court.",
+          "Ajouter 2-5 gouttes d'espresso non sucré selon la préférence du consommateur.",
+          "Ne pas remuer pour conserver les couches de saveur."
+        ],
+        "en": [
+          "Serve the rum on the rocks or straight in a short drink glass.",
+          "Add 2-5 drops of unsweetened espresso according to the drinker's preference.",
+          "Do not stir to maintain flavor layers."
+        ]
+      },
+      "presentation": {
+        "es": "Vaso para trago corto",
+        "fr": "Verre à alcool court",
+        "en": "Short drink glass"
+      },
+      "serving_temperature": {
+        "es": "Variable (según preferencia)",
+        "fr": "Variable (selon préférence)",
+        "en": "Variable (depends on preference)"
+      },
+      "prep_time": "2 min",
+      "difficulty": "easy",
+      "tags": ["rum", "espresso", "minimalist", "alcoholic", "customizable", "traditional"],
+      "chef_note": {
+        "es": "Receta tradicional de Liorna donde cada bebedor ajusta las gotas de café a su gusto. El espresso debe ser fresco y de tueste oscuro.",
+        "fr": "Recette traditionnelle de Liorna où chaque buveur ajuste les gouttes de café à son goût. L'espresso doit être frais et de torréfaction foncée.",
+        "en": "Traditional recipe from Liorna where each drinker adjusts the coffee drops to their taste. Espresso should be fresh and dark-roasted."
+      },
+      "cultural_note": {
+        "es": "En Liorna, esta bebida se sirve como digestivo después de comidas copiosas, especialmente en celebraciones.",
+        "fr": "À Liorna, cette boisson est servie comme digestif après des repas copieux, surtout lors de célébrations.",
+        "en": "In Liorna, this drink is served as a digestif after heavy meals, especially during celebrations."
+      }
+    },
+    {
+      "id": 57,
+      "name": {
+        "es": "Turquino",
+        "fr": "Turquino",
+        "en": "Turquino"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "60 ml"
+        },
+        {
+          "name": {
+            "es": "Helado de café",
+            "fr": "Glace au café",
+            "en": "Coffee ice cream"
+          },
+          "quantity": "30 ml"
+        },
+        {
+          "name": {
+            "es": "Crema de leche batida",
+            "fr": "Crème fouettée",
+            "en": "Whipped cream"
+          },
+          "quantity": "30 ml"
+        },
+        {
+          "name": {
+            "es": "Miel de abejas",
+            "fr": "Miel",
+            "en": "Honey"
+          },
+          "quantity": "20 g"
+        }
+      ],
+      "preparation": {
+        "es": [
+          "En vaso de batidora, combinar el espresso y el helado de café.",
+          "Batir a velocidad media hasta obtener una mezcla homogénea.",
+          "Verter en vaso para milkshake y coronar con crema batida.",
+          "Drizzar con miel en forma de espiral."
+        ],
+        "fr": [
+          "Dans un verre de mixeur, combiner l'espresso et la glace au café.",
+          "Battre à vitesse moyenne jusqu'à obtenir un mélange homogène.",
+          "Verser dans un verre à milkshake et couronner de crème fouettée.",
+          "Arroser de miel en forme de spirale."
+        ],
+        "en": [
+          "In a blender glass, combine espresso and coffee ice cream.",
+          "Blend at medium speed until smooth.",
+          "Pour into a milkshake glass and top with whipped cream.",
+          "Drizzle with honey in a spiral pattern."
+        ]
+      },
+      "presentation": {
+        "es": "Vaso para batido (milkshake)",
+        "fr": "Verre à milkshake",
+        "en": "Milkshake glass"
+      },
+      "serving_temperature": {
+        "es": "Frío",
+        "fr": "Froid",
+        "en": "Cold"
+      },
+      "prep_time": "10 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "ice_cream", "honey", "creamy", "non_alcoholic", "dessert", "cuban"],
+      "chef_note": {
+        "es": "Inspirado en el pico Turquino, el punto más alto de Cuba. La miel local de abejas meliponas es ideal para esta receta.",
+        "fr": "Inspiré par le pic Turquino, le point le plus haut de Cuba. Le miel local de abeilles melipones est idéal pour cette recette.",
+        "en": "Inspired by Pico Turquino, Cuba's highest point. Local melipona bee honey is ideal for this recipe."
+      }
+    },
+    {
+      "id": 58,
+      "name": {
+        "es": "Twist Cacao Iced",
+        "fr": "Twist Cacao Glacé",
+        "en": "Iced Cocoa Twist"
+      },
+      "ingredients": [
+        {
+          "name": {
+            "es": "Café espresso",
+            "fr": "Café espresso",
+            "en": "Espresso coffee"
+          },
+          "quantity": "90 ml"
+        },
+        {
+          "name": {
+            "es": "Brandy",
+            "fr": "Brandy",
+            "en": "Brandy"
+          },
+          "quantity": "90 ml"
+        },
+        {
+          "name": {
+            "es": "Chocolate líquido",
+            "fr": "Chocolat liquide",
+            "en": "Liquid chocolate"
+          },
+          "quantity": "45 ml"
+        },
+        {
+          "name": {
+            "es": "Azúcar refinado o prieta",
+            "fr": "Sucre raffiné ou cassonade",
+            "en": "Refined sugar or brown sugar"
+          },
+          "quantity": {
+            "es": "4 cucharadas (6 si es prieta)",
+            "fr": "4 cuillères à soupe (6 si cassonade)",
+            "en": "4 tablespoons (6 if brown sugar)"
+          }
+        },
+        {
+          "name": {
+            "es": "Hielo en cubos",
+            "fr": "Glaçons",
+            "en": "Ice cubes"
+          },
+          "quantity": {
+            "es": "Hasta la mitad de la copa",
+            "fr": "Jusqu'à la moitié du verre",
+            "en": "Up to half the glass"
+          }
+        }
+      ],
+      "preparation": {
+        "es": [
+          "En coctelera, mezclar suavemente el espresso, brandy, chocolate y azúcar sin crear espuma.",
+          "Verter en copa alta de 240 ml (8 oz) con cubos de hielo hasta la mitad.",
+          "Remover una vez con cuchara larga para integrar los sabores."
+        ],
+        "fr": [
+          "Dans un shaker, mélanger doucement l'espresso, le brandy, le chocolat et le sucre sans créer de mousse.",
+          "Verser dans un grand verre de 240 ml (8 oz) avec des glaçons jusqu'à la moitié.",
+          "Remuer une fois avec une longue cuillère pour intégrer les saveurs."
+        ],
+        "en": [
+          "In a shaker, gently mix espresso, brandy, chocolate and sugar without creating foam.",
+          "Pour into a tall 8 oz glass with ice cubes up to halfway.",
+          "Stir once with a long spoon to integrate flavors."
+        ]
+      },
+      "presentation": {
+        "es": "Copa alta de 240 ml (8 oz)",
+        "fr": "Grand verre de 240 ml (8 oz)",
+        "en": "Tall 8 oz (240 ml) glass"
+      },
+      "serving_temperature": {
+        "es": "Frío",
+        "fr": "Froid",
+        "en": "Cold"
+      },
+      "prep_time": "8 min",
+      "difficulty": "medium",
+      "tags": ["espresso", "brandy", "chocolate", "iced", "alcoholic", "sweet", "decadent"],
+      "chef_note": {
+        "es": "Para un toque gourmet, usar chocolate negro 70% derretido en lugar de chocolate líquido comercial. El azúcar prieta aporta notas de caramelo.",
+        "fr": "Pour une touche gourmet, utiliser du chocolat noir 70% fondu au lieu de chocolat liquide commercial. La cassonade apporte des notes de caramel.",
+        "en": "For a gourmet touch, use melted 70% dark chocolate instead of commercial liquid chocolate. Brown sugar adds caramel notes."
+      }
+    }
+  ],
+  "metadata": {
+    "total_recipes": 12,
+    "languages": ["es", "fr", "en"],
+    "categories": {
+      "es": ["Cafés calientes", "Cafés fríos", "Con alcohol", "Sin alcohol", "Postres", "Terapéuticos"],
+      "fr": ["Cafés chauds", "Cafés froids", "Avec alcool", "Sans alcool", "Desserts", "Thérapeutiques"],
+      "en": ["Hot coffees", "Cold coffees", "Alcoholic", "Non-alcoholic", "Desserts", "Therapeutic"]
+    },
+    "difficulty_levels": {
+      "easy": {
+        "es": "Fácil (menos de 5 minutos o sin técnicas complejas)",
+        "fr": "Facile (moins de 5 minutes ou sans techniques complexes)",
+        "en": "Easy (under 5 minutes or no complex techniques)"
+      },
+      "medium": {
+        "es": "Media (5-10 minutos o requiere atención al detalle)",
+        "fr": "Moyenne (5-10 minutes ou nécessite une attention aux détails)",
+        "en": "Medium (5-10 minutes or requires attention to detail)"
+      },
+      "hard": {
+        "es": "Difícil (más de 10 minutos o técnicas avanzadas como flambé)",
+        "fr": "Difficile (plus de 10 minutes ou techniques avancées comme le flambé)",
+        "en": "Hard (over 10 minutes or advanced techniques like flambé)"
+      }
+    },
+    "notes": {
+      "es": "Todas las recetas asumen el uso de café espresso recién preparado (45-60 ml por porción). Ajuste las cantidades de azúcar y alcohol según preferencias personales.",
+      "fr": "Toutes les recettes supposent l'utilisation de café espresso fraîchement préparé (45-60 ml par portion). Ajustez les quantités de sucre et d'alcool selon les préférences personnelles.",
+      "en": "All recipes assume the use of freshly prepared espresso coffee (45-60 ml per serving). Adjust sugar and alcohol quantities according to personal preferences."
+    }
+  }
+}

@@ -1,0 +1,122 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+import coffeeRecipesData from '@/i18n/recipe.json';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Récupérer l'id depuis l'URL
+const { id } = Astro.params;
+
+// Trouver la recette
+const recipe = coffeeRecipesData.coffee_recipes.find(
+  r => String(r.id) === String(id)
+);
+
+if (!recipe) {
+  throw new Error('Recette introuvable');
+}
+---
+
+<Layout title={`EMCAFFÉ - ${recipe.name[lang]}`}>
+  <Header />
+
+  <!-- HERO -->
+  <section
+    class="relative h-[260px] md:h-[350px] w-full bg-[#5C3F32]"
+    style="margin-top: 160px;"
+  >
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="relative h-full max-w-6xl mx-auto px-6 flex flex-col justify-center">
+      <h1 class="font-[Chalkduster] text-4xl md:text-6xl text-white">
+        {recipe.name[lang]}
+      </h1>
+
+      <!-- Tags -->
+      <div class="mt-4 flex flex-wrap gap-2">
+        {recipe.tags?.map(tag => (
+          <span class="px-3 py-1 text-sm rounded-full bg-white/90 text-[#5C3F32] font-semibold">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="max-w-6xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-3">
+
+    <!-- INFOS RAPIDES -->
+    <div class="md:col-span-1 bg-[#FEFBED] rounded-xl p-6 shadow">
+      <h2 class="text-xl font-bold text-[#753E1C] mb-4">
+        {t('recipe.info') || 'Informations'}
+      </h2>
+
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>{t('recipe.prepTime') || 'Temps'} :</strong> {recipe.prep_time}</li>
+        <li><strong>{t('recipe.difficulty') || 'Difficulté'} :</strong> {recipe.difficulty}</li>
+        <li><strong>{t('recipe.temperature') || 'Température'} :</strong> {recipe.serving_temperature?.[lang]}</li>
+        <li><strong>{t('recipe.presentation') || 'Service'} :</strong> {recipe.presentation?.[lang]}</li>
+      </ul>
+    </div>
+
+    <!-- INGREDIENTS + PREPARATION -->
+    <div class="md:col-span-2 space-y-10">
+
+      <!-- INGREDIENTS -->
+      <div>
+        <h2 class="text-2xl font-bold text-[#753E1C] mb-4">
+          {t('recipe.ingredients') || 'Ingrédients'}
+        </h2>
+
+        <ul class="space-y-2">
+          {recipe.ingredients.map(ing => (
+            <li class="flex justify-between border-b pb-2">
+              <span>{ing.name[lang]}</span>
+              <span class="font-semibold">{typeof ing.quantity === 'string' ? ing.quantity : ing.quantity[lang]}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- PREPARATION -->
+      <div>
+        <h2 class="text-2xl font-bold text-[#753E1C] mb-4">
+          {t('recipe.preparation') || 'Préparation'}
+        </h2>
+
+        <ol class="space-y-4 list-decimal list-inside text-gray-800">
+          {recipe.preparation[lang].map(step => (
+            <li>{step}</li>
+          ))}
+        </ol>
+      </div>
+
+      <!-- NOTE DU CHEF -->
+      {recipe.chef_note?.[lang] && (
+        <div class="bg-[#FEFBED] border-l-4 border-[#5C3F32] p-6 rounded">
+          <h3 class="font-bold text-[#5C3F32] mb-2">
+            {t('recipe.chefNote') || 'Conseil du chef'}
+          </h3>
+          <p class="text-gray-700">{recipe.chef_note[lang]}</p>
+        </div>
+      )}
+
+      <!-- BACK -->
+      <a
+        href={`/${lang}/recipes`}
+        class="inline-block mt-6 bg-black text-white px-6 py-3 rounded-xl hover:bg-[#5C3F32] transition font-semibold"
+      >
+        ← {t('recipe.back') || 'Retour aux recettes'}
+      </a>
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

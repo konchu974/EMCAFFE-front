@@ -42,16 +42,11 @@ const products = [
     16,99 €
   </div>
 
-  <button
-    id="addToCart"
-    class="mt-6 bg-black text-white px-6 py-3 rounded-xl hover:bg-[#5C3F32] transition font-semibold shadow-md"
-    data-product-id="cafe-torrefies-bio"
-    data-product-name="Grains de Café Torréfiés Bio"
-    data-product-price="16.99"
-    data-product-image="/img/products/300-bio-1.png"
-  >
-    {t("product.addToCart") || "Ajouter au panier"}
-  </button>
+ <a href={`product/297cb5b1-84a4-477a-90e5-e17c43b2455c`}
+           class="mt-6 inline-block bg-black text-white px-6 py-3 rounded-xl hover:bg-[#5C3F32] transition font-semibold shadow-md text-center"
+          >
+            {t('product.details') || 'Détails'}
+          </a>
 </section>
 
 <script is:inline>

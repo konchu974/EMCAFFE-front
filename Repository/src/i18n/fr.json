@@ -2,6 +2,8 @@
 	"nav.home": "Accueil",
 	"nav.products": "Produits",
 	"nav.contact": "Nous contacter",
+	"nav.recipes": "Recettes",
+
 
 	"hero.coffee": "Café bio et spécialité",
 
@@ -481,6 +483,7 @@
   "shop": { "title": "EMCAFFÉ" },
   "trackOrder": {
     "title": "Suivi de commande",
+    "subtitle": "Consultez le statut et les détails de votre commande",
     "enterPostalCode": "Veuillez entrer votre code postal pour voir le statut de votre commande.",
     "postalCode": "Code postal",
     "track": "Suivre ma commande",
@@ -499,6 +502,20 @@
 
 "product": {
   "details": "Détails du produit"
+},
+"recipe": {
+  "title": "Recettes",
+  "info": "Informations",
+  "ingredients": "Ingrédients",
+  "preparation": "Préparation",
+  "chefNote": "Conseil du chef",
+  "prepTime": "Temps de préparation",
+  "difficulty": "Difficulté",
+  "temperature": "Température",
+  "presentation": "Service",
+  "back": "Retour aux recettes",
+  "viewRecipe": "Voir la recette",
+  "all": "Toutes"
 }
 
 

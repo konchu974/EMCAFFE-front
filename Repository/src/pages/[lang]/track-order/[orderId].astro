@@ -13,12 +13,26 @@ const orderId = urlParts[urlParts.length - 1]; // suppose /fr/track/ORDER_ID
 ---
 <Layout title={`EMCAFFE - ${t('shop.title')}`}>
   <Header />
+ <section
+        class="relative h-[300px] w-full overflow-hidden md:h-[400px]"
+        style="margin-top: 160px; position: relative; z-index: 1;"
+    >
+           <img src="/img/connexion.jpeg" alt="Coffee Banner" class="w-full h-[400px] md:h-[400px] object-cover block">
 
-  <section class="max-w-4xl mx-auto py-12 px-4 mt-48">
+        <div
+            class="absolute inset-0 flex items-center justify-start bg-black/40 text-center"
+        >
+            <h1
+                class="ml-10 font-[Chalkduster] text-4xl tracking-wide text-white md:text-7xl"
+            >
+                {t('trackOrder.title')}
+            </h1>
+        </div>
+    </section>
+ <div class="max-w-4xl mx-auto py-12 px-4 ">
+    <h1 class="text-3xl font-bold mb-6">{t('trackOrder.subtitle') || 'Suivi de commande'}</h1>
 
-    <h1 class="text-3xl font-bold mb-6">{t('trackOrder.title') || 'Suivi de commande'}</h1>
-
-    <p class="mb-4">
+    <p class="mb-4 ">
       {t('trackOrder.enterPostalCode') || 'Veuillez entrer votre code postal pour voir le statut de votre commande.'}
     </p>
 
@@ -39,6 +53,7 @@ const orderId = urlParts[urlParts.length - 1]; // suppose /fr/track/ORDER_ID
     </form>
 
     <div id="track-order-result" class="mt-6"></div>
+    </div>
   </section>
 
   <Footer />

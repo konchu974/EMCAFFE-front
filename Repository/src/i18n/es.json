@@ -2,6 +2,8 @@
 	"nav.home": "Inicio",
 	"nav.products": "Productos",
 	"nav.contact": "Contactarnos",
+    	"nav.recipes": "Recetas",
+
 
 	"hero.coffee": "Café orgánico y especialidad",
 
@@ -481,6 +483,7 @@
   "shop": { "title": "EMCAFFÉ" },
   "trackOrder": {
     "title": "Seguimiento de pedido",
+    "subtitle": "Consulta el estado y los detalles de tu pedido.",
     "enterPostalCode": "Por favor ingrese su código postal para ver el estado de su pedido.",
     "postalCode": "Código postal",
     "track": "Rastrear mi pedido",
@@ -497,6 +500,21 @@
   },
   "product": {
   "details": "Detalles del producto"
-  }
+  },
+  "recipe": {
+  "title": "Recettes",
+  "info": "Informations",
+  "ingredients": "Ingrédients",
+  "preparation": "Préparation",
+  "chefNote": "Conseil du chef",
+  "prepTime": "Temps de préparation",
+  "difficulty": "Difficulté",
+  "temperature": "Température",
+  "presentation": "Service",
+  "back": "Retour aux recettes",
+  "viewRecipe": "Voir la recette",
+  "all": "Toutes"
+}
+
 
 }

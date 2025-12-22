@@ -1,0 +1,139 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import coffeeRecipesData from '@/i18n/recipe.json';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const recipes = coffeeRecipesData.coffee_recipes;
+
+// Compter la fréquence de chaque tag
+const tagCounts: Record<string, number> = {};
+recipes.forEach(recipe => {
+  recipe.tags?.forEach(tag => {
+    const ttag = tag.toLowerCase();
+    tagCounts[ttag] = (tagCounts[ttag] || 0) + 1;
+  });
+});
+
+// Trier les tags par fréquence et prendre les 6 premiers
+const topTags = Object.entries(tagCounts)
+  .sort(([, a], [, b]) => b - a)
+  .slice(0, 6)
+  .map(([tag]) => tag);
+---
+
+<Layout title={`EMCAFFÉ - Recettes de café`}>
+  <Header />
+
+  <!-- Banner -->
+  <section
+    class="relative h-[300px] w-full md:h-[400px] overflow-hidden"
+    style="margin-top: 160px; position: relative; z-index: 1;"
+  >
+    <img 
+      src="/img/connexion.jpeg" 
+      alt="Coffee Banner" 
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end pb-6 md:pb-12">
+      <div class="pl-10 md:pl-20">
+        <h1 class="font-[Chalkduster] text-4xl md:text-7xl text-white tracking-wide">
+          {t('recipe.title')}
+        </h1>
+     
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto py-12 px-4">
+
+    <!-- Boutons de filtrage par tags -->
+    <div class="flex flex-wrap gap-3 mb-6">
+      <button 
+        class="px-4 py-2 bg-[#5C3F32] text-white rounded hover:bg-[#753E1C] transition filter-btn active" 
+        data-tag="all"
+      >
+        {t('recipe.all') || 'Toutes'}
+      </button>
+      {topTags.map(tag => (
+        <button 
+          class="px-4 py-2 bg-[#FEFBED] border border-[#5C3F32] text-[#5C3F32] rounded hover:bg-[#5C3F32] hover:text-white transition filter-btn" 
+          data-tag={tag}
+        >
+          {tag}
+        </button>
+      ))}
+      <!-- Bouton PDF -->
+  <a
+    href="../../../public/img/recetas-de-cafe.pdf"
+    target="_blank"
+    class="ml-auto px-5 py-2 bg-black text-white rounded hover:bg-[#5C3F32] transition font-semibold flex items-center gap-2"
+  >
+    📄 PDF des recettes complet
+  </a>
+    </div>
+
+    <!-- Grille des recettes -->
+    <div id="recipes-grid" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {recipes.map(recipe => {
+        const chefNote = recipe.chef_note?.[lang] || '';
+        const recipeTags = recipe.tags?.map(t => t.toLowerCase()) || [];
+
+        return (
+          <div class="border rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between bg-[#FEFBED] overflow-hidden recipe-card" data-tags={recipeTags.join(' ')}>
+            <div class="p-6">
+              <h2 class="text-xl font-bold text-[#753E1C]">{recipe.name[lang]}</h2>
+              {recipeTags.length > 0 && (
+  <div class="mt-2 flex flex-wrap gap-2">
+    {recipeTags.map(tag => (
+      <span class="px-3 py-1 text-xs font-semibold rounded-full bg-[#EADFD8] text-[#5C3F32]">
+        {tag}
+      </span>
+    ))}
+  </div>
+)}
+
+              {chefNote && <p class="mt-3 text-gray-700 text-sm line-clamp-3">{chefNote}</p>}
+            </div>
+            <a 
+              href={`/${lang}/recipe/${recipe.id}`}
+              class="block bg-[#5C3F32] text-white text-center py-3 hover:bg-[#753E1C] transition font-semibold"
+            >
+              {t('recipe.viewRecipe') || 'Voir la recette'}
+            </a>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.recipe-card');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Retirer la classe active sur tous
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const selectedTag = btn.dataset.tag;
+
+      cards.forEach(card => {
+        const cardTags = card.dataset.tags.split(' ');
+        if(selectedTag === 'all' || cardTags.includes(selectedTag)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
